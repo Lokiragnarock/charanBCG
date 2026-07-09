@@ -18,7 +18,9 @@ tags: [decision-log, meta]
 | Date | Idea/direction | Status | Why |
 |---|---|---|---|
 | 07-09 | Live Vercel 3D-scroll site as the R1 format | 🟢 active | Guidelines allow "artifact"; differentiator; but content must lead — R1 is scored on analysis |
-| 07-09 | PS1 instinct: moat = adherence/behaviour stack, not molecule | 🟡 hypothesis | Case's own data (Exhibit B/E); needs stress-test vs PS2–4 |
+| 07-09 | PS1 instinct: moat = adherence/behaviour stack, not molecule | ⚪ parked | PS1 not chosen |
+| 07-09 | **CASE CHOICE: PS2 — E2E Reimagination** | 🟢 decided | Team call (Charan/Lokesh). Best fit for our strengths: build-heavy, demo-able in R2, natural fit for the 3D-scroll deliverable. PS1 read & parked; PS3/PS4 unread — should still skim them to write a defensible "why this case" (element 1) |
+| 07-09 | Product not yet chosen — shortlist of everyday-product candidates in [[../01 - Case Briefs/PS2 - E2E Reimagination\|PS2 note]] | 🟡 open | Every candidate must clear the "Why Now" gate; rejected candidates become element-4 material |
 
 ## Working-the-AI log (element 6 raw material)
 > Record: AI's first answer → what we did with it → what changed.
