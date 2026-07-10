@@ -13,6 +13,27 @@
   --font-display: var(--font-space-grotesk);
   --font-body: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
+
+  /* φ modular type scale (×1.618): 14 / 23 / 37 / 60 / 97 / 157 */
+  --fs-1: 14px;
+  --fs-2: 23px;
+  --fs-3: 37px;
+  --fs-4: 60px;
+  --fs-5: 97px;
+  --fs-6: clamp(64px, 8vw + 20px, 157px);
+
+  /* Geometric spacing scale */
+  --sp-1: 8px;
+  --sp-2: 13px;
+  --sp-3: 21px;
+  --sp-4: 34px;
+  --sp-5: 55px;
+  --sp-6: 89px;
+  --sp-7: 144px;
+
+  /* Emil easing law — no built-in ease-in on UI, custom curves only */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @theme inline {
@@ -27,6 +48,23 @@
   --font-display: var(--font-display);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
+
+  /* text-fs-1 .. text-fs-6 utilities */
+  --text-fs-1: var(--fs-1);
+  --text-fs-2: var(--fs-2);
+  --text-fs-3: var(--fs-3);
+  --text-fs-4: var(--fs-4);
+  --text-fs-5: var(--fs-5);
+  --text-fs-6: var(--fs-6);
+
+  /* gap-g*, p-g*, m-g* etc. utilities (geometric scale, additive to default --spacing) */
+  --spacing-g1: var(--sp-1);
+  --spacing-g2: var(--sp-2);
+  --spacing-g3: var(--sp-3);
+  --spacing-g4: var(--sp-4);
+  --spacing-g5: var(--sp-5);
+  --spacing-g6: var(--sp-6);
+  --spacing-g7: var(--sp-7);
 }
 
 * {
@@ -84,10 +122,43 @@ body {
   transform: translateY(24px);
 }
 
+/* Pure-CSS "wane in" utility — for entrances that don't need scroll-scrubbing.
+   Toggle by adding/removing [data-in] (or use @starting-style-style JS mount pattern). */
+.wane-in {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(4px);
+  transition:
+    opacity 500ms var(--ease-out),
+    transform 500ms var(--ease-out),
+    filter 500ms var(--ease-out);
+}
+
+.wane-in[data-in="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* exits are faster than entrances */
+.wane-in[data-out="true"] {
+  transition-duration: 300ms;
+  opacity: 0;
+  transform: translateY(8px);
+  filter: blur(3px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;
     transform: none !important;
+  }
+  .wane-in,
+  .wane-in[data-in="true"],
+  .wane-in[data-out="true"] {
+    transform: none !important;
+    filter: none !important;
+    transition: opacity 300ms linear !important;
   }
   * {
     animation-duration: 0.01ms !important;

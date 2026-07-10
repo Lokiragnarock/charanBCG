@@ -35,6 +35,13 @@
     "avgHa1970": 2.3,
     "source": "brief-exhibit-b"
   },
+  "smallholderOutput": {
+    "landPct": 44,
+    "vegPct": 70,
+    "fruitPct": 55,
+    "cerealPct": 52,
+    "source": "brief"
+  },
   "mandiDensity": {
     "actualSqKm": 496,
     "recommendedSqKm": 80,
@@ -108,6 +115,12 @@
       "url": "https://agritech.tnau.ac.in/govt_schemes_services/pdf/tomato,%20onion%20and%20potato.pdf",
       "year": 2024,
       "tag": "estimated"
+    },
+    "brief": {
+      "title": "BCG OutPrompt Case Brief — smallholder share of land vs. output",
+      "url": "",
+      "year": 2026,
+      "tag": "verified"
     },
     "brief-exhibit-b": {
       "title": "BCG OutPrompt Case Brief — Exhibit B (landholding structure)",

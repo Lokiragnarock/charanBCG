@@ -18,6 +18,8 @@ type Segment = {
   value: number;
   color: "signal" | "muted" | "danger";
   citeId?: string;
+  /** visual weight in the post-waterfall label row: "hero" (fs-4) or "quiet" (fs-2, muted) */
+  weight: "hero" | "quiet";
 };
 
 const SEGMENTS: Segment[] = [
@@ -27,6 +29,7 @@ const SEGMENTS: Segment[] = [
     value: farmerShare.tomato,
     color: "signal",
     citeId: farmerShare.source,
+    weight: "hero",
   },
   {
     key: "trader",
@@ -34,6 +37,7 @@ const SEGMENTS: Segment[] = [
     value: traderMargin.value,
     color: "muted",
     citeId: traderMargin.source,
+    weight: "quiet",
   },
   {
     key: "wholesaler",
@@ -41,6 +45,7 @@ const SEGMENTS: Segment[] = [
     value: wholesalerMargin.value,
     color: "muted",
     citeId: wholesalerMargin.source,
+    weight: "quiet",
   },
   {
     key: "residual",
@@ -48,6 +53,7 @@ const SEGMENTS: Segment[] = [
     value: residual.tomato,
     color: "danger",
     citeId: residual.source,
+    weight: "hero",
   },
 ];
 
@@ -107,30 +113,51 @@ export default function S1() {
   }, []);
 
   return (
-    <section id="s1" className="relative w-full px-6 pt-32 pb-16">
-      <div className="mx-auto flex min-h-[60vh] w-full max-w-[1200px] flex-col justify-center">
+    <section id="s1" className="relative w-full">
+      {/* FORTISSIMO — the eye travels: top-left label -> huge right numeral -> low-left paragraph */}
+      <div className="mx-auto w-full max-w-[1400px] px-6 pt-32 pb-g6">
         <Reveal>
           <div className="micro-label">BCG OutPrompt — Problem 4</div>
         </Reveal>
-        <Reveal delay={0.08}>
-          <h1 className="font-display mt-4 max-w-4xl text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
-            THE ₹100 PROBLEM
-          </h1>
-        </Reveal>
-        <Reveal delay={0.16}>
-          <p className="mt-6 max-w-xl text-lg text-muted">
-            Of every ₹100 a consumer pays for a tomato, the farmer keeps ₹
-            <span className="stat">{farmerShare.tomato}</span>
-            <Cite id={farmerShare.source} />. Everyone assumes the traders eat
-            the rest. They don&apos;t.
-          </p>
-        </Reveal>
+
+        <div className="mt-g5 grid min-h-[68vh] grid-cols-12 items-end gap-g3">
+          {/* low-left: the answer, in the 5-column side, low */}
+          <div className="col-span-12 md:col-span-5 md:self-end">
+            <Reveal delay={0.2}>
+              <p className="max-w-[34ch] text-lg text-muted">
+                Of every ₹100 a consumer pays for a tomato, the farmer keeps ₹
+                <span className="stat">{farmerShare.tomato}</span>
+                <Cite id={farmerShare.source} />. Everyone assumes the
+                traders eat the rest. They don&apos;t.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* huge right: the numeral owns 7 of 12 columns */}
+          <div className="col-span-12 text-right md:col-span-7">
+            <Reveal delay={0.04}>
+              <div className="font-display text-fs-3 leading-none tracking-tight text-text/60">
+                THE
+              </div>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <h1 className="font-mono text-fs-6 leading-[0.88] text-signal">
+                ₹100
+              </h1>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="font-display text-fs-3 leading-none tracking-tight text-text/60">
+                PROBLEM
+              </div>
+            </Reveal>
+          </div>
+        </div>
       </div>
 
       {/* Pinned scroll-scrubbed waterfall — must stay in plain block flow (no flex/overflow-hidden ancestors) or the pin-spacer mis-measures */}
       <div ref={pinRef} className="flex h-screen w-full flex-col justify-center">
-        <div className="mx-auto w-full max-w-[1200px]">
-          <div className="micro-label mb-6">
+        <div className="mx-auto w-full max-w-[1400px] px-6">
+          <div className="micro-label mb-g3">
             The consumer&apos;s ₹100 — tomato, farmgate to fork
           </div>
           <div
@@ -167,22 +194,30 @@ export default function S1() {
             ))}
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
-            {SEGMENTS.map((seg) => (
+          {/* asymmetric 4 : 2 : 2 : 4 — farmer and residual are the argument, trader/wholesaler are context */}
+          <div className="mt-g4 grid grid-cols-12 gap-g2">
+            {SEGMENTS.map((seg, i) => (
               <div
                 key={seg.key}
                 ref={(el) => {
                   labelRefs.current[seg.key] = el;
                 }}
+                className={`${
+                  seg.weight === "hero"
+                    ? "col-span-6 md:col-span-4"
+                    : "col-span-6 md:col-span-2 md:translate-y-g2"
+                } ${i === 3 ? "text-right" : ""}`}
               >
                 <div className="micro-label mb-1">{seg.label}</div>
                 <div
-                  className={`font-mono text-2xl ${
+                  className={`font-mono ${
+                    seg.weight === "hero" ? "text-fs-4" : "text-fs-2 opacity-70"
+                  } ${
                     seg.color === "signal"
                       ? "text-signal"
                       : seg.color === "danger"
                       ? "text-danger"
-                      : "text-text"
+                      : "text-muted"
                   }`}
                 >
                   ₹{seg.value}
@@ -192,7 +227,7 @@ export default function S1() {
             ))}
           </div>
 
-          <p className="mt-10 max-w-2xl text-muted">
+          <p className="mt-g5 max-w-[52ch] text-muted">
             The trader and the wholesaler — the classic &quot;middlemen&quot;
             — take ~5% each. The majority of the intermediary share sits at
             the retail end and in wastage. &quot;Cut out the middleman&quot;
@@ -201,28 +236,49 @@ export default function S1() {
         </div>
       </div>
 
-      {/* Typographic stat hits */}
-      <div className="mx-auto mt-24 w-full max-w-[1200px]">
-        <div className="micro-label mb-8">The structural constraint</div>
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-          <Reveal>
-            <div className="font-mono text-4xl text-signal">
+      {/* PIANISSIMO — centering rationed to exactly this one thesis line, the gavel */}
+      <div className="flex min-h-screen w-full items-center justify-center px-6">
+        <Reveal>
+          <p className="font-mono text-fs-2 text-center text-muted">
+            The middleman takes ₹{Math.round(traderMargin.value)}. The system
+            takes ₹{residual.tomato}.
+          </p>
+        </Reveal>
+      </div>
+
+      {/* Stat cascade — a diagonal descent, not a grid */}
+      <div className="mx-auto w-full max-w-[1400px] px-6 pt-g5 pb-g6">
+        <Reveal>
+          <div className="micro-label">The structural constraint</div>
+        </Reveal>
+
+        <div className="mt-g5 grid grid-cols-12">
+          <Reveal className="col-span-12 md:col-span-6 md:col-start-1">
+            <div className="font-mono text-fs-5 text-signal">
               {holdings.total}
             </div>
             <div className="micro-label mt-2">
               landholdings <Cite id={holdings.source} />
             </div>
           </Reveal>
-          <Reveal delay={0.08}>
-            <div className="font-mono text-4xl text-signal">
+
+          <Reveal
+            delay={0.08}
+            className="col-span-12 mt-g4 md:col-span-6 md:col-start-7 md:mt-g5"
+          >
+            <div className="font-mono text-fs-4 text-signal">
               {holdings.smallMarginalPct}%
             </div>
             <div className="micro-label mt-2">
               hold under 2 ha <Cite id={holdings.source} />
             </div>
           </Reveal>
-          <Reveal delay={0.16}>
-            <div className="font-mono text-4xl text-signal">
+
+          <Reveal
+            delay={0.16}
+            className="col-span-12 mt-g4 md:col-span-6 md:col-start-3 md:mt-g6"
+          >
+            <div className="font-mono text-fs-3 text-signal">
               {holdings.avgHa} ha
             </div>
             <div className="micro-label mt-2">
@@ -230,8 +286,12 @@ export default function S1() {
               <Cite id={holdings.source} />
             </div>
           </Reveal>
-          <Reveal delay={0.24}>
-            <div className="font-mono text-4xl text-signal">
+
+          <Reveal
+            delay={0.24}
+            className="col-span-12 mt-g4 text-right md:col-span-6 md:col-start-8 md:mt-g7 md:text-left"
+          >
+            <div className="font-mono text-fs-3 text-signal">
               1 / {mandiDensity.actualSqKm}
             </div>
             <div className="micro-label mt-2">
@@ -240,14 +300,18 @@ export default function S1() {
             </div>
           </Reveal>
         </div>
+      </div>
 
-        <Reveal delay={0.3}>
-          <div className="panel mt-10 flex items-center justify-between gap-6 p-8">
-            <div>
+      {/* Pull-quote that breaks the right margin — full viewport width so the
+          panel can bleed to the true viewport edge, not just the container. */}
+      <div className="w-full pb-g6">
+        <div className="grid grid-cols-12 gap-g3 pl-6 sm:pl-[max(1.5rem,calc((100vw-1400px)/2+1.5rem))]">
+          <Reveal className="col-span-11 col-start-2 md:col-span-7 md:col-start-6">
+            <div className="border-l border-t border-b border-hairline p-g4 sm:p-g5">
               <div className="micro-label mb-2">Contrast case</div>
               <p className="max-w-md text-text">
                 Eggs and chana farmers keep{" "}
-                <span className="stat text-2xl">
+                <span className="stat text-fs-3">
                   ₹{eggsChanaShare.value}
                 </span>{" "}
                 of every ₹100 <Cite id={eggsChanaShare.source} /> — proof
@@ -255,8 +319,8 @@ export default function S1() {
                 not a physics problem.
               </p>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
