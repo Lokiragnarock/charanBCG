@@ -148,6 +148,89 @@ body {
   filter: blur(3px);
 }
 
+/* Hero title shine (Uiverse pattern by Spacious74 — text sheen + light ray
+   only; no card chrome). The bright band sweeps across the glyphs. */
+@keyframes title-sheen {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.shine-signal {
+  background-image: linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--signal) 35%, black) 20%,
+    var(--signal) 45%,
+    #eaffe8 50%,
+    var(--signal) 55%,
+    color-mix(in srgb, var(--signal) 35%, black) 80%
+  );
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: title-sheen 7s ease-in-out infinite;
+}
+
+.shine-mono {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.75),
+    rgba(255, 255, 255, 0.25)
+  );
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: title-sheen 7s ease-in-out infinite;
+}
+
+@keyframes ray-drift {
+  from {
+    transform: rotate(40deg) translate(-30px, -15px);
+    opacity: 0.08;
+  }
+  to {
+    transform: rotate(40deg) translate(30px, 15px);
+    opacity: 0.16;
+  }
+}
+
+.hero-ray {
+  position: absolute;
+  width: 260px;
+  height: 50px;
+  border-radius: 100px;
+  background: var(--signal);
+  opacity: 0.12;
+  filter: blur(28px);
+  box-shadow: 0 0 60px var(--signal);
+  transform: rotate(40deg);
+  transform-origin: 10%;
+  pointer-events: none;
+  z-index: 0;
+  animation: ray-drift 9s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Freeze the sheen mid-sweep and hold the ray static */
+  .shine-signal,
+  .shine-mono {
+    animation: none;
+    background-position: 50% 50%;
+  }
+  .hero-ray {
+    animation: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1 !important;

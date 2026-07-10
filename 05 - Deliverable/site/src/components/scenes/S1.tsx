@@ -5,7 +5,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Reveal from "@/components/Reveal";
 import Cite from "@/components/Cite";
-import { ledger } from "@/lib/ledger";
+import { ledger, sources } from "@/lib/ledger";
+import { useCiteStore } from "@/lib/store";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,6 +57,69 @@ const SEGMENTS: Segment[] = [
     weight: "hero",
   },
 ];
+
+/**
+ * Waterfall number block: gradient-frame hover card (Uiverse pattern by
+ * Tiagoadag, adapted — invisible chrome at rest), source tooltip on
+ * hover/focus, click opens the citation drawer (same action as <Cite>).
+ */
+function WaterfallNumber({ seg }: { seg: Segment }) {
+  const open = useCiteStore((s) => s.open);
+  const source = seg.citeId ? sources[seg.citeId] : undefined;
+  const sourceLabel =
+    source?.title ??
+    (seg.citeId ? seg.citeId.split("-")[0].toUpperCase() : undefined);
+
+  const numberClasses = `font-mono ${
+    seg.weight === "hero" ? "text-fs-3 md:text-fs-4" : "text-fs-2 opacity-70"
+  } ${
+    seg.color === "signal"
+      ? "text-signal"
+      : seg.color === "danger"
+      ? "text-danger"
+      : "text-muted"
+  }`;
+
+  const tooltipId = `wf-tip-${seg.key}`;
+
+  return (
+    <button
+      type="button"
+      onClick={() => seg.citeId && open(seg.citeId)}
+      aria-label={source ? `Source: ${source.title}` : undefined}
+      className="group relative cursor-pointer rounded-[10px] p-px outline-none transition-all duration-300
+        hover:[background-image:linear-gradient(163deg,var(--signal)_0%,color-mix(in_srgb,var(--signal)_25%,transparent)_100%)]
+        focus-visible:[background-image:linear-gradient(163deg,var(--signal)_0%,color-mix(in_srgb,var(--signal)_25%,transparent)_100%)]
+        hover:shadow-[0_0_30px_1px_rgba(88,242,125,0.30)]
+        focus-visible:shadow-[0_0_30px_1px_rgba(88,242,125,0.30)]"
+    >
+      {/* inner surface — reads as a 1px signal frame on hover */}
+      <span className="block rounded-[10px] bg-transparent px-4 py-3 transition-all duration-200 group-hover:bg-bg group-focus-visible:bg-bg motion-safe:group-hover:scale-[0.98] motion-safe:group-focus-visible:scale-[0.98]">
+        <span className={numberClasses}>
+          ₹{seg.value}
+          {/* the arrow is the sole tooltip trigger — padded hit area */}
+          <span
+            tabIndex={0}
+            aria-describedby={sourceLabel ? tooltipId : undefined}
+            className="group/arrow -m-1 inline-block cursor-pointer p-1 align-super text-muted outline-none"
+            style={{ fontSize: "0.6em", lineHeight: 0 }}
+          >
+            ↗
+            {sourceLabel && (
+              <span
+                id={tooltipId}
+                role="tooltip"
+                className="micro-label pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-max max-w-[260px] -translate-x-1/2 whitespace-normal rounded-[2px] border border-hairline bg-bg px-3 py-2 text-left opacity-0 transition-opacity duration-150 group-hover/arrow:opacity-100 group-focus/arrow:opacity-100"
+              >
+                {sourceLabel}
+              </span>
+            )}
+          </span>
+        </span>
+      </span>
+    </button>
+  );
+}
 
 export default function S1() {
   const pinRef = useRef<HTMLDivElement>(null);
@@ -200,19 +264,27 @@ export default function S1() {
           </div>
 
           {/* huge right: the numeral owns 7 of 12 columns */}
-          <div className="col-span-12 text-right md:col-span-7">
-            <Reveal delay={0.04}>
-              <div className="font-display text-fs-3 leading-none tracking-tight text-text/60">
+          <div className="relative col-span-12 text-right md:col-span-7">
+            {/* ambient light ray — behind the title, no card chrome */}
+            <div aria-hidden className="hero-ray -top-8 left-4" />
+            <Reveal delay={0.04} className="relative z-[1]">
+              <div className="shine-mono font-display text-fs-3 leading-none tracking-tight">
                 THE
               </div>
             </Reveal>
-            <Reveal delay={0.12}>
-              <h1 className="font-mono text-fs-6 leading-[0.88] text-signal">
+            <Reveal delay={0.12} className="relative z-[1]">
+              <h1
+                className="shine-signal font-mono text-fs-6 leading-[0.88]"
+                style={{ animationDelay: "0.6s" }}
+              >
                 ₹100
               </h1>
             </Reveal>
-            <Reveal delay={0.2}>
-              <div className="font-display text-fs-3 leading-none tracking-tight text-text/60">
+            <Reveal delay={0.2} className="relative z-[1]">
+              <div
+                className="shine-mono font-display text-fs-3 leading-none tracking-tight"
+                style={{ animationDelay: "1.2s" }}
+              >
                 PROBLEM
               </div>
             </Reveal>
@@ -260,9 +332,9 @@ export default function S1() {
             ))}
           </div>
 
-          {/* centered row — items-center puts smaller numbers at the vertical
-              middle of the larger ones; each label is centered over its own number */}
-          <div className="mt-g4 flex items-center justify-between gap-g3">
+          {/* 4 equal columns: category words share one level below the bar,
+              numbers below the words, vertically centered against each other */}
+          <div className="mt-g4 grid grid-cols-4 gap-g2 sm:gap-g3">
             {SEGMENTS.map((seg) => (
               <div
                 key={seg.key}
@@ -271,20 +343,12 @@ export default function S1() {
                 }}
                 className="flex flex-col items-center text-center"
               >
-                <div className="micro-label mb-1">{seg.label}</div>
-                <div
-                  className={`font-mono ${
-                    seg.weight === "hero" ? "text-fs-4" : "text-fs-2 opacity-70"
-                  } ${
-                    seg.color === "signal"
-                      ? "text-signal"
-                      : seg.color === "danger"
-                      ? "text-danger"
-                      : "text-muted"
-                  }`}
-                >
-                  ₹{seg.value}
-                  {seg.citeId && <Cite id={seg.citeId} />}
+                {/* fixed-height, bottom-aligned label box = shared baseline */}
+                <div className="micro-label flex min-h-[52px] items-end justify-center">
+                  {seg.label}
+                </div>
+                <div className="flex flex-1 items-center justify-center">
+                  <WaterfallNumber seg={seg} />
                 </div>
               </div>
             ))}

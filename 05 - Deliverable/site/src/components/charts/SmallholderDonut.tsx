@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { ledger } from "@/lib/ledger";
@@ -25,17 +25,10 @@ const RINGS: {
   { key: "cerealPct", r: 44, signal: true, label: "of cereals" },
 ];
 
-// Point on a circle of radius r, at pct% around it starting from 12 o'clock,
-// going clockwise — matches the visual effect of `rotate(-90 cx cy)` on the
-// stroke-dasharray arc, computed directly (no DOM transform math needed).
-function arcEndPoint(r: number, pct: number) {
-  const angle = ((-90 + pct * 3.6) * Math.PI) / 180;
-  return { x: CX + r * Math.cos(angle), y: CY + r * Math.sin(angle) };
-}
-
 export default function SmallholderDonut() {
   const svgRef = useRef<SVGSVGElement>(null);
   const arcRefs = useRef<(SVGCircleElement | null)[]>([]);
+  const [activeKey, setActiveKey] = useState<RingKey | null>(null);
 
   const data = ledger.smallholderOutput;
 
@@ -84,70 +77,107 @@ export default function SmallholderDonut() {
   }, []);
 
   return (
-    <div className="group mx-auto w-full origin-center transition-transform duration-300 ease-out will-change-transform motion-safe:hover:scale-105">
-      <svg
-        ref={svgRef}
-        viewBox="-120 -20 560 280"
-        className="w-full"
-        role="img"
-        aria-label={`Smallholders farm ${data.landPct}% of India's agricultural land, but grow ${data.vegPct}% of vegetables, ${data.fruitPct}% of fruits and ${data.cerealPct}% of cereals.`}
-      >
-        {RINGS.map((ring, i) => {
-          const pct = data[ring.key];
-          const circumference = 2 * Math.PI * ring.r;
-          const dash = (circumference * pct) / 100;
-          const end = arcEndPoint(ring.r, pct);
-          const calloutY = 40 + i * 60;
-          const calloutX = 300;
-          const elbowX = end.x + 24;
+    <div>
+      {/* Context line so the chart is self-explanatory without the stage takeaway */}
+      <div className="micro-label mb-g3 text-center">
+        Smallholders&apos; share of output vs land
+      </div>
 
-          return (
-            <g key={ring.key}>
-              <circle
-                cx={CX}
-                cy={CY}
-                r={ring.r}
-                fill="none"
-                style={{ stroke: "var(--hairline)" }}
-                strokeWidth={STROKE}
-              />
-              <circle
-                ref={(el) => {
-                  arcRefs.current[RINGS.indexOf(ring)] = el;
+      <div className="flex flex-col items-center gap-g4 md:flex-row md:justify-center">
+        {/* Donut — rings only, hover pop preserved */}
+        <div className="w-full max-w-[340px] origin-center transition-transform duration-300 ease-out will-change-transform motion-safe:hover:scale-105">
+          <svg
+            ref={svgRef}
+            viewBox="0 0 240 240"
+            className="w-full"
+            role="img"
+            aria-label={`Smallholders farm ${data.landPct}% of India's agricultural land, but grow ${data.vegPct}% of vegetables, ${data.fruitPct}% of fruits and ${data.cerealPct}% of cereals.`}
+          >
+            {RINGS.map((ring) => {
+              const pct = data[ring.key];
+              const circumference = 2 * Math.PI * ring.r;
+              const dash = (circumference * pct) / 100;
+
+              return (
+                <g
+                  key={ring.key}
+                  style={{
+                    opacity:
+                      activeKey === null || activeKey === ring.key ? 1 : 0.35,
+                    transition: "opacity 200ms ease-out",
+                  }}
+                >
+                  <circle
+                    cx={CX}
+                    cy={CY}
+                    r={ring.r}
+                    fill="none"
+                    style={{ stroke: "var(--hairline)" }}
+                    strokeWidth={STROKE}
+                  />
+                  <circle
+                    ref={(el) => {
+                      arcRefs.current[RINGS.indexOf(ring)] = el;
+                    }}
+                    cx={CX}
+                    cy={CY}
+                    r={ring.r}
+                    fill="none"
+                    style={{ stroke: ring.signal ? "var(--signal)" : "var(--muted)" }}
+                    strokeWidth={STROKE}
+                    strokeLinecap="round"
+                    transform={`rotate(-90 ${CX} ${CY})`}
+                    data-circumference={circumference}
+                    data-dash={dash}
+                  />
+                </g>
+              );
+            })}
+          </svg>
+        </div>
+
+        {/* Expanding-strip legend (Uiverse pattern by joe-watson-sbf, re-themed
+            to our tokens). Hovering / focusing a strip highlights its ring. */}
+        <div className="flex h-[260px] w-[230px] shrink-0 gap-[5px] rounded-[4px] bg-white/[0.03] p-[0.4em]">
+          {RINGS.map((ring) => {
+            const pct = data[ring.key];
+            const active = activeKey === ring.key;
+
+            return (
+              <div
+                key={ring.key}
+                tabIndex={0}
+                role="button"
+                aria-label={`${pct}% ${ring.label}`}
+                onMouseEnter={() => setActiveKey(ring.key)}
+                onMouseLeave={() => setActiveKey(null)}
+                onFocus={() => setActiveKey(ring.key)}
+                onBlur={() => setActiveKey(null)}
+                className="flex h-full cursor-pointer items-center justify-center overflow-hidden rounded-[2px] outline-none transition-all duration-500 focus-visible:ring-1 focus-visible:ring-signal motion-reduce:transition-none"
+                style={{
+                  flex: active ? 4 : 1,
+                  border: `1px solid ${
+                    ring.signal ? "var(--signal)" : "var(--hairline)"
+                  }`,
                 }}
-                cx={CX}
-                cy={CY}
-                r={ring.r}
-                fill="none"
-                style={{ stroke: ring.signal ? "var(--signal)" : "var(--muted)" }}
-                strokeWidth={STROKE}
-                strokeLinecap="round"
-                transform={`rotate(-90 ${CX} ${CY})`}
-                data-circumference={circumference}
-                data-dash={dash}
-              />
-              {/* two-segment leader line: arc end -> elbow -> callout */}
-              <polyline
-                points={`${end.x},${end.y} ${elbowX},${end.y} ${calloutX - 6},${calloutY}`}
-                fill="none"
-                style={{ stroke: "var(--hairline)" }}
-                strokeWidth={1}
-              />
-              <text
-                x={calloutX}
-                y={calloutY}
-                textAnchor="start"
-                dominantBaseline="middle"
-                className="font-mono"
-                fontSize={11}
-                style={{ fill: ring.signal ? "var(--signal)" : "var(--muted)" }}
               >
-                {pct}% {ring.label}
-              </text>
-            </g>
-          );
-        })}
-      </svg>
+                <span
+                  className="min-w-[14em] p-2 text-center font-mono uppercase transition-all duration-500 motion-reduce:transition-none"
+                  style={{
+                    fontSize: 13,
+                    letterSpacing: "0.1em",
+                    whiteSpace: "nowrap",
+                    color: ring.signal ? "var(--signal)" : "var(--muted)",
+                    transform: active ? "rotate(0deg)" : "rotate(-90deg)",
+                  }}
+                >
+                  {pct}% {ring.label}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
