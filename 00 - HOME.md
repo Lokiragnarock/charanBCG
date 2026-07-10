@@ -14,6 +14,7 @@
 |---|---|
 | [[01 - Case Briefs/Submission Guidelines\|01 - Case Briefs]] | Distilled notes of each PDF brief |
 | `02 - Research` | Deep research notes, every external figure **with citation** |
+| [[02 - Research/PS4 Agri/README\|02 - Research/PS4 Agri]] | **The argument machinery**: [[02 - Research/PS4 Agri/The Spine - Central Argument\|Spine]] (versioned claims) · [[02 - Research/PS4 Agri/Schools of Thought\|Schools of Thought]] · [[02 - Research/PS4 Agri/Precedents\|Precedents]] · [[02 - Research/PS4 Agri/Tangents\|Tangents]] · audit protocol |
 | `03 - Personas` | User/buyer personas per case + team working personas |
 | `04 - Decision Log` | Dated log of every decision, rejected idea, and AI-direction moment |
 | `05 - Deliverable` | The final asset: live Vercel site, 3D scroll, Anduril/Palantir style |
