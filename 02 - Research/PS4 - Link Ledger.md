@@ -11,18 +11,19 @@ tags: [bcg-outprompt, ps4, numbers, value-chain, citations]
 > Tags: 🟢 **Verified** (primary source read) · 🟡 **Reported** (credible secondary, verify against primary) · 🔴 **Estimated** (ours, must be labelled as such in submission).
 > This ledger feeds the website's waterfall scene and the simulator's default parameters directly — same numbers, one source of truth.
 
-## The ₹100 waterfall (headline exhibit)
-Where the consumer's ₹100 goes — RBI Working Paper, *Vegetables Inflation in India: A Study of Tomato, Onion and Potato (TOP)*, 2024:
+## The ₹100 waterfall (headline exhibit) — 🟢 VERIFIED
+Where the consumer's ₹100 goes — RBI WPS (DEPR) 08/2024, Roy et al., Oct 2024 (four stakeholders in every chain; single-city case studies: tomato/onion→Delhi, potato→Mumbai via Agra). Full extraction: [[PS4 - RBI TOP Decomposition]].
 
-| Stage | Tomato | Onion | Potato | Tag |
+| Stage (gross mark-up share) | Tomato (p.22) | Onion (p.25) | Potato (p.27) | Tag |
 |---|---|---|---|---|
-| **Farmer** | ₹33.5 | ₹36 | ₹37 | 🟡 |
-| Trader/aggregator margin | ~₹5.3 | tbd | tbd | 🟡 |
-| Wholesaler (secondary) margin | ~₹5.3 | tbd | tbd | 🟡 |
-| **Balance: transport + wastage + retail** | **~₹56** | ~₹58 | ~₹63 | 🔴 residual — decompose from WP PDF |
+| **Farmer** | ₹33.5 | ₹36.2 | ₹36.7 | 🟢 |
+| Trader mark-up | ₹21.3 | ₹17.6 | ₹16.2 | 🟢 |
+| Wholesaler mark-up | ₹16.1 | ₹15.0 | ₹16.0 | 🟢 |
+| **Retailer mark-up** | ₹29.1 | ₹31.3 | ₹31.0 | 🟢 |
+| …but trader & wholesaler **NET margin** (after costs) | ~5.3% each (pp.21–22) | — | — | 🟢 |
 | Contrast: eggs & chana farmer share | ~₹75 | | | 🟡 |
 
-**⚡ The insight the waterfall yields:** the trader and wholesaler — the classic "middlemen" — take ~5% each. The majority of the intermediary share sits at the **retail end + wastage**. "Cut out the middleman" attacks the wrong ₹5; the prize is the ~₹56 downstream block, which is exactly the "move up the chain" evidence in the brief (Exhibit F). This is our margin-decomposition money slide.
+**⚡ The insight, v2 (self-correction logged):** our earlier "₹56 retail residual" was wrong — retail takes ₹29–31. The real structure: middlemen *mark up* ~₹37 (trader+wholesaler) but *keep* only ~₹10 as profit; the other ~₹27 is *cost* — transport, mandi fees (onion: 1% fee + 4% commission + loading, p.24), and wastage (storage loss: tomato 3.03%, onion 2.16%, potato 0.78%, p.33; onion storage loss escalates 10%→30% Jul–Dec, p.35). Retail's ₹29–31 is the single biggest non-farm block. So the attack surface is **costs and wastage (~₹27) + the retail hop (~₹30)**, not any actor's profit pocket. "Cut the middleman" still attacks the wrong number — but the right number is the cost stack, not a ₹56 residual.
 
 ## Link-by-link ledger (data sourcing → end consumer)
 
@@ -77,9 +78,13 @@ Where the consumer's ₹100 goes — RBI Working Paper, *Vegetables Inflation in
 ### L6 — Wholesale → Retail → Consumer
 | Item | Number | Source | Tag |
 |---|---|---|---|
-| Trader margin (tomato) | ~5.3% | RBI TOP WP 2024 | 🟡 |
-| Secondary wholesaler margin (tomato) | ~5.3% | RBI TOP WP 2024 | 🟡 |
-| Retail block (margin + wastage + costs) | residual ~50%+ | derive from WP | 🔴 |
+| Trader gross mark-up (T/O/P) | 21.3% / 17.6% / 16.2% | RBI WPS 08/2024 pp.22/25/27 | 🟢 |
+| Wholesaler gross mark-up (T/O/P) | 16.1% / 15.0% / 16.0% | RBI WPS 08/2024 pp.22/25/27 | 🟢 |
+| Trader & wholesaler NET margin (tomato) | ~5.3% each | RBI WPS 08/2024 pp.21–22 | 🟢 |
+| **Retailer gross mark-up (T/O/P)** | **29.1% / 31.3% / 31.0%** | RBI WPS 08/2024 pp.22/25/27 | 🟢 |
+| Mandi fees: onion | 1% fee + 4% commission + ₹9.02/q loading | RBI WPS 08/2024 p.24 | 🟢 |
+| Mandi fees: potato (Sikandra, Agra) | 1% fee + 0.5% development cess | RBI WPS 08/2024 p.26 | 🟢 |
+| Caveat | single-city case studies; no all-India average; no tomato-specific mandi-fee % | WP structure | 🟢 |
 
 ### Macro frame (TAM layer for the sweet-spot scene)
 | Item | Number | Source | Tag |
@@ -93,7 +98,7 @@ Where the consumer's ₹100 goes — RBI Working Paper, *Vegetables Inflation in
 **⚡ Second structural insight:** median FPO working capital (<₹3 lakh) buys roughly **one truckload of onions**. Any link whose entry ticket is measured in crores is fantasy without external finance — the working-capital number selects the link almost by itself.
 
 ## Gaps queue (Quant to close, priority order)
-1. 🔴→🟢 Read RBI TOP WP PDF fully (local copy exists) → exact stage decomposition all 3 crops + authors/WP number
+1. ~~Read RBI TOP WP PDF fully~~ ✅ CLOSED 07-10 → [[PS4 - RBI TOP Decomposition]] (WPS 08/2024, Roy et al.)
 2. Transport ₹/kg/km + pack-house cost benchmarks (NCCD / NABCONS)
 3. AI advisory unit cost build-up (tokens + WhatsApp Business API ₹/farmer/yr)
 4. Crop TAMs + buyer concentration for sweet-spot scene (onion, banana, pomegranate, tomato-processing, maize-feed, chilli)
