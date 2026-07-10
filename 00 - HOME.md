@@ -35,6 +35,6 @@ See [[05 - Deliverable/Website Concept]].
 ## 📄 Case briefs status
 - [x] [[01 - Case Briefs/Submission Guidelines]]
 - [x] [[01 - Case Briefs/PS1 - GLP-1 India Weight-Loss]] ← read 2026-07-09, parked
-- [x] [[01 - Case Briefs/PS2 - E2E Reimagination]] ← **CHOSEN CASE** (2026-07-09)
+- [x] [[01 - Case Briefs/PS2 - E2E Reimagination]] ← chosen 07-09, **parked 07-10**
 - [ ] PS3 — Wealth Management (skim for element-1 comparison)
-- [ ] PS4 — Smallholder Agri (skim for element-1 comparison)
+- [x] [[01 - Case Briefs/PS4 - Smallholder Agri]] ← **ACTIVE CASE** (pivot 2026-07-10) → [[02 - Research/PS4 - First-Principles Interrogation|interrogation]]
