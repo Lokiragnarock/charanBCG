@@ -11,13 +11,3 @@ export const useCiteStore = create<CiteStore>((set) => ({
   open: (id) => set({ openId: id }),
   close: () => set({ openId: null }),
 }));
-
-type SceneStore = {
-  active: string;
-  setActive: (id: string) => void;
-};
-
-export const useSceneStore = create<SceneStore>((set) => ({
-  active: "s1",
-  setActive: (id) => set({ active: id }),
-}));

@@ -1,5 +1,4 @@
 import SmoothScroll from "@/components/SmoothScroll";
-import SceneIndex from "@/components/SceneIndex";
 import ExhibitStage from "@/components/ExhibitStage";
 import SmallholderDonut from "@/components/charts/SmallholderDonut";
 import S1 from "@/components/scenes/S1";
@@ -12,7 +11,6 @@ import { ledger } from "@/lib/ledger";
 export default function Home() {
   return (
     <SmoothScroll>
-      <SceneIndex />
       <main className="relative">
         <S1 />
         <ExhibitStage
@@ -20,7 +18,9 @@ export default function Home() {
           takeaway={`Smallholders farm ${ledger.smallholderOutput.landPct}% of India's agricultural land — and grow the majority of its vegetables, fruits, and cereals.`}
           citeId={ledger.smallholderOutput.source}
         >
-          <SmallholderDonut />
+          <div className="mx-auto w-full max-w-[420px]">
+            <SmallholderDonut />
+          </div>
         </ExhibitStage>
         <S2 />
         <S3 />

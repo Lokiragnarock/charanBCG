@@ -84,59 +84,70 @@ export default function SmallholderDonut() {
   }, []);
 
   return (
-    <svg
-      ref={svgRef}
-      viewBox="0 0 240 240"
-      className="w-full"
-      role="img"
-      aria-label={`Smallholders farm ${data.landPct}% of India's agricultural land, but grow ${data.vegPct}% of vegetables, ${data.fruitPct}% of fruits and ${data.cerealPct}% of cereals.`}
-    >
-      {RINGS.map((ring) => {
-        const pct = data[ring.key];
-        const circumference = 2 * Math.PI * ring.r;
-        const dash = (circumference * pct) / 100;
-        const end = arcEndPoint(ring.r, pct);
-        const anchor = end.x > CX + 4 ? "start" : end.x < CX - 4 ? "end" : "middle";
+    <div className="group mx-auto w-full origin-center transition-transform duration-300 ease-out will-change-transform motion-safe:hover:scale-105">
+      <svg
+        ref={svgRef}
+        viewBox="-120 -20 560 280"
+        className="w-full"
+        role="img"
+        aria-label={`Smallholders farm ${data.landPct}% of India's agricultural land, but grow ${data.vegPct}% of vegetables, ${data.fruitPct}% of fruits and ${data.cerealPct}% of cereals.`}
+      >
+        {RINGS.map((ring, i) => {
+          const pct = data[ring.key];
+          const circumference = 2 * Math.PI * ring.r;
+          const dash = (circumference * pct) / 100;
+          const end = arcEndPoint(ring.r, pct);
+          const calloutY = 40 + i * 60;
+          const calloutX = 300;
+          const elbowX = end.x + 24;
 
-        return (
-          <g key={ring.key}>
-            <circle
-              cx={CX}
-              cy={CY}
-              r={ring.r}
-              fill="none"
-              style={{ stroke: "var(--hairline)" }}
-              strokeWidth={STROKE}
-            />
-            <circle
-              ref={(el) => {
-                arcRefs.current[RINGS.indexOf(ring)] = el;
-              }}
-              cx={CX}
-              cy={CY}
-              r={ring.r}
-              fill="none"
-              style={{ stroke: ring.signal ? "var(--signal)" : "var(--muted)" }}
-              strokeWidth={STROKE}
-              strokeLinecap="round"
-              transform={`rotate(-90 ${CX} ${CY})`}
-              data-circumference={circumference}
-              data-dash={dash}
-            />
-            <text
-              x={end.x}
-              y={end.y}
-              textAnchor={anchor}
-              dominantBaseline="middle"
-              className="font-mono"
-              fontSize={10}
-              style={{ fill: ring.signal ? "var(--signal)" : "var(--muted)" }}
-            >
-              {pct}% {ring.label}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
+          return (
+            <g key={ring.key}>
+              <circle
+                cx={CX}
+                cy={CY}
+                r={ring.r}
+                fill="none"
+                style={{ stroke: "var(--hairline)" }}
+                strokeWidth={STROKE}
+              />
+              <circle
+                ref={(el) => {
+                  arcRefs.current[RINGS.indexOf(ring)] = el;
+                }}
+                cx={CX}
+                cy={CY}
+                r={ring.r}
+                fill="none"
+                style={{ stroke: ring.signal ? "var(--signal)" : "var(--muted)" }}
+                strokeWidth={STROKE}
+                strokeLinecap="round"
+                transform={`rotate(-90 ${CX} ${CY})`}
+                data-circumference={circumference}
+                data-dash={dash}
+              />
+              {/* two-segment leader line: arc end -> elbow -> callout */}
+              <polyline
+                points={`${end.x},${end.y} ${elbowX},${end.y} ${calloutX - 6},${calloutY}`}
+                fill="none"
+                style={{ stroke: "var(--hairline)" }}
+                strokeWidth={1}
+              />
+              <text
+                x={calloutX}
+                y={calloutY}
+                textAnchor="start"
+                dominantBaseline="middle"
+                className="font-mono"
+                fontSize={11}
+                style={{ fill: ring.signal ? "var(--signal)" : "var(--muted)" }}
+              >
+                {pct}% {ring.label}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
   );
 }

@@ -62,6 +62,10 @@ export default function S1() {
   const barRef = useRef<HTMLDivElement>(null);
   const segmentRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const labelRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const statLandRef = useRef<HTMLDivElement>(null);
+  const statSmallRef = useRef<HTMLDivElement>(null);
+  const statAvgRef = useRef<HTMLDivElement>(null);
+  const statMandiRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -112,10 +116,72 @@ export default function S1() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const configs: {
+      el: HTMLDivElement | null;
+      target: number;
+      format: (v: number) => string;
+    }[] = [
+      {
+        el: statLandRef.current,
+        target: parseFloat(holdings.total),
+        format: (v) => `${Math.round(v)}M`,
+      },
+      {
+        el: statSmallRef.current,
+        target: holdings.smallMarginalPct,
+        format: (v) => `${Math.round(v)}%`,
+      },
+      {
+        el: statAvgRef.current,
+        target: holdings.avgHa,
+        format: (v) => `${v.toFixed(2)} ha`,
+      },
+      {
+        el: statMandiRef.current,
+        target: mandiDensity.actualSqKm,
+        format: (v) => `1 / ${Math.round(v)}`,
+      },
+    ];
+
+    if (prefersReducedMotion) {
+      configs.forEach(({ el, target, format }) => {
+        if (el) el.textContent = format(target);
+      });
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      configs.forEach(({ el, target, format }) => {
+        if (!el) return;
+        const counter = { value: 0 };
+        gsap.to(counter, {
+          value: target,
+          duration: 1.2,
+          ease: "wane-out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+          onUpdate: () => {
+            el.textContent = format(counter.value);
+          },
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section id="s1" className="relative w-full">
       {/* FORTISSIMO — the eye travels: top-left label -> huge right numeral -> low-left paragraph */}
-      <div className="mx-auto w-full max-w-[1400px] px-6 pt-32 pb-g6">
+      <div className="mx-auto w-full max-w-[1200px] px-8 md:px-14 pt-32 pb-g6">
         <Reveal>
           <div className="micro-label">BCG OutPrompt — Problem 4</div>
         </Reveal>
@@ -156,7 +222,7 @@ export default function S1() {
 
       {/* Pinned scroll-scrubbed waterfall — must stay in plain block flow (no flex/overflow-hidden ancestors) or the pin-spacer mis-measures */}
       <div ref={pinRef} className="flex h-screen w-full flex-col justify-center">
-        <div className="mx-auto w-full max-w-[1400px] px-6">
+        <div className="mx-auto w-full max-w-[1200px] px-8 md:px-14">
           <div className="micro-label mb-g3">
             The consumer&apos;s ₹100 — tomato, farmgate to fork
           </div>
@@ -194,19 +260,16 @@ export default function S1() {
             ))}
           </div>
 
-          {/* asymmetric 4 : 2 : 2 : 4 — farmer and residual are the argument, trader/wholesaler are context */}
-          <div className="mt-g4 grid grid-cols-12 gap-g2">
-            {SEGMENTS.map((seg, i) => (
+          {/* centered row — items-center puts smaller numbers at the vertical
+              middle of the larger ones; each label is centered over its own number */}
+          <div className="mt-g4 flex items-center justify-between gap-g3">
+            {SEGMENTS.map((seg) => (
               <div
                 key={seg.key}
                 ref={(el) => {
                   labelRefs.current[seg.key] = el;
                 }}
-                className={`${
-                  seg.weight === "hero"
-                    ? "col-span-6 md:col-span-4"
-                    : "col-span-6 md:col-span-2 md:translate-y-g2"
-                } ${i === 3 ? "text-right" : ""}`}
+                className="flex flex-col items-center text-center"
               >
                 <div className="micro-label mb-1">{seg.label}</div>
                 <div
@@ -246,15 +309,15 @@ export default function S1() {
         </Reveal>
       </div>
 
-      {/* Stat cascade — a diagonal descent, not a grid */}
-      <div className="mx-auto w-full max-w-[1400px] px-6 pt-g5 pb-g6">
-        <Reveal>
+      {/* Stat cascade — a centered descent */}
+      <div className="mx-auto w-full max-w-[1200px] px-8 md:px-14 pt-g5 pb-g6">
+        <Reveal className="text-center">
           <div className="micro-label">The structural constraint</div>
         </Reveal>
 
-        <div className="mt-g5 grid grid-cols-12">
-          <Reveal className="col-span-12 md:col-span-6 md:col-start-1">
-            <div className="font-mono text-fs-5 text-signal">
+        <div className="mx-auto mt-g5 flex max-w-[760px] flex-col items-center gap-g5 text-center">
+          <Reveal className="flex flex-col items-center">
+            <div ref={statLandRef} className="font-mono text-fs-5 text-signal">
               {holdings.total}
             </div>
             <div className="micro-label mt-2">
@@ -262,11 +325,8 @@ export default function S1() {
             </div>
           </Reveal>
 
-          <Reveal
-            delay={0.08}
-            className="col-span-12 mt-g4 md:col-span-6 md:col-start-7 md:mt-g5"
-          >
-            <div className="font-mono text-fs-4 text-signal">
+          <Reveal delay={0.08} className="flex flex-col items-center">
+            <div ref={statSmallRef} className="font-mono text-fs-4 text-signal">
               {holdings.smallMarginalPct}%
             </div>
             <div className="micro-label mt-2">
@@ -274,11 +334,8 @@ export default function S1() {
             </div>
           </Reveal>
 
-          <Reveal
-            delay={0.16}
-            className="col-span-12 mt-g4 md:col-span-6 md:col-start-3 md:mt-g6"
-          >
-            <div className="font-mono text-fs-3 text-signal">
+          <Reveal delay={0.16} className="flex flex-col items-center">
+            <div ref={statAvgRef} className="font-mono text-fs-3 text-signal">
               {holdings.avgHa} ha
             </div>
             <div className="micro-label mt-2">
@@ -287,11 +344,8 @@ export default function S1() {
             </div>
           </Reveal>
 
-          <Reveal
-            delay={0.24}
-            className="col-span-12 mt-g4 text-right md:col-span-6 md:col-start-8 md:mt-g7 md:text-left"
-          >
-            <div className="font-mono text-fs-3 text-signal">
+          <Reveal delay={0.24} className="flex flex-col items-center">
+            <div ref={statMandiRef} className="font-mono text-fs-3 text-signal">
               1 / {mandiDensity.actualSqKm}
             </div>
             <div className="micro-label mt-2">
@@ -305,7 +359,7 @@ export default function S1() {
       {/* Pull-quote that breaks the right margin — full viewport width so the
           panel can bleed to the true viewport edge, not just the container. */}
       <div className="w-full pb-g6">
-        <div className="grid grid-cols-12 gap-g3 pl-6 sm:pl-[max(1.5rem,calc((100vw-1400px)/2+1.5rem))]">
+        <div className="grid grid-cols-12 gap-g3 pl-8 sm:pl-[max(2rem,calc((100vw-1200px)/2+3.5rem))]">
           <Reveal className="col-span-11 col-start-2 md:col-span-7 md:col-start-6">
             <div className="border-l border-t border-b border-hairline p-g4 sm:p-g5">
               <div className="micro-label mb-2">Contrast case</div>
