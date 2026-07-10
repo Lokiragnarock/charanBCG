@@ -1,0 +1,179 @@
+{
+  "farmerShare": {
+    "tomato": 33.5,
+    "onion": 36,
+    "potato": 37,
+    "source": "rbi-top-2024"
+  },
+  "traderMargin": {
+    "value": 5.3,
+    "unit": "pct",
+    "crop": "tomato",
+    "source": "rbi-top-2024"
+  },
+  "wholesalerMargin": {
+    "value": 5.3,
+    "unit": "pct",
+    "crop": "tomato",
+    "source": "rbi-top-2024"
+  },
+  "residual": {
+    "tomato": 56,
+    "onion": 58,
+    "potato": 63,
+    "label": "transport + wastage + retail",
+    "source": "rbi-top-2024-derived"
+  },
+  "eggsChanaShare": {
+    "value": 75,
+    "source": "rbi-top-2024"
+  },
+  "holdings": {
+    "total": "146M",
+    "smallMarginalPct": 86,
+    "avgHa": 1.08,
+    "avgHa1970": 2.3,
+    "source": "brief-exhibit-b"
+  },
+  "mandiDensity": {
+    "actualSqKm": 496,
+    "recommendedSqKm": 80,
+    "source": "brief-exhibit-c"
+  },
+  "enamSharePct": {
+    "value": "<1",
+    "year": 2021,
+    "source": "brief-exhibit-c"
+  },
+  "losses": {
+    "tomatoPct": 12.44,
+    "fruitsRange": [6.7, 15.88],
+    "vegRange": [4.58, 12.44],
+    "valueCr": 92651,
+    "fruitsCr": 16644,
+    "vegCr": 14842,
+    "source": "ciphet-2015"
+  },
+  "fpo": {
+    "turnoverLakh": [36.4, 55.2],
+    "profitLakh": [1.2, 2.5],
+    "marginPct": 6,
+    "workingCapitalLakh": 3,
+    "source": "ijee-2022"
+  },
+  "credit": {
+    "arthiyaPct": [15, 24],
+    "informalPctYr": 36,
+    "kccPct": 7,
+    "kccEffectivePct": 4,
+    "informalBorrowerSharePct": 50,
+    "source": "bankbazaar-agri-loans"
+  },
+  "nsso": {
+    "hhIncomeMo": 10218,
+    "cropIncomeMo": 3798,
+    "source": "nsso-77"
+  },
+  "wef": {
+    "prizeBnUsd": [62, 76],
+    "farmerCapturePct": [50, 60],
+    "source": "wef-brief"
+  },
+  "sahyadri": {
+    "revenueFY25Cr": 1954.7,
+    "cagrPct": 26,
+    "farmers": 30000,
+    "source": "sahyadri-financials"
+  },
+  "advisory": {
+    "contractFarmingUpliftPct": 81,
+    "womenInputGapYieldPct": [20, 30],
+    "source": "kumar-2016-brief-exhibit-f"
+  },
+  "l0": {
+    "mandiPriceFrequency": "daily, by crop x market, free",
+    "weatherSource": "IMD district forecasts",
+    "imagerySource": "Sentinel-2, ~10m, ~5-day revisit",
+    "source": "brief-exhibit-d"
+  },
+  "sources": {
+    "rbi-top-2024": {
+      "title": "RBI Working Paper — Vegetables Inflation in India: A Study of Tomato, Onion and Potato (TOP)",
+      "url": "https://agritech.tnau.ac.in/govt_schemes_services/pdf/tomato,%20onion%20and%20potato.pdf",
+      "year": 2024,
+      "tag": "reported"
+    },
+    "rbi-top-2024-derived": {
+      "title": "RBI TOP WP 2024 — residual decomposition (ours, derived)",
+      "url": "https://agritech.tnau.ac.in/govt_schemes_services/pdf/tomato,%20onion%20and%20potato.pdf",
+      "year": 2024,
+      "tag": "estimated"
+    },
+    "brief-exhibit-b": {
+      "title": "BCG OutPrompt Case Brief — Exhibit B (landholding structure)",
+      "url": "",
+      "year": 2026,
+      "tag": "verified"
+    },
+    "brief-exhibit-c": {
+      "title": "BCG OutPrompt Case Brief — Exhibit C (mandi density & eNAM share)",
+      "url": "",
+      "year": 2026,
+      "tag": "verified"
+    },
+    "brief-exhibit-d": {
+      "title": "BCG OutPrompt Case Brief — Exhibit D (data substrate)",
+      "url": "",
+      "year": 2026,
+      "tag": "verified"
+    },
+    "brief-exhibit-f": {
+      "title": "BCG OutPrompt Case Brief — Exhibit F (contract farming uplift)",
+      "url": "",
+      "year": 2026,
+      "tag": "verified"
+    },
+    "kumar-2016-brief-exhibit-f": {
+      "title": "Kumar (2016), contract farming income uplift, via Brief Exhibit F",
+      "url": "",
+      "year": 2016,
+      "tag": "verified"
+    },
+    "ciphet-2015": {
+      "title": "ICAR-CIPHET (2015) — Post-Harvest Losses study, via MoFPI",
+      "url": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1910360",
+      "year": 2015,
+      "tag": "verified"
+    },
+    "ijee-2022": {
+      "title": "125-FPO Performance Study, Indian Journal of Extension Education",
+      "url": "https://www.acspublisher.com/journals/index.php/ijee/article/view/6456",
+      "year": 2022,
+      "tag": "reported"
+    },
+    "bankbazaar-agri-loans": {
+      "title": "Agriculture Loan Interest Rates (BankBazaar), KCC & informal lending rates",
+      "url": "https://www.bankbazaar.com/personal-loan/agriculture-loan-interest-rates.html",
+      "year": 2025,
+      "tag": "reported"
+    },
+    "nsso-77": {
+      "title": "NSSO 77th Round — Situation Assessment of Agricultural Households",
+      "url": "",
+      "year": 2021,
+      "tag": "reported"
+    },
+    "wef-brief": {
+      "title": "World Economic Forum — farmgate-to-fork tech prize, via BCG OutPrompt brief",
+      "url": "",
+      "year": 2026,
+      "tag": "verified"
+    },
+    "sahyadri-financials": {
+      "title": "Sahyadri Farms (Nashik) — reported financials",
+      "url": "",
+      "year": 2025,
+      "tag": "reported"
+    }
+  }
+}

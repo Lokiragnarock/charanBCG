@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0c0b;
+  --panel: #10 14 13;
+  --panel-hex: #101413;
+  --hairline: #1e2422;
+  --text: #e8eae6;
+  --muted: #8a928d;
+  --signal: #58f27d;
+  --danger: #ff5c5c;
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel-hex);
+  --color-hairline: var(--hairline);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-signal: var(--signal);
+  --color-danger: var(--danger);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  border-color: var(--hairline);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Micro labels: uppercase, tracked, muted */
+.micro-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-family: var(--font-mono), monospace;
+}
+
+/* Hairline panel */
+.panel {
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--panel-hex) 92%, transparent);
+}
+
+/* Number protagonists */
+.stat {
+  font-family: var(--font-mono), monospace;
+  color: var(--signal);
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--bg);
+}
+
+/* Entrance animation baseline (JS-driven via GSAP; CSS fallback below) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar - keep it minimal/dark to match aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hairline);
+}
