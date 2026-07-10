@@ -85,6 +85,7 @@ export default function S1() {
           end: "+=200%",
           scrub: 1,
           pin: true,
+          anticipatePin: 1,
         },
       });
 
@@ -106,11 +107,8 @@ export default function S1() {
   }, []);
 
   return (
-    <section
-      id="s1"
-      className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden px-6 pt-32 pb-16"
-    >
-      <div className="mx-auto w-full max-w-[1200px]">
+    <section id="s1" className="relative w-full px-6 pt-32 pb-16">
+      <div className="mx-auto flex min-h-[60vh] w-full max-w-[1200px] flex-col justify-center">
         <Reveal>
           <div className="micro-label">BCG OutPrompt — Problem 4</div>
         </Reveal>
@@ -129,8 +127,8 @@ export default function S1() {
         </Reveal>
       </div>
 
-      {/* Pinned scroll-scrubbed waterfall */}
-      <div ref={pinRef} className="mt-24 flex min-h-screen w-full flex-col justify-center">
+      {/* Pinned scroll-scrubbed waterfall — must stay in plain block flow (no flex/overflow-hidden ancestors) or the pin-spacer mis-measures */}
+      <div ref={pinRef} className="flex h-screen w-full flex-col justify-center">
         <div className="mx-auto w-full max-w-[1200px]">
           <div className="micro-label mb-6">
             The consumer&apos;s ₹100 — tomato, farmgate to fork

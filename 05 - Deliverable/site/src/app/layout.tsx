@@ -37,7 +37,7 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full`}
     >
-      <body className="min-h-full bg-bg text-text antialiased">
+      <body suppressHydrationWarning className="min-h-full bg-bg text-text antialiased">
         {children}
         <CiteDrawer />
       </body>

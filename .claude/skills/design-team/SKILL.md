@@ -8,6 +8,23 @@ description: The case-deliverable design team. Use when building, designing, or 
 ## Mission
 One live Vercel website that IS the submission: scroll-driven, cinematic, interactive — but **analysis-first**. R1 is scored on thinking; the site is the delivery vehicle. If a scene doesn't render a cited number or a logged decision, it doesn't ship.
 
+## Design intent (one line)
+**Simple, immersive visual experience.** Blend: **Obys 60%** (art-directed typographic composition, grids that break themselves) / **Pudding 40%** (data-forward clarity — when a chart speaks, nothing else does).
+
+## Composition doctrine (v2 — supersedes any equal-grid instinct)
+1. **Size encodes argument weight, not grid convenience.** The number that carries the argument is the biggest thing on screen; context numbers step down. Equal-column grids of like content are BANNED.
+2. **φ modular scale.** Type: 14 / 23 / 37 / 60 / 97 / 157px (×1.618). Spacing steps likewise geometric. Column splits: 5:7 or 4:8 (≈golden), never 50/50.
+3. **Multiple alignment axes.** The page has a moving spine: a block anchored right is answered from the left; callouts break the margin. The eye must travel diagonally, not just descend.
+4. **Centering is rationed.** Reserved for thesis sentences (Spine claims) only — one centered line per scene max; it lands like a gavel because everything else is asymmetric.
+5. **Waxing/waning — scroll dynamics.** Density breathes like musical dynamics: fortissimo (one huge numeral, 60%+ viewport, surrounded by dark) → pianissimo (one small mono caption, lots of black) → build again. Never two consecutive screens at the same density.
+   **Dynamics map:** S1 ff → pp → f · S2 dense mp · S3 interactive mf · S4 crescendo to ff (the sweet spot reveal) · S5 pp whisper credits.
+6. **The Exhibit Stage.** Charts get a dedicated full-viewport stage: ONE chart alone on the plinth — micro-label top-left, the chart owning center stage at generous size, citation + one-line takeaway bottom. No prose competing beside it (Pudding rule: the chart IS the paragraph). Reusable `<ExhibitStage>` wrapper; used for industry-context pieces (donut/radial of smallholder output shares, farmer-share stacked bars, TAM bubbles). Direct labeling on the chart, never detached legends where avoidable.
+
+## Motion grammar v2 (defer to the `emil-design-eng` skill — read it before animating anything)
+- Entrances "wane in": translateY 8–24px + opacity 0→1 + subtle `filter: blur(4px)→0`, custom `cubic-bezier(0.23, 1, 0.32, 1)`, stagger 30–80ms.
+- UI interactions <300ms; scene-scale scroll reveals may run longer but stay scroll-scrubbed (interruptible), never autoplay.
+- Only `transform`/`opacity` (+ blur sparingly, <20px); no `transition: all`; exits faster than entrances; `prefers-reduced-motion` = gentler, not zero; hover gated behind `@media (hover:hover) and (pointer:fine)`.
+
 ## Aesthetic laws (non-negotiable)
 1. **Reference triangle:** Anduril (dark, engineered, confident) × Palantir Foundry (data-dense product UI, live panels) × D.E. Shaw (restrained type, generous whitespace-in-dark, intellectual). Never "startup landing page," never stock-illustration agri clichés (no wheat-in-sunset).
 2. **Palette:** near-black base (#0A0C0B), one signal green (BCG OutPrompt green family), warm neutral text. Red→green **aura spectrum** reserved exclusively for the opportunity scoring (Scene 4) so the color carries meaning.
