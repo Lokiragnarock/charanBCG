@@ -5,8 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Reveal from "@/components/Reveal";
 import Cite from "@/components/Cite";
-import { ledger, sources } from "@/lib/ledger";
-import { useCiteStore } from "@/lib/store";
+import { ledger } from "@/lib/ledger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,66 +57,127 @@ const SEGMENTS: Segment[] = [
   },
 ];
 
+/** One digit column: 3 full 0-9 cycles; the reel lands in the third cycle. */
+const REEL_CYCLES = 3;
+const REEL_DIGITS = Array.from(
+  { length: REEL_CYCLES * 10 },
+  (_, i) => i % 10
+);
+
+type JackpotSegment = { text: string; spin?: boolean };
+
 /**
- * Waterfall number block: gradient-frame hover card (Uiverse pattern by
- * Tiagoadag, adapted — invisible chrome at rest), source tooltip on
- * hover/focus, click opens the citation drawer (same action as <Cite>).
+ * Casino-style digit reels: each digit is a vertical 0-9 column inside an
+ * overflow-hidden slot, spun with blur and landed left-to-right with a
+ * wane-out deceleration. Non-digit characters stay static.
  */
-function WaterfallNumber({ seg }: { seg: Segment }) {
-  const open = useCiteStore((s) => s.open);
-  const source = seg.citeId ? sources[seg.citeId] : undefined;
-  const sourceLabel =
-    source?.title ??
-    (seg.citeId ? seg.citeId.split("-")[0].toUpperCase() : undefined);
+function Jackpot({
+  segments,
+  label,
+  className = "",
+}: {
+  segments: JackpotSegment[];
+  label: string;
+  className?: string;
+}) {
+  const rootRef = useRef<HTMLSpanElement>(null);
 
-  const numberClasses = `font-mono ${
-    seg.weight === "hero" ? "text-fs-3 md:text-fs-4" : "text-fs-2 opacity-70"
-  } ${
-    seg.color === "signal"
-      ? "text-signal"
-      : seg.color === "danger"
-      ? "text-danger"
-      : "text-muted"
-  }`;
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
 
-  const tooltipId = `wf-tip-${seg.key}`;
+    const reels = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-reel]")
+    );
+    const target = (el: HTMLElement) => {
+      const digit = Number(el.dataset.reel);
+      const index = (REEL_CYCLES - 1) * 10 + digit;
+      return -(index * (100 / REEL_DIGITS.length));
+    };
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      reels.forEach((el) => gsap.set(el, { yPercent: target(el) }));
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      gsap.set(reels, { yPercent: 0, filter: "blur(2px)" });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: root,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+      reels.forEach((el, i) => {
+        tl.to(
+          el,
+          { yPercent: target(el), duration: 1.3, ease: "wane-out" },
+          i * 0.14
+        );
+        tl.to(el, { filter: "blur(0px)", duration: 0.4 }, i * 0.14 + 0.5);
+      });
+    }, root);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <button
-      type="button"
-      onClick={() => seg.citeId && open(seg.citeId)}
-      aria-label={source ? `Source: ${source.title}` : undefined}
-      className="group relative cursor-pointer rounded-[10px] p-px outline-none transition-all duration-300
-        hover:[background-image:linear-gradient(163deg,var(--signal)_0%,color-mix(in_srgb,var(--signal)_25%,transparent)_100%)]
-        focus-visible:[background-image:linear-gradient(163deg,var(--signal)_0%,color-mix(in_srgb,var(--signal)_25%,transparent)_100%)]
-        hover:shadow-[0_0_30px_1px_rgba(88,242,125,0.30)]
-        focus-visible:shadow-[0_0_30px_1px_rgba(88,242,125,0.30)]"
+    <span
+      ref={rootRef}
+      role="img"
+      aria-label={label}
+      className={`inline-flex items-center leading-none ${className}`}
     >
-      {/* inner surface — reads as a 1px signal frame on hover */}
-      <span className="block rounded-[10px] bg-transparent px-4 py-3 transition-all duration-200 group-hover:bg-bg group-focus-visible:bg-bg motion-safe:group-hover:scale-[0.98] motion-safe:group-focus-visible:scale-[0.98]">
-        <span className={numberClasses}>
-          ₹{seg.value}
-          {/* the arrow is the sole tooltip trigger — padded hit area */}
-          <span
-            tabIndex={0}
-            aria-describedby={sourceLabel ? tooltipId : undefined}
-            className="group/arrow -m-1 inline-block cursor-pointer p-1 align-super text-muted outline-none"
-            style={{ fontSize: "0.6em", lineHeight: 0 }}
-          >
-            ↗
-            {sourceLabel && (
+      {segments.map((seg, si) =>
+        seg.spin ? (
+          seg.text.split("").map((ch, ci) =>
+            /\d/.test(ch) ? (
               <span
-                id={tooltipId}
-                role="tooltip"
-                className="micro-label pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 w-max max-w-[260px] -translate-x-1/2 whitespace-normal rounded-[2px] border border-hairline bg-bg px-3 py-2 text-left opacity-0 transition-opacity duration-150 group-hover/arrow:opacity-100 group-focus/arrow:opacity-100"
+                key={`${si}-${ci}`}
+                aria-hidden
+                className="inline-block overflow-hidden"
+                style={{ height: "1em" }}
               >
-                {sourceLabel}
+                <span data-reel={ch} className="block will-change-transform">
+                  {REEL_DIGITS.map((d, di) => (
+                    <span
+                      key={di}
+                      className="block"
+                      style={{ height: "1em", lineHeight: "1em" }}
+                    >
+                      {d}
+                    </span>
+                  ))}
+                </span>
               </span>
-            )}
+            ) : (
+              <span
+                key={`${si}-${ci}`}
+                aria-hidden
+                className="whitespace-pre"
+                style={{ lineHeight: "1em" }}
+              >
+                {ch}
+              </span>
+            )
+          )
+        ) : (
+          <span
+            key={si}
+            aria-hidden
+            className="whitespace-pre"
+            style={{ lineHeight: "1em" }}
+          >
+            {seg.text}
           </span>
-        </span>
-      </span>
-    </button>
+        )
+      )}
+    </span>
   );
 }
 
@@ -126,10 +186,6 @@ export default function S1() {
   const barRef = useRef<HTMLDivElement>(null);
   const segmentRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const labelRefs = useRef<Record<string, HTMLDivElement | null>>({});
-  const statLandRef = useRef<HTMLDivElement>(null);
-  const statSmallRef = useRef<HTMLDivElement>(null);
-  const statAvgRef = useRef<HTMLDivElement>(null);
-  const statMandiRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -175,68 +231,6 @@ export default function S1() {
         },
         0.15
       );
-    });
-
-    return () => ctx.revert();
-  }, []);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    const configs: {
-      el: HTMLDivElement | null;
-      target: number;
-      format: (v: number) => string;
-    }[] = [
-      {
-        el: statLandRef.current,
-        target: parseFloat(holdings.total),
-        format: (v) => `${Math.round(v)}M`,
-      },
-      {
-        el: statSmallRef.current,
-        target: holdings.smallMarginalPct,
-        format: (v) => `${Math.round(v)}%`,
-      },
-      {
-        el: statAvgRef.current,
-        target: holdings.avgHa,
-        format: (v) => `${v.toFixed(2)} ha`,
-      },
-      {
-        el: statMandiRef.current,
-        target: mandiDensity.actualSqKm,
-        format: (v) => `1 / ${Math.round(v)}`,
-      },
-    ];
-
-    if (prefersReducedMotion) {
-      configs.forEach(({ el, target, format }) => {
-        if (el) el.textContent = format(target);
-      });
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      configs.forEach(({ el, target, format }) => {
-        if (!el) return;
-        const counter = { value: 0 };
-        gsap.to(counter, {
-          value: target,
-          duration: 1.2,
-          ease: "wane-out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-          onUpdate: () => {
-            el.textContent = format(counter.value);
-          },
-        });
-      });
     });
 
     return () => ctx.revert();
@@ -348,7 +342,22 @@ export default function S1() {
                   {seg.label}
                 </div>
                 <div className="flex flex-1 items-center justify-center">
-                  <WaterfallNumber seg={seg} />
+                  <div
+                    className={`font-mono ${
+                      seg.weight === "hero"
+                        ? "text-fs-3 md:text-fs-4"
+                        : "text-fs-2 opacity-70"
+                    } ${
+                      seg.color === "signal"
+                        ? "text-signal"
+                        : seg.color === "danger"
+                        ? "text-danger"
+                        : "text-muted"
+                    }`}
+                  >
+                    ₹{seg.value}
+                    {seg.citeId && <Cite id={seg.citeId} />}
+                  </div>
                 </div>
               </div>
             ))}
@@ -381,27 +390,39 @@ export default function S1() {
 
         <div className="mx-auto mt-g5 flex max-w-[760px] flex-col items-center gap-g5 text-center">
           <Reveal className="flex flex-col items-center">
-            <div ref={statLandRef} className="font-mono text-fs-5 text-signal">
-              {holdings.total}
-            </div>
+            <Jackpot
+              label={holdings.total}
+              segments={[{ text: "146", spin: true }, { text: "M" }]}
+              className="font-mono text-fs-5 text-signal"
+            />
             <div className="micro-label mt-2">
               landholdings <Cite id={holdings.source} />
             </div>
           </Reveal>
 
           <Reveal delay={0.08} className="flex flex-col items-center">
-            <div ref={statSmallRef} className="font-mono text-fs-4 text-signal">
-              {holdings.smallMarginalPct}%
-            </div>
+            <Jackpot
+              label={`${holdings.smallMarginalPct}%`}
+              segments={[
+                { text: String(holdings.smallMarginalPct), spin: true },
+                { text: "%" },
+              ]}
+              className="font-mono text-fs-4 text-signal"
+            />
             <div className="micro-label mt-2">
               hold under 2 ha <Cite id={holdings.source} />
             </div>
           </Reveal>
 
           <Reveal delay={0.16} className="flex flex-col items-center">
-            <div ref={statAvgRef} className="font-mono text-fs-3 text-signal">
-              {holdings.avgHa} ha
-            </div>
+            <Jackpot
+              label={`${holdings.avgHa} ha`}
+              segments={[
+                { text: holdings.avgHa.toFixed(2), spin: true },
+                { text: " ha" },
+              ]}
+              className="font-mono text-fs-3 text-signal"
+            />
             <div className="micro-label mt-2">
               average holding, down from {holdings.avgHa1970} ha (1970)
               <Cite id={holdings.source} />
@@ -409,9 +430,14 @@ export default function S1() {
           </Reveal>
 
           <Reveal delay={0.24} className="flex flex-col items-center">
-            <div ref={statMandiRef} className="font-mono text-fs-3 text-signal">
-              1 / {mandiDensity.actualSqKm}
-            </div>
+            <Jackpot
+              label={`1 / ${mandiDensity.actualSqKm}`}
+              segments={[
+                { text: "1 / " },
+                { text: String(mandiDensity.actualSqKm), spin: true },
+              ]}
+              className="font-mono text-fs-3 text-signal"
+            />
             <div className="micro-label mt-2">
               sq km per mandi, vs 1/{mandiDensity.recommendedSqKm}{" "}
               recommended <Cite id={mandiDensity.source} />
