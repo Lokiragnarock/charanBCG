@@ -187,6 +187,12 @@
       "url": "",
       "year": 2025,
       "tag": "reported"
+    },
+    "mock-v0": {
+      "title": "Mock data v0, unverified placeholder, Quant pass pending",
+      "url": "",
+      "year": 2026,
+      "tag": "estimated"
     }
   }
 }

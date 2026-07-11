@@ -1,0 +1,16 @@
+{
+  "formula": "sqrt(min(tamCr/100000,1)) * (1 - top3Pct/100) * opening",
+  "note": "MOCK v0 values. TAM = consumer market est. Rs Cr/yr. top3Pct = organized-chain share of top 3 players. opening = judgment score 0-1.",
+  "candidates": [
+    { "key": "tomato",  "label": "Tomato",            "tamCr": 62000,  "top3Pct": 6,  "opening": 0.90, "farmerShare": 33.5, "score": 0.67, "top3": ["No organized top-3 exists"], "source": "mock-v0" },
+    { "key": "onion",   "label": "Onion",             "tamCr": 40000,  "top3Pct": 8,  "opening": 0.80, "farmerShare": 36,   "score": 0.47, "top3": ["Export traders (fragmented)"], "source": "mock-v0" },
+    { "key": "potato",  "label": "Potato",            "tamCr": 38000,  "top3Pct": 15, "opening": 0.70, "farmerShare": 37,   "score": 0.37, "top3": ["PepsiCo/Lay's", "ITC Bingo", "Balaji"], "source": "mock-v0" },
+    { "key": "banana",  "label": "Banana",            "tamCr": 30000,  "top3Pct": 12, "opening": 0.65, "farmerShare": 30,   "score": 0.31, "top3": ["Regional ripeners (fragmented)"], "source": "mock-v0" },
+    { "key": "chana",   "label": "Chana / pulses",    "tamCr": 85000,  "top3Pct": 30, "opening": 0.45, "farmerShare": 75,   "score": 0.29, "top3": ["Dal mills", "ITC", "Tata Sampann"], "source": "mock-v0" },
+    { "key": "maize",   "label": "Maize (feed)",      "tamCr": 45000,  "top3Pct": 25, "opening": 0.40, "farmerShare": 60,   "score": 0.20, "top3": ["Feed majors", "Starch cos", "Poultry integrators"], "source": "mock-v0" },
+    { "key": "grapes",  "label": "Export horti",      "tamCr": 18000,  "top3Pct": 35, "opening": 0.50, "farmerShare": 45,   "score": 0.14, "top3": ["Sahyadri", "Mahagrapes", "Freshtrop"], "source": "mock-v0" },
+    { "key": "eggs",    "label": "Eggs & broiler",    "tamCr": 120000, "top3Pct": 55, "opening": 0.25, "farmerShare": 75,   "score": 0.11, "top3": ["Suguna", "Venky's", "IB Group"], "source": "mock-v0" },
+    { "key": "exotic",  "label": "Exotic / leafy veg","tamCr": 9000,   "top3Pct": 40, "opening": 0.50, "farmerShare": 35,   "score": 0.09, "top3": ["Q-commerce dedicated farms"], "source": "mock-v0" },
+    { "key": "dairy",   "label": "Dairy",             "tamCr": 1000000,"top3Pct": 50, "opening": 0.15, "farmerShare": 70,   "score": 0.08, "top3": ["Amul", "Nandini", "Mother Dairy"], "source": "mock-v0" }
+  ]
+}
