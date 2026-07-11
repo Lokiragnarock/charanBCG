@@ -57,130 +57,6 @@ const SEGMENTS: Segment[] = [
   },
 ];
 
-/** One digit column: 3 full 0-9 cycles; the reel lands in the third cycle. */
-const REEL_CYCLES = 3;
-const REEL_DIGITS = Array.from(
-  { length: REEL_CYCLES * 10 },
-  (_, i) => i % 10
-);
-
-type JackpotSegment = { text: string; spin?: boolean };
-
-/**
- * Casino-style digit reels: each digit is a vertical 0-9 column inside an
- * overflow-hidden slot, spun with blur and landed left-to-right with a
- * wane-out deceleration. Non-digit characters stay static.
- */
-function Jackpot({
-  segments,
-  label,
-  className = "",
-}: {
-  segments: JackpotSegment[];
-  label: string;
-  className?: string;
-}) {
-  const rootRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const reels = Array.from(
-      root.querySelectorAll<HTMLElement>("[data-reel]")
-    );
-    const target = (el: HTMLElement) => {
-      const digit = Number(el.dataset.reel);
-      const index = (REEL_CYCLES - 1) * 10 + digit;
-      return -(index * (100 / REEL_DIGITS.length));
-    };
-
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReducedMotion) {
-      reels.forEach((el) => gsap.set(el, { yPercent: target(el) }));
-      return;
-    }
-
-    const ctx = gsap.context(() => {
-      gsap.set(reels, { yPercent: 0, filter: "blur(2px)" });
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: root,
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
-      });
-      reels.forEach((el, i) => {
-        tl.to(
-          el,
-          { yPercent: target(el), duration: 1.3, ease: "wane-out" },
-          i * 0.14
-        );
-        tl.to(el, { filter: "blur(0px)", duration: 0.4 }, i * 0.14 + 0.5);
-      });
-    }, root);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <span
-      ref={rootRef}
-      role="img"
-      aria-label={label}
-      className={`inline-flex items-center leading-none ${className}`}
-    >
-      {segments.map((seg, si) =>
-        seg.spin ? (
-          seg.text.split("").map((ch, ci) =>
-            /\d/.test(ch) ? (
-              <span
-                key={`${si}-${ci}`}
-                aria-hidden
-                className="inline-block overflow-hidden"
-                style={{ height: "1em" }}
-              >
-                <span data-reel={ch} className="block will-change-transform">
-                  {REEL_DIGITS.map((d, di) => (
-                    <span
-                      key={di}
-                      className="block"
-                      style={{ height: "1em", lineHeight: "1em" }}
-                    >
-                      {d}
-                    </span>
-                  ))}
-                </span>
-              </span>
-            ) : (
-              <span
-                key={`${si}-${ci}`}
-                aria-hidden
-                className="whitespace-pre"
-                style={{ lineHeight: "1em" }}
-              >
-                {ch}
-              </span>
-            )
-          )
-        ) : (
-          <span
-            key={si}
-            aria-hidden
-            className="whitespace-pre"
-            style={{ lineHeight: "1em" }}
-          >
-            {seg.text}
-          </span>
-        )
-      )}
-    </span>
-  );
-}
-
 export default function S1() {
   const pinRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
@@ -241,7 +117,7 @@ export default function S1() {
       {/* FORTISSIMO — the eye travels: top-left label -> huge right numeral -> low-left paragraph */}
       <div className="mx-auto w-full max-w-[1200px] px-8 md:px-14 pt-32 pb-g6">
         <Reveal>
-          <div className="micro-label">BCG OutPrompt — Problem 4</div>
+          <div className="micro-label">BCG OutPrompt, Problem 4</div>
         </Reveal>
 
         <div className="mt-g5 grid min-h-[68vh] grid-cols-12 items-end gap-g3">
@@ -290,7 +166,7 @@ export default function S1() {
       <div ref={pinRef} className="flex h-screen w-full flex-col justify-center">
         <div className="mx-auto w-full max-w-[1200px] px-8 md:px-14">
           <div className="micro-label mb-g3">
-            The consumer&apos;s ₹100 — tomato, farmgate to fork
+            The consumer&apos;s ₹100: tomato, farmgate to fork
           </div>
           <div
             ref={barRef}
@@ -364,8 +240,8 @@ export default function S1() {
           </div>
 
           <p className="mt-g5 max-w-[52ch] text-muted">
-            The trader and the wholesaler — the classic &quot;middlemen&quot;
-            — take ~5% each. The majority of the intermediary share sits at
+            The trader and the wholesaler, the classic &quot;middlemen&quot;,
+            take ~5% each. The majority of the intermediary share sits at
             the retail end and in wastage. &quot;Cut out the middleman&quot;
             attacks the wrong ₹5; the prize is the ~₹56 downstream block.
           </p>
@@ -390,39 +266,27 @@ export default function S1() {
 
         <div className="mx-auto mt-g5 flex max-w-[760px] flex-col items-center gap-g5 text-center">
           <Reveal className="flex flex-col items-center">
-            <Jackpot
-              label={holdings.total}
-              segments={[{ text: "146", spin: true }, { text: "M" }]}
-              className="font-mono text-fs-5 text-signal"
-            />
+            <div className="font-mono text-fs-5 text-signal">
+              {holdings.total}
+            </div>
             <div className="micro-label mt-2">
               landholdings <Cite id={holdings.source} />
             </div>
           </Reveal>
 
           <Reveal delay={0.08} className="flex flex-col items-center">
-            <Jackpot
-              label={`${holdings.smallMarginalPct}%`}
-              segments={[
-                { text: String(holdings.smallMarginalPct), spin: true },
-                { text: "%" },
-              ]}
-              className="font-mono text-fs-4 text-signal"
-            />
+            <div className="font-mono text-fs-4 text-signal">
+              {holdings.smallMarginalPct}%
+            </div>
             <div className="micro-label mt-2">
               hold under 2 ha <Cite id={holdings.source} />
             </div>
           </Reveal>
 
           <Reveal delay={0.16} className="flex flex-col items-center">
-            <Jackpot
-              label={`${holdings.avgHa} ha`}
-              segments={[
-                { text: holdings.avgHa.toFixed(2), spin: true },
-                { text: " ha" },
-              ]}
-              className="font-mono text-fs-3 text-signal"
-            />
+            <div className="font-mono text-fs-3 text-signal">
+              {holdings.avgHa.toFixed(2)} ha
+            </div>
             <div className="micro-label mt-2">
               average holding, down from {holdings.avgHa1970} ha (1970)
               <Cite id={holdings.source} />
@@ -430,14 +294,9 @@ export default function S1() {
           </Reveal>
 
           <Reveal delay={0.24} className="flex flex-col items-center">
-            <Jackpot
-              label={`1 / ${mandiDensity.actualSqKm}`}
-              segments={[
-                { text: "1 / " },
-                { text: String(mandiDensity.actualSqKm), spin: true },
-              ]}
-              className="font-mono text-fs-3 text-signal"
-            />
+            <div className="font-mono text-fs-3 text-signal">
+              1 / {mandiDensity.actualSqKm}
+            </div>
             <div className="micro-label mt-2">
               sq km per mandi, vs 1/{mandiDensity.recommendedSqKm}{" "}
               recommended <Cite id={mandiDensity.source} />
@@ -458,7 +317,7 @@ export default function S1() {
                 <span className="stat text-fs-3">
                   ₹{eggsChanaShare.value}
                 </span>{" "}
-                of every ₹100 <Cite id={eggsChanaShare.source} /> — proof
+                of every ₹100 <Cite id={eggsChanaShare.source} />, proof
                 the ₹{farmerShare.tomato} tomato outcome is a chain problem,
                 not a physics problem.
               </p>

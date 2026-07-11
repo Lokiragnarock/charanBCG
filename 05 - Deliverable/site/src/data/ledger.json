@@ -105,43 +105,43 @@
   },
   "sources": {
     "rbi-top-2024": {
-      "title": "RBI Working Paper — Vegetables Inflation in India: A Study of Tomato, Onion and Potato (TOP)",
+      "title": "RBI Working Paper: Vegetables Inflation in India: A Study of Tomato, Onion and Potato (TOP)",
       "url": "https://agritech.tnau.ac.in/govt_schemes_services/pdf/tomato,%20onion%20and%20potato.pdf",
       "year": 2024,
       "tag": "reported"
     },
     "rbi-top-2024-derived": {
-      "title": "RBI TOP WP 2024 — residual decomposition (ours, derived)",
+      "title": "RBI TOP WP 2024: residual decomposition (ours, derived)",
       "url": "https://agritech.tnau.ac.in/govt_schemes_services/pdf/tomato,%20onion%20and%20potato.pdf",
       "year": 2024,
       "tag": "estimated"
     },
     "brief": {
-      "title": "BCG OutPrompt Case Brief — smallholder share of land vs. output",
+      "title": "BCG OutPrompt Case Brief: smallholder share of land vs. output",
       "url": "",
       "year": 2026,
       "tag": "verified"
     },
     "brief-exhibit-b": {
-      "title": "BCG OutPrompt Case Brief — Exhibit B (landholding structure)",
+      "title": "BCG OutPrompt Case Brief: Exhibit B (landholding structure)",
       "url": "",
       "year": 2026,
       "tag": "verified"
     },
     "brief-exhibit-c": {
-      "title": "BCG OutPrompt Case Brief — Exhibit C (mandi density & eNAM share)",
+      "title": "BCG OutPrompt Case Brief: Exhibit C (mandi density & eNAM share)",
       "url": "",
       "year": 2026,
       "tag": "verified"
     },
     "brief-exhibit-d": {
-      "title": "BCG OutPrompt Case Brief — Exhibit D (data substrate)",
+      "title": "BCG OutPrompt Case Brief: Exhibit D (data substrate)",
       "url": "",
       "year": 2026,
       "tag": "verified"
     },
     "brief-exhibit-f": {
-      "title": "BCG OutPrompt Case Brief — Exhibit F (contract farming uplift)",
+      "title": "BCG OutPrompt Case Brief: Exhibit F (contract farming uplift)",
       "url": "",
       "year": 2026,
       "tag": "verified"
@@ -153,7 +153,7 @@
       "tag": "verified"
     },
     "ciphet-2015": {
-      "title": "ICAR-CIPHET (2015) — Post-Harvest Losses study, via MoFPI",
+      "title": "ICAR-CIPHET (2015): Post-Harvest Losses study, via MoFPI",
       "url": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1910360",
       "year": 2015,
       "tag": "verified"
@@ -171,19 +171,19 @@
       "tag": "reported"
     },
     "nsso-77": {
-      "title": "NSSO 77th Round — Situation Assessment of Agricultural Households",
+      "title": "NSSO 77th Round: Situation Assessment of Agricultural Households",
       "url": "",
       "year": 2021,
       "tag": "reported"
     },
     "wef-brief": {
-      "title": "World Economic Forum — farmgate-to-fork tech prize, via BCG OutPrompt brief",
+      "title": "World Economic Forum: farmgate-to-fork tech prize, via BCG OutPrompt brief",
       "url": "",
       "year": 2026,
       "tag": "verified"
     },
     "sahyadri-financials": {
-      "title": "Sahyadri Farms (Nashik) — reported financials",
+      "title": "Sahyadri Farms (Nashik): reported financials",
       "url": "",
       "year": 2025,
       "tag": "reported"

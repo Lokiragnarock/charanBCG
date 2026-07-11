@@ -17,7 +17,7 @@ export default function Home() {
         <S1 />
         <ExhibitStage
           label="Small farms, most of the food"
-          takeaway={`Smallholders farm ${ledger.smallholderOutput.landPct}% of India's agricultural land — and grow the majority of its vegetables, fruits, and cereals.`}
+          takeaway={`Smallholders farm ${ledger.smallholderOutput.landPct}% of India's agricultural land, yet grow the majority of its vegetables, fruits, and cereals.`}
           citeId={ledger.smallholderOutput.source}
         >
           <SmallholderDonut />

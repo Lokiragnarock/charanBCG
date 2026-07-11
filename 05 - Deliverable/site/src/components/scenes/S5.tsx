@@ -5,15 +5,15 @@ import Reveal from "@/components/Reveal";
 const DECISIONS = [
   {
     title: "Rejected: 'cut out the middleman' framing",
-    body: "First AI answer targeted the trader/wholesaler ~10.6% margin. The Link Ledger showed the real prize sits in the ~₹56 retail + wastage residual — reframed the whole thesis around moving up the chain, not around them.",
+    body: "First AI answer targeted the trader/wholesaler ~10.6% margin. The Link Ledger showed the real prize sits in the ~₹56 retail + wastage residual: reframed the whole thesis around moving up the chain, not around them.",
   },
   {
     title: "Rejected: link ownership requiring crore-scale capital",
-    body: "Median FPO working capital is under ₹3 lakh — roughly one truckload of onions. Any link whose entry ticket is measured in crores was ruled out early as fantasy without external finance.",
+    body: "Median FPO working capital is under ₹3 lakh, roughly one truckload of onions. Any link whose entry ticket is measured in crores was ruled out early as fantasy without external finance.",
   },
   {
     title: "Considered: human agronomist advisory model",
-    body: "Contract-farming uplift data (+81% net income) is real, but the unit economics only work at AI-advisory cost (target <₹50/farmer/yr), not a human-agronomist headcount model — logged as an open cost-build gap in the Link Ledger.",
+    body: "Contract-farming uplift data (+81% net income) is real, but the unit economics only work at AI-advisory cost (target <₹50/farmer/yr), not a human-agronomist headcount model: logged as an open cost-build gap in the Link Ledger.",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function S5() {
             Footnotes of the Journey
           </h2>
           <p className="mt-4 max-w-xl text-muted">
-            What we considered, rejected, and why. End-credits style —
+            What we considered, rejected, and why. End-credits style:
             expandable entries, v1 stub below.
           </p>
         </Reveal>
@@ -50,7 +50,7 @@ export default function S5() {
         </div>
 
         <div className="micro-label mt-10 border border-dashed border-hairline p-4 text-center">
-          Full decision log — expandable end-credits scroll — v1
+          Full decision log: expandable end-credits scroll, v1
         </div>
       </div>
     </section>

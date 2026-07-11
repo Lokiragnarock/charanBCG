@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The ₹100 Problem — BCG OutPrompt PS4",
+  title: "The ₹100 Problem: BCG OutPrompt PS4",
   description:
     "Where India's agri-value chain rupee actually goes, and where the AI-native FPO opportunity sits.",
 };

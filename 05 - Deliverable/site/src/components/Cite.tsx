@@ -15,13 +15,13 @@ export default function Cite({ id }: { id: string }) {
   if (!source) {
     // Build-time guard: a citation id not present in the ledger is a data error.
     if (process.env.NODE_ENV !== "production") {
-      console.warn(`Cite: unknown source id "${id}" — not in ledger.json`);
+      console.warn(`Cite: unknown source id "${id}", not in ledger.json`);
     }
     return null;
   }
 
   return (
-    <sup>
+    <sup style={{ position: "relative" }}>
       <button
         type="button"
         onClick={() => open(id)}
@@ -32,7 +32,32 @@ export default function Cite({ id }: { id: string }) {
         ↗
         <span
           role="tooltip"
-          className="micro-label pointer-events-none absolute bottom-full left-1/2 z-20 mb-1 w-max max-w-[260px] -translate-x-1/2 whitespace-normal rounded-[2px] border border-hairline bg-bg px-3 py-2 text-left opacity-0 transition-opacity duration-150 group-hover/cite:opacity-100 group-focus/cite:opacity-100 group-focus-visible/cite:opacity-100"
+          aria-hidden
+          className="pointer-events-none absolute z-50 opacity-0 transition-opacity duration-150 group-hover/cite:opacity-100 group-focus/cite:opacity-100 group-focus-visible/cite:opacity-100"
+          style={{
+            bottom: "100%",
+            left: "50%",
+            transform: "translateX(-50%)",
+            marginBottom: "6px",
+            width: "max-content",
+            maxWidth: "240px",
+            padding: "6px 10px",
+            background: "#0A0C0B",
+            border: "1px solid var(--hairline)",
+            borderRadius: "2px",
+            fontFamily: "var(--font-mono), monospace",
+            fontSize: "11px",
+            lineHeight: 1.4,
+            letterSpacing: "normal",
+            textTransform: "none",
+            fontWeight: 400,
+            textAlign: "left",
+            whiteSpace: "normal",
+            color: "var(--text)",
+            WebkitTextFillColor: "var(--text)",
+            WebkitBackgroundClip: "border-box",
+            backgroundClip: "border-box",
+          }}
         >
           {source.title}
         </span>
