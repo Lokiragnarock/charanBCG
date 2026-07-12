@@ -36,6 +36,31 @@ The Move-Up-the-Chain school is right that L4 is where destroyable value sits (p
 4. **Pay-per-use math under price crash.** The storage option is only worth exercising when expected price recovery > (per-crate fee + residual spoilage + interest on pledge). In a Rs 2/kg crash, cooling a worthless tomato is burning money. The simulator should treat rented cold storage as an *option*, not a default flow.
 5. **Quality gate is load-bearing.** Every rail assumes the FPO can grade honestly and consistently. If grading fails, e-NWR disputes and network returns kill trust faster than the mandi ever would. (Institution-school insight survives here.)
 
+## Deep-research verdicts (3 subagent reports, 2026-07-12)
+
+**Rail 1 — Capacity: exists as rooms, not as a chain.**
+- WDRA Annual Report 2024-25 (primary read): 6,166 active registered warehouses, of which only **151 are cold storages** (2.4%) — roughly 1 per 5 districts. FPO/PACS own 1,417 registrations but only 311 active. 🟢
+- NCCD AICIC 2015 (primary read): pack-houses **249 built vs 70,080 required (99.6% gap)**; reefer vehicles 85% gap; cold *storage* gap only ~9%. India has potato warehouses, not a cold chain — the missing piece is the farmgate front end. 🟢
+- Horticulture belts do have physical cold stores nearby (MANAGE directory: Nashik ~64, Kolar 12, Chittoor 11 incl. 4 in Madanapalle, mostly multi-purpose). 🟢 (directory, undated)
+- But **no organised player publishes a rate card** — Celcius and all 3PL competitors are quote-only and city/pharma/QSR-centric. The real farmgate options are FPO-owned micro cold rooms (subsidy-built: 10t Ecofrost ₹12.5L capex, ₹9.37L subsidised via MIDH+RKVY) and portable units (Tan90). "Rent-not-own" today means *build-with-subsidy-then-rent-out*, not book-on-an-app. 🟡
+
+**Rail 2 — e-NWR pledge finance: real, tiny, and closed to fresh vegetables.**
+- Fresh tomato is **not** a WDRA-notified cold-storage commodity; neither is fresh onion (only dehydrated). No bank/NBFC pledge product against fresh vegetables found. Pledge finance works for potato (and durables), full stop. 🟢 (govt source)
+- Current e-NWR pledge volume ~₹4,000 Cr vs ₹5.5 lakh Cr potential; CGS-NPF ₹1,000 Cr corpus, guarantee tiers 85/80/75%. The rail is state-backed but embryonic. 🟡
+- Cold room buys tomato **~2-3 weeks at 13-15°C** (chilling injury below ~12.5°C for green fruit) vs 2-5 days ambient — market-timing weeks, not finance-grade months. 🟡
+
+**Rail 3 — ONDC demand: pickle-and-papad CONFIRMED.**
+- No agri GMV figure has ever been published — the strongest tell. Of ~5,000 "onboarded" FPOs (Mar 2024), ~50% had never made one sale; the only published cohort averaged **~₹5,600/FPO/month**. 🟡→🔴 derivations
+- Official SFAC-ONDC catalogue contains **no fresh produce category**. Only fresh pilot ever: HOPCOMS Bengaluru, ~₹57k/month, 2-km radius, explicitly designed to avoid cold chain. No cold-chain network participant on ONDC; FPOs ship via India Post. eNAM-ONDC never passed feasibility study. Meanwhile eNAM itself: ₹3.19 lakh Cr cumulative — 4 orders of magnitude larger. 🟢/🟡
+
+**Verified price points for the model** (best available):
+- Farmgate storage: **₹0.20/kg/day** (CoolCrop design tariff) · **₹10 per 50-kg crate** (Dhaanya FPO, Karnataka) · 5-MT unit revenue ₹12-20k/month. 🟡
+- Onion storage economics (primary study, W. Maharashtra): cost ₹303.6/qtl/season; Apr→Nov nets **+₹2,133/qtl (+182.7%)** after 30% losses; storing <4 months loses money. 🟢
+- Potato cold-store rent (UP, govt-fixed): ₹230/qtl/season ≈ ₹30-35/qtl/month. 🟡
+- Haulage: ₹3.6/t-km all-India trunk 🟡; small-lot rural ₹15-30/t-km (🔴 derived) — 1-tonne lot moved 30 km ≈ ₹450-750.
+
+**Net verdict:** the idealistic "three rails" story survives only in reshaped form. The honest sentence: **rentable cold rooms exist; a rentable cold chain does not — and that gap IS the business.** The FPO's wedge is the farmgate front end (pack-house grading + micro cold room + booked transport) that makes the existing warehouse stock and the empty ONDC seller-side usable at all. ONDC is "why now" white space, not a demand channel today. Pledge finance enters the model only if a storable crop (potato; or onion via conventional structures) is in the mix — never against tomato.
+
 ## What this changes
 - **Spine**: L3+L4 stays the link pair, but L4 = *access via network*, not asset. The Coordination school (C3) absorbs the Move-Up destination without its capex CRASH.
 - **Model (S3)**: pledge finance source should be parameterized by crop storability; consider a "rented cold room" lever (per-crate cost vs spoilage reduction) as a scenario.

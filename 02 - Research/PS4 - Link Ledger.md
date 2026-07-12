@@ -68,11 +68,21 @@ Where the consumer's ₹100 goes — RBI WPS (DEPR) 08/2024, Roy et al., Oct 202
 | Post-harvest losses, vegetables | 4.58–12.44% (tomato worst at 12.44%) | ICAR-CIPHET 2015 | 🟢 |
 | National economic value of losses | ₹92,651 crore (45 commodities); ₹16,644 Cr fruits + ₹14,842 Cr vegetables | ICAR-CIPHET 2015 | 🟢 |
 | Loss concentration stages | harvesting, sorting/grading, transport, wholesale & retail storage | ICAR-CIPHET 2015 | 🟢 |
+| Pack-houses: built vs required | **249 vs 70,080 (99.6% gap)**; reefer 85% gap; cold *storage* gap only ~9% | NCCD AICIC 2015 (primary read) | 🟢 |
+| WDRA active warehouses / cold storages | 6,166 active, of which **only 151 cold** (2.4%); FPO/PACS: 311 active | WDRA Annual Report 2024-25 (primary read) | 🟢 |
+| Cold-store stock skew | 8,653 units, ~75% single-commodity potato, ~60% capacity in UP+WB | LS reply Dec 2023 / MoFPI-CII | 🟡 |
+| Farmgate pay-per-use storage tariff | ~₹0.20/kg/day (CoolCrop target); ₹10 per 50-kg crate (Dhaanya FPO); 5-MT unit revenue ₹12–20k/mo | Civil Society Online / Mongabay Nov 2025 | 🟡 |
+| Micro cold room capex | 10t Ecofrost ₹12.5L, ₹9.37L subsidised (MIDH+RKVY); CoolCrop 3–4t ₹4L | pv-magazine / Mongabay | 🟡 |
+| Tomato cold-room shelf life | ~2–3 weeks at 13–15°C (chilling injury <12.5°C green) vs 2–5 days ambient | DCMSME / Cornell / CoolCrop | 🟡 |
+| Fresh tomato WDRA cold-storage eligibility | **NOT notified** (no fresh vegetable is; onion only as dehydrated) → no pledge finance on tomato | IES Arthapedia (govt) | 🟢 |
+| Onion storage economics | cost ₹303.6/qtl/season; Apr→Nov **+₹2,133/qtl (+182.7%)** after 30% losses; <4 months stored = loss | Joshi et al. 2025 (primary read) | 🟢 |
+| Potato cold-store rent (UP, govt-fixed) | ₹230/qtl/season ≈ ₹30–35/qtl/month | NewsClick/state notification | 🟡 |
 
 ### L5 — Transport & logistics
 | Item | Number | Source | Tag |
 |---|---|---|---|
-| ₹/kg/km rural haulage | tbd | research queue | ⬜ |
+| ₹/tonne-km all-India road freight (trunk) | ₹3.6 | Statista 2021 | 🟡 |
+| ₹/tonne-km small-lot rural haulage | ₹15–30 (5–8x trunk rate); 1 t × 30 km ≈ ₹450–750; +10–25% harvest premium | derived from Tata Ace-class ₹15–25/vehicle-km | 🔴 |
 | Share of consumer ₹ | inside the ~₹56 residual | RBI TOP WP decomposition | ⬜ |
 
 ### L6 — Wholesale → Retail → Consumer
@@ -99,10 +109,11 @@ Where the consumer's ₹100 goes — RBI WPS (DEPR) 08/2024, Roy et al., Oct 202
 
 ## Gaps queue (Quant to close, priority order)
 1. ~~Read RBI TOP WP PDF fully~~ ✅ CLOSED 07-10 → [[PS4 - RBI TOP Decomposition]] (WPS 08/2024, Roy et al.)
-2. Transport ₹/kg/km + pack-house cost benchmarks (NCCD / NABCONS)
+2. ~~Transport ₹/kg/km + pack-house benchmarks~~ ✅ CLOSED 07-12 (trunk 🟡 verified; rural small-lot stays 🔴 derived — no govt norm table found)
 3. AI advisory unit cost build-up (tokens + WhatsApp Business API ₹/farmer/yr)
 4. Crop TAMs + buyer concentration for sweet-spot scene (onion, banana, pomegranate, tomato-processing, maize-feed, chilli)
-5. e-NWR pledge finance: interest rate, LTV, eligible commodities (WDRA)
+5. ~~e-NWR pledge finance~~ ✅ CLOSED 07-12: ~₹4,000 Cr current vs ₹5.5L Cr potential; CGS-NPF ₹1,000 Cr, tiers 85/80/75%; LTV 75–80%; **fresh vegetables ineligible** → [[PS4 Agri/ONDC of Cold Storage]]
+5b. ONDC agri GMV (T4) ✅ CLOSED 07-12: never published; ~50% of onboarded FPOs zero sales; only cohort ~₹5,600/FPO/mo; no fresh-produce category — pickle-and-papad confirmed → [[PS4 Agri/ONDC of Cold Storage]]
 6. Sahyadri Nashik financials (revenue, farmer count, years to profitability)
 
 ## Sources
