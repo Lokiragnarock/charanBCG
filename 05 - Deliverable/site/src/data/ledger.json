@@ -109,6 +109,57 @@
     "potato": { "farmer": 36.7, "trader": 16.2, "wholesaler": 16.0, "retailer": 31.0 },
     "source": "rbi-top-2024"
   },
+  "bananaGlobalRank": {
+    "mmt": 34.5,
+    "year": 2022,
+    "globalSharePct": 26.3,
+    "note": "India is the world's #1 banana producer",
+    "source": "rbi-fruits-2024"
+  },
+  "bananaFruitEconomyShare": {
+    "areaSharePct": 13,
+    "valueSharePct": 24,
+    "rank": 2,
+    "note": "India's #2 fruit by land and value (mango #1 at 29% of fruit output value)",
+    "source": "rbi-fruits-2024"
+  },
+  "bananaYearRoundTN": {
+    "note": "Plantable nearly any time of year in Tamil Nadu, except peak summer -- unlike seasonal fruits, so supply-smoothing (staggered planting) is agronomically available here specifically",
+    "source": "rbi-fruits-2024"
+  },
+  "theniClusterStats": {
+    "areaKHa": 17.0,
+    "productionCagrPct": 5.4,
+    "note": "Stable at 17,000 Ha, production growing via high-density planting and drip fertigation; Kerala absorbs nearly all of the cluster's surplus",
+    "source": "gt-deck"
+  },
+  "clusterLossComparison": {
+    "tnPct": 9,
+    "gjPctLow": 18,
+    "gjPctHigh": 20,
+    "upPct": 22,
+    "apPct": 23,
+    "mhPct": 30.5,
+    "note": "TN clusters (incl. Theni) hold the lowest total post-harvest loss of any surveyed banana cluster in India",
+    "source": "mofpi-gt-diagnostic-2021"
+  },
+  "bananaRipeningCapacityTheni": {
+    "chambers": 5,
+    "capacityMt": 895,
+    "note": "MIDH-assisted ripening chambers, in-cluster",
+    "source": "gt-deck"
+  },
+  "giHeadroomTheni": {
+    "tags": ["Virupakshi", "Sirumalai Hill Banana"],
+    "brandRecall": "zero",
+    "precedentCluster": "Jalgaon",
+    "precedentGi": "Jalgaon Banana",
+    "precedentPremiumPct": 50,
+    "precedentPriceGi": 15,
+    "precedentPriceRegular": 10,
+    "note": "Theni holds two GI tags with zero brand recall -- the headroom the Jalgaon Banana GI has already proven (+50%/kg premium)",
+    "source": "mofpi-gt-diagnostic-2021"
+  },
   "bananaFarmerShare": {
     "value": 30.8,
     "rangeLow": 20,
@@ -226,6 +277,8 @@
     "source": "iisd-2023"
   },
   "bananaPseudostem": {
+    "yieldPerHaMtLow": 70,
+    "yieldPerHaMtHigh": 80,
     "rawStemPerMt": 400,
     "fiberAGradePerKgLow": 300,
     "fiberAGradePerKgHigh": 400,

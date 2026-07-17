@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 // just the same five section ids that already exist in page.tsx.
 const MAIN_SECTIONS: { id: string; label: string }[] = [
   { id: "cover", label: "Cover" },
+  { id: "why", label: "Why This" },
   { id: "problem", label: "The Problem" },
   { id: "sweet-spot", label: "Sweet Spot" },
   { id: "value-chain", label: "Reinvention" },
@@ -93,7 +94,9 @@ export default function SectionTracker() {
             <span className="glow-signal-text font-mono text-[11px] text-signal">
               {String(activeIndex + 1).padStart(2, "0")}
             </span>
-            <span className="font-mono text-[11px] text-muted">/ 05</span>
+            <span className="font-mono text-[11px] text-muted">
+              / {String(MAIN_SECTIONS.length).padStart(2, "0")}
+            </span>
             <span className="micro-label hidden text-muted sm:inline">
               {MAIN_SECTIONS[activeIndex]?.label ?? ""}
             </span>

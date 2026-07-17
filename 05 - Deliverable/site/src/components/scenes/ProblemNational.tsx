@@ -8,26 +8,11 @@ import { ledger } from "@/lib/ledger";
 const {
   bananaFarmerShare,
   bananaStageContent,
-  topStageSplit,
   holdings,
   mandiDensity,
-  eggsChanaShare,
   bvcPrecedent,
   bananaChainUplift,
 } = ledger;
-
-const TOP_CROPS: { key: "tomato" | "onion" | "potato"; label: string }[] = [
-  { key: "tomato", label: "Tomato" },
-  { key: "onion", label: "Onion" },
-  { key: "potato", label: "Potato" },
-];
-
-const STAGE_COLOR: Record<string, string> = {
-  farmer: "var(--signal)",
-  trader: "rgba(255,255,255,0.55)",
-  wholesaler: "rgba(255,255,255,0.35)",
-  retailer: "var(--danger)",
-};
 
 /**
  * The Problem, framed nationally — no Theni-specific corridor numbers here
@@ -112,86 +97,55 @@ export default function ProblemNational() {
       <div className="flex min-h-screen w-full flex-col justify-center px-6 py-24">
         <div className="mx-auto w-full max-w-[1200px]">
           <Reveal>
-            <div className="micro-label">Who does what for that money</div>
+            <div className="micro-label">The structural constraint</div>
             <h2 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
-              Read the chain by reading the money
+              The base the chain sits on
             </h2>
             <p className="mt-4 max-w-2xl text-muted">
-              Banana&apos;s exact stage split isn&apos;t disclosed at this
-              resolution. Here is what a fully-verified split chain looks
-              like, for the vegetables RBI decomposed in full
-              <Cite id={topStageSplit.source} />.
+              Before the chain comes the farm: fragmented holdings meeting
+              thin market infrastructure, nationwide.
             </p>
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-12 flex flex-col gap-g2">
-            {TOP_CROPS.map((crop) => {
-              const s = topStageSplit[crop.key];
-              return (
-                <div key={crop.key} className="flex items-center gap-g3">
-                  <div className="w-16 shrink-0 font-mono text-xs text-muted">
-                    {crop.label}
-                  </div>
-                  <div className="flex h-9 flex-1 overflow-hidden rounded-[2px]">
-                    {(["farmer", "trader", "wholesaler", "retailer"] as const).map(
-                      (stage) => (
-                        <div
-                          key={stage}
-                          style={{
-                            flexGrow: s[stage],
-                            background:
-                              stage === "farmer"
-                                ? "color-mix(in srgb, var(--signal) 30%, transparent)"
-                                : stage === "retailer"
-                                ? "color-mix(in srgb, var(--danger) 20%, transparent)"
-                                : "rgba(255,255,255,0.06)",
-                            borderRight: "1px solid var(--hairline)",
-                          }}
-                          className="flex items-center justify-center"
-                        >
-                          <span
-                            className="font-mono text-[11px]"
-                            style={{ color: STAGE_COLOR[stage] }}
-                          >
-                            {s[stage]}%
-                          </span>
-                        </div>
-                      )
-                    )}
-                  </div>
+          {/* Structural constraint stat row — left to right, equal weight, one screen */}
+          <Reveal delay={0.1} className="mt-g7">
+            <div className="grid grid-cols-2 gap-g4 border-t border-hairline pt-g5 sm:grid-cols-4 sm:gap-0 sm:divide-x sm:divide-hairline">
+              <div className="flex flex-col items-center gap-2 text-center sm:px-g3 sm:first:pl-0">
+                <div className="font-mono text-fs-4 text-signal">
+                  {holdings.total}
                 </div>
-              );
-            })}
+                <div className="micro-label">
+                  landholdings <Cite id={holdings.source} />
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center sm:px-g3">
+                <div className="font-mono text-fs-4 text-signal">
+                  {holdings.smallMarginalPct}%
+                </div>
+                <div className="micro-label">
+                  hold under 2 ha <Cite id={holdings.source} />
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center sm:px-g3">
+                <div className="font-mono text-fs-4 text-signal">
+                  {holdings.avgHa.toFixed(2)} ha
+                </div>
+                <div className="micro-label">
+                  average holding, down from {holdings.avgHa1970} ha (1970)
+                  <Cite id={holdings.source} />
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center sm:px-g3 sm:last:pr-0">
+                <div className="font-mono text-fs-4 text-signal">
+                  1 / {mandiDensity.actualSqKm}
+                </div>
+                <div className="micro-label">
+                  sq km per mandi, vs 1/{mandiDensity.recommendedSqKm}{" "}
+                  recommended <Cite id={mandiDensity.source} />
+                </div>
+              </div>
+            </div>
           </Reveal>
-
-          {/* Structural constraint stat cascade */}
-          <div className="mx-auto mt-g7 flex max-w-[760px] flex-col items-center gap-g5 text-center">
-            <Reveal className="flex flex-col items-center">
-              <div className="font-mono text-fs-5 text-signal">
-                {holdings.total}
-              </div>
-              <div className="micro-label mt-2">
-                landholdings <Cite id={holdings.source} />
-              </div>
-            </Reveal>
-            <Reveal delay={0.08} className="flex flex-col items-center">
-              <div className="font-mono text-fs-4 text-signal">
-                {holdings.smallMarginalPct}%
-              </div>
-              <div className="micro-label mt-2">
-                hold under 2 ha <Cite id={holdings.source} />
-              </div>
-            </Reveal>
-            <Reveal delay={0.16} className="flex flex-col items-center">
-              <div className="font-mono text-fs-3 text-signal">
-                1 / {mandiDensity.actualSqKm}
-              </div>
-              <div className="micro-label mt-2">
-                sq km per mandi, vs 1/{mandiDensity.recommendedSqKm}{" "}
-                recommended <Cite id={mandiDensity.source} />
-              </div>
-            </Reveal>
-          </div>
         </div>
       </div>
 
@@ -213,23 +167,6 @@ export default function ProblemNational() {
             </p>
           </Reveal>
         </div>
-
-        <Reveal delay={0.2} className="mt-g6 w-full max-w-[1200px]">
-          <div className="grid grid-cols-12 gap-g3">
-            <div className="col-span-11 col-start-2 border-l border-t border-b border-hairline p-g4 sm:p-g5 md:col-span-7 md:col-start-6">
-              <div className="micro-label mb-2">Contrast case</div>
-              <p className="max-w-md text-left text-text">
-                Eggs and chana farmers keep{" "}
-                <span className="stat text-fs-3">
-                  &#8377;{eggsChanaShare.value}
-                </span>{" "}
-                of every &#8377;100 <Cite id={eggsChanaShare.source} />, proof
-                the {bananaFarmerShare.value}% banana outcome is a chain
-                problem, not a physics problem.
-              </p>
-            </div>
-          </div>
-        </Reveal>
       </div>
 
       {/* d) headroom proof */}

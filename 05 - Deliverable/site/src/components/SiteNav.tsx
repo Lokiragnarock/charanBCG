@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 
 const HOME_SECTIONS: { id: string; label: string }[] = [
   { id: "cover", label: "Cover" },
+  { id: "why", label: "Why This" },
   { id: "problem", label: "The Problem" },
   { id: "sweet-spot", label: "Sweet Spot" },
   { id: "value-chain", label: "Corridor" },

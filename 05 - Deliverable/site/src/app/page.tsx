@@ -2,6 +2,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import ExhibitStage from "@/components/ExhibitStage";
 import SmallholderDonut from "@/components/charts/SmallholderDonut";
 import Cover from "@/components/scenes/Cover";
+import WhyBananaTheni from "@/components/scenes/WhyBananaTheni";
 import ProblemNational from "@/components/scenes/ProblemNational";
 import SweetSpotTable from "@/components/scenes/SweetSpotTable";
 import ValueChain from "@/components/scenes/ValueChain";
@@ -13,6 +14,7 @@ export default function Home() {
     <SmoothScroll>
       <main className="relative">
         <Cover />
+        <WhyBananaTheni />
         <ProblemNational />
         <ExhibitStage
           label="Small farms, most of the food"
