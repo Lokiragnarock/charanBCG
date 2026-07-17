@@ -107,8 +107,8 @@ export default function ValueChain() {
             the traditional Theni chain, farmers retain{" "}
             <span className="stat font-mono">{bvcPrecedent.bvc1Pct}%</span> of
             the consumer rupee
-            <Cite id={bvcPrecedent.source} /> (Pauline &amp; Ajjan, TNAU 2014
-            &mdash; BVC1).
+            <Cite id={bvcPrecedent.source} /> (Pauline &amp; Ajjan, TNAU 2014,
+            BVC1).
           </p>
         </Reveal>
 
@@ -200,14 +200,14 @@ export default function ValueChain() {
                   <p className="text-[11px] text-muted">
                     {contractorAdvanceTerms.adjustedAt}, delays up to{" "}
                     {contractorAdvanceTerms.delayWeeksMax} weeks
-                    <Cite id={contractorAdvanceTerms.source} /> &mdash;{" "}
+                    <Cite id={contractorAdvanceTerms.source} />;{" "}
                     {contractorAdvanceTerms.costNote}
                   </p>
                   <p className="mt-1 text-[11px] text-muted">
                     Grades post-sale (A/B/C &#8377;{gradeSpreadCapture.gradeA}/
                     {gradeSpreadCapture.gradeB}/{gradeSpreadCapture.gradeC}
-                    <Cite id={gradeSpreadCapture.source} />) &mdash; farmer never
-                    captures the spread
+                    <Cite id={gradeSpreadCapture.source} />). The farmer never
+                    captures the spread.
                   </p>
                 </>
               )}
@@ -346,7 +346,7 @@ export default function ValueChain() {
                 {state === 2 && (
                   <p className="text-xs text-muted">
                     {contractorAdvanceTerms.type}
-                    <Cite id={contractorAdvanceTerms.source} /> &mdash;{" "}
+                    <Cite id={contractorAdvanceTerms.source} />;{" "}
                     {contractorAdvanceTerms.pricingNote}
                   </p>
                 )}
@@ -393,8 +393,8 @@ export default function ValueChain() {
                 {state === 1 && <p className="text-xs text-muted">Sorts, loads, ripens.</p>}
                 {state === 2 && (
                   <p className="text-xs text-muted">
-                    Embedded in wholesaler and ripening-chamber costs above
-                    &mdash; no separately reported rate.
+                    Embedded in wholesaler and ripening-chamber costs above;
+                    no separately reported rate.
                   </p>
                 )}
                 {state === 3 && (
@@ -413,7 +413,7 @@ export default function ValueChain() {
                 <div className="col-span-12 md:col-span-5">
                   <div className="micro-label">Endpoint anchor</div>
                   <p className="mt-2 max-w-[42ch] text-sm text-muted">
-                    Not a projection &mdash; a precedent. Farmer-co-owned
+                    Not a projection. A precedent. Farmer-co-owned
                     wholesale agents already ran this in{" "}
                     <span className="stat">
                       {bvcPrecedent.village}, {bvcPrecedent.district} district

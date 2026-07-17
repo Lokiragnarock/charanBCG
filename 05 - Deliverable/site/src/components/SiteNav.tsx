@@ -82,7 +82,7 @@ export default function SiteNav() {
               />
             )}
             <Link
-              href={isHome ? `#${id}` : `/#${id}`}
+              href={`/#${id}`}
               aria-current={isHome && active === id ? "true" : undefined}
               className={`micro-label shrink-0 transition-all duration-200 ease-out ${
                 isHome && active === id

@@ -18,8 +18,8 @@ export default function FPOModel() {
           One crop, one district, one coordination OS
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
-          The FPO is a member-owned company &mdash; farmers as shareholders
-          &mdash; operating on banana, in Theni, and nowhere else yet. It is
+          The FPO is a member-owned company, farmers as shareholders,
+          operating on banana, in Theni, and nowhere else yet. It is
           not a new middleman layered onto the existing chain. It is a
           replacement operating system for the coordination function that
           contractors, commission agents, and wholesalers currently perform:
@@ -104,7 +104,7 @@ export default function FPOModel() {
               {bvcPrecedent.bvc1Pct}%
             </div>
             <div className="micro-label mt-2 text-[10px]">
-              Baseline &mdash; traditional chain
+              Baseline: traditional chain
               <Cite id={bvcPrecedent.source} />
             </div>
           </div>
@@ -116,13 +116,13 @@ export default function FPOModel() {
               {bvcPrecedent.bvc2Pct}%
             </div>
             <div className="micro-label mt-2 text-[10px] text-signal/90">
-              Proven ceiling &mdash; {bvcPrecedent.village}, {bvcPrecedent.district}
+              Proven ceiling: {bvcPrecedent.village}, {bvcPrecedent.district}
               <Cite id={bvcPrecedent.source} />
             </div>
           </div>
         </div>
         <p className="mt-4 max-w-[70ch] text-sm text-muted">
-          This is not a projection &mdash; it is a precedent that already
+          This is not a projection. It is a precedent that already
           exists inside our own cluster. The farmer-co-owned BVC2 chain in
           Chinnamanur, {bvcPrecedent.corridorKm} km from Theni, already
           clears {bvcPrecedent.bvc2Pct}% farmer share. The precedent{" "}
@@ -132,7 +132,7 @@ export default function FPOModel() {
 
       {/* governance honesty line */}
       <Reveal delay={0.1} className="mt-16">
-        <div className="micro-label mb-4">Governance &mdash; the open question</div>
+        <div className="micro-label mb-4">Governance: the open question</div>
         <div className="border-l-2 border-danger/60 pl-5">
           <p className="max-w-[70ch] text-sm text-muted">
             {governanceMechanisms.fpoCaptureMechanismOpenQuestion.description}
