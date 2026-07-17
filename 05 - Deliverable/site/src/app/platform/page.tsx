@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import PlatformHero from "@/components/platform/PlatformHero";
+import FPOModel from "@/components/platform/FPOModel";
 import OperatingLoop from "@/components/platform/OperatingLoop";
 
 export const metadata = {
@@ -12,6 +13,8 @@ export default function PlatformPage() {
     <main className="relative min-h-screen w-full px-6 pt-[52px] pb-24">
       <div className="mx-auto w-full max-w-[1200px] py-16">
         <PlatformHero />
+
+        <FPOModel />
 
         <OperatingLoop />
 
