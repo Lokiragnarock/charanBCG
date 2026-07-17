@@ -94,6 +94,7 @@ Plus inline JSX for the rest of the page — check the file directly for exact s
 ## Data — single source of truth
 - `src/data/ledger.json` — every cited figure on every page, read via `src/lib/ledger.ts`. A new number on ANY page = a new field here first.
 - `src/data/spectrum.json` — the 8-cluster dataset, read via `src/lib/spectrum.ts`. Only touched by cluster-related work.
+- **`WAVE3-CONTENT-BRIEF.md`** (this directory) — field-by-field ledger.json binding guide for the 7 new `/platform`-expansion sections (ownership boundary, operating loop, 7 pillars incl. waste management, ripening ownership staging, waste recovery, money & governance, scaling roadmap). Read this before adding any new content in that expansion.
 
 ---
 

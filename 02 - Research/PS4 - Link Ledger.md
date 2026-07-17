@@ -192,6 +192,23 @@ Where the consumer's ₹100 goes — RBI WPS (DEPR) 08/2024, Roy et al., Oct 202
 
 **⚡ Reading:** the two cleanest closes this pass are (1) ripening chamber capex is now a hard number — **₹1 lakh/MT at 35–50% subsidy** — which lets §4 of the Financials deliberation cost a chamber lease-or-own decision for the first time; and (2) the Theni surplus discrepancy is resolved in the platform's favor for modeling simplicity: **0.35 lakh MT is correct, 0.48 was never in the primary doc.** The weakest links are backhaul (no India-specific primary number, NITI PDF blocked) and Pauline & Ajjan (citation itself is contested — two different journal names circulating for the same 2014 study).
 
+### B7 — Platform-model expansion synthesis (2026-07-17, Wave 2 pass)
+> Feeds the Wave 3 site expansion (ownership boundary, operating loop, 7 pillars incl. waste management, ripening ownership staging, waste recovery, money & governance, scaling roadmap). All rows here are additions to `ledger.json`, not new external research — this section logs what's derived vs. flagged design-intent. Full field list: [[../05 - Deliverable/site/WAVE3-CONTENT-BRIEF.md]].
+
+| Item | Number/status | Source | Tag |
+|---|---|---|---|
+| Ripening chamber capex/subsidy — full detail added to ledger.json (`ripeningChamberCapex`) | ₹1.00 lakh/MT, 35%/50% subsidy, IPHM cap ₹145L, add-on cap ₹50.75L/₹72.5L | NHB Cost Norms, primary (already in §B6) | 🟢 |
+| Pseudostem fiber B-grade + biogas feedstock — extends §B5 pseudostem row (`bananaPseudostemExtended`) | Fiber B-grade ₹250–300/kg; biogas feedstock USD 0.067–0.093/tree | MDPI circular-bioeconomy (already in §B5) | 🟡 |
+| Platform fee benchmarks consolidated (`platformFeeBenchmarks`) | Ninjacart 12–15% gross margin / 10–15% eNAM-logistics; eNAM Telangana mandi-fee 0.25% vs 0.75%; ONDC flat ₹1.5/txn, ~5,000/8,000 FPOs onboarded; ONDC "2–5%" claim reconfirmed REJECTED | Already-sourced §B6 rows, consolidated into one ledger field | 🟡 (ONDC 2-5%: 🔴 do-not-cite) |
+| **Platform fee working assumption (~2% of scheduled volume)** — `platformFeeWorkingAssumption` | Our own unbenchmarked assumption | none — design | 🔴 modelled |
+| **Asset ownership boundary (own/rent/never/maybe)** — `assetOwnershipBoundary` | Own vs rent posture for demand contract, quality gate, coordination software, chambers, trucks, financing, farmland | Handoff Spec §2, restated as ledger fields | 🔴 modelled (built on individually-sourced figures) |
+| **Six-function reroute (before → platform)** — `sixFunctionReroute` | Demand scheduling, grading, financing, ripening, logistics, traceability | Handoff Spec §3 / Financials Deliberation §3, "before" cells sourced, "platform" cells proposed | 🔴 modelled |
+| **Ripening ownership staging (access→control→lease→own) + stage-gates** — `ripeningOwnershipStages` | 4-stage framework; gate "Control→Lease" requires known ₹/kg electricity cost (unsourced, blocks the gate honestly); gate "Lease→Own" requires proven lease-vs-own economics (not modeled) | none — our construct, loosely patterned on Sahyadri's general sequencing (Precedents.md) | 🔴 modelled, explicitly unvalidated |
+| **Governance mechanisms (chamber fee-setting, patronage distribution, risk reserve, FPO-capture mechanism)** — `governanceMechanisms` | All four are proposed operating-model design, no real FPO bylaw source found for any of them | none — our construct | 🔴 modelled |
+| **Scaling roadmap sequencing** — `scalingRoadmapSequencing` | "Asset-light year 0–2, own-vs-rent line moves right as volume proves out" pattern from Sahyadri; the specific "~15 years" figure is a general characterization, NOT an independently pinned number (Sahyadri 2010–14 unit economics still unextracted, gaps queue) | Precedents.md (Sahyadri row) + our characterization | 🟡 pattern / 🔴 the "15 years" figure specifically |
+
+**⚡ Reading:** nothing above is new field research — it is Wave 2 turning already-logged §B/§B5/§B6 numbers into ledger.json fields for the platform-expansion sections, plus explicitly flagging the governance/staging content that has NO source and must read as "how we propose to run it," not fact. The one soft spot to watch: the Sahyadri "15 years" figure repeated in the Handoff Spec is not independently verified against a primary source — treat it as a characterization, not a citable number, until gaps-queue item #6 (Sahyadri early-years unit economics) closes.
+
 ### B4 — Flagged as unciteable (do not use until modeled/sourced)
 | Claim | Problem | Tag |
 |---|---|---|

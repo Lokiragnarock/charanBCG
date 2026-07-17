@@ -348,6 +348,153 @@
     "maduraiGroups": ["Thirumangalam FPC", "Azhagarmalaiyan FPC"],
     "source": "gt-deck"
   },
+
+  "ripeningChamberCapex": {
+    "perMtLakh": 1.0,
+    "chamberVolumeCuMPerMt": 11,
+    "subsidyPctGeneral": 35,
+    "subsidyPctHillyNE": 50,
+    "iphmProjectCapLakh": 145,
+    "addonSubsidyCapGeneralLakh": 50.75,
+    "addonSubsidyCapHillyNELakh": 72.5,
+    "note": "Credit-linked, back-ended subsidy. Ripening chamber is an add-on component under the Integrated Post-Harvest Management (IPHM) project cap, not a standalone scheme.",
+    "source": "nhb-cost-norms"
+  },
+  "ripeningChamberOpexGap": {
+    "knownCostProxy": "the Rs 2/kg usage charge (ripeningCharge, above) is the only cost figure found anywhere",
+    "bindingConstraint": "electricity, flagged explicitly as 'high' in the primary source table",
+    "note": "No Rs/kWh or Rs/kg-processed opex breakdown exists in any primary or secondary source found. This is a genuine research gap, not a rounding -- any per-kg opex or margin figure for FPO-operated ripening must be labeled illustrative/unsourced until this closes.",
+    "tag": "gap",
+    "source": "mofpi-gt-diagnostic-2021"
+  },
+  "bananaPseudostemExtended": {
+    "fiberBGradePerKgLow": 250,
+    "fiberBGradePerKgHigh": 300,
+    "biogasFeedstockUsdPerTreeLow": 0.067,
+    "biogasFeedstockUsdPerTreeHigh": 0.093,
+    "note": "Extends bananaPseudostem (above) with the B-grade fiber band and the biogas-feedstock revenue stream; both roll into the same +15.5-17% farm profitability uplift figure already logged.",
+    "source": "mdpi-circular-bioeconomy"
+  },
+  "platformFeeBenchmarks": {
+    "ninjacartGrossMarginPctLow": 12,
+    "ninjacartGrossMarginPctHigh": 15,
+    "ninjacartEnamLogisticsMarginPctLow": 10,
+    "ninjacartEnamLogisticsMarginPctHigh": 15,
+    "enamTelanganaMandiFeeReducedPct": 0.25,
+    "enamTelanganaMandiFeeStandardPct": 0.75,
+    "ondcFlatFeePerTxnRs": 1.5,
+    "ondcFlatFeeTxnFloorRs": 250,
+    "ondcOnboardedFpoCount": 5000,
+    "ondcRegisteredFpoCount": 8000,
+    "note": "Ninjacart figures are a blended trading-book gross margin, not a published fee schedule -- loosest available comparable, not a benchmark for our fee. A circulating 'ONDC charges 2-5% vs 15-25% on Amazon/Flipkart-type platforms' claim was checked and REJECTED: its sole source is an uncited agritech blog with no methodology or government citation. Do not cite the 2-5% figure as fact anywhere.",
+    "source": "ninjacart-secondary"
+  },
+  "platformFeeWorkingAssumption": {
+    "assumedPctOfScheduledVolume": 2,
+    "note": "Our own working assumption for the platform/FPO per-kg linkage fee. No external benchmark closes it -- Ninjacart's 12-15% gross margin is the loosest available comparable (a trading-book margin, not a fee schedule) and the circulating 'ONDC 2-5%' figure is rejected as unsourced. Present as an assumption to be tested, never as a benchmarked or validated number.",
+    "tag": "design",
+    "source": "design-intent"
+  },
+  "backhaulEconomics": {
+    "emptyReturnLegPctLow": 30,
+    "emptyReturnLegPctHigh": 40,
+    "loadedEmptyRateAsymmetryPctLow": 20,
+    "loadedEmptyRateAsymmetryPctHigh": 40,
+    "returnLegDiscountWillingnessPctLow": 2,
+    "returnLegDiscountWillingnessPctHigh": 4,
+    "realizedCostCutPctLow": 9,
+    "realizedCostCutPctHigh": 15,
+    "note": "All-India generic road-freight benchmarks, not banana- or Theni-specific. NITI Aayog's primary 'Fast Tracking Freight in India' PDF returned HTTP 403 and could not be opened; these numbers are reported secondhand via a logistics-industry blog citing CRISIL/Logistics Sector Skill Council. No Milkymist (TN dairy) or Kashmir-apple sector-specific backhaul benchmark was found despite searching -- flag any Theni-specific backhaul revenue line as modelled off a generic proxy, not a sector precedent.",
+    "source": "national-freight-index-backhaul"
+  },
+  "fpoCreditSubstitutes": {
+    "fpcMatchingEquityGrantCapLakh": 15,
+    "fpcMatchingEquityGrantPerMemberRs": 2000,
+    "creditGuaranteeCapCr": 2,
+    "creditGuaranteeCoverPctUpTo1Cr": 85,
+    "creditGuaranteeCoverPct1to2Cr": 75,
+    "chinnamanurFpcCreditExtensionPct": 100,
+    "note": "Central Sector FPO scheme provisions. Chinnamanur FPC (the BVC2 precedent village, inside Theni) extends credit and extension services to 100% of its active members -- a real-world data point for what a functioning member-credit mechanism looks like, though not a description of OUR proposed mechanism.",
+    "source": "fpo-central-sector-scheme"
+  },
+  "assetOwnershipBoundary": {
+    "own": [
+      { "asset": "Demand contract (retailer order book)", "basis": "the core asset -- coordination logic lives here" },
+      { "asset": "Quality gate (grading standard + lot ID/QR)", "basis": "fills the RBI-named traceability gap (no 'BananaNet')" },
+      { "asset": "Coordination software (scheduling, routing, allocation)", "basis": "the e-Choupal law: asset-light coordination over ownership" }
+    ],
+    "rentOrAccessYear0to2": [
+      { "asset": "Ripening chambers", "basis": "allocated by order, not owned; 5 govt-MIDH units already exist in Theni (895 MT) plus household units" },
+      { "asset": "Trucks / transport fleet", "basis": "rents/partners; hub-and-spoke uses existing haulage (Tata Ace / Eicher class)" },
+      { "asset": "Financing capital", "basis": "never off own balance sheet -- partner rails only (KCC/pledge/anchor); FPO working capital is structurally too thin (median <Rs 3 lakh) to originate credit" }
+    ],
+    "neverOwned": [
+      { "asset": "Farmland", "basis": "farmers retain ownership; the FPO is a coordination layer over independent smallholdings (146M holdings nationally, 86% <2 ha)" }
+    ],
+    "maybeYear3Plus": [
+      { "asset": "Ripening chambers, if scaled", "basis": "now costable: capex Rs 1.00 lakh/MT, MIDH/NHB subsidy 35% general / 50% hilly-NE -- see ripeningChamberCapex" }
+    ],
+    "note": "This is the FPO's proposed own-vs-rent operating posture, not an externally sourced fact -- it is our design decision, built on top of sourced figures (chamber capex/subsidy, working-capital ceiling, existing Theni infrastructure) that are individually cited elsewhere in this file.",
+    "tag": "design",
+    "source": "design-intent"
+  },
+  "sixFunctionReroute": {
+    "functions": [
+      { "function": "Demand scheduling", "before": "Contractor guesses/reacts to market; farmer grows blind", "platform": "Retailer order book (volume, grade, delivery cadence, forecast) drives planting schedule before harvest" },
+      { "function": "Grading", "before": "Post-sale, in contractor's hands -- farmer never captures the A/B/C spread (Rs 10/8/5, a 2x gap)", "platform": "Farm-gate, pre-sale, with a digital lot ID (QR) attached -- farmer captures part of the grade spread" },
+      { "function": "Financing", "before": "Contractor's interest-free advance, cost extracted through price (zero-bargaining, up to 3-week payment delays, buyer absorbs crash losses)", "platform": "Day-0 digital payment on partner rails only (KCC/pledge/anchor finance) -- never the FPO's own book" },
+      { "function": "Ripening", "before": "Rs 2/kg toll, allocation-blind, dwell-time and loss unmanaged", "platform": "Allocated by order -- matched to grade x buyer delivery timeline, same toll, less loss" },
+      { "function": "Logistics", "before": "Fragmented, commission-agent-arranged, empty backhauls", "platform": "Hub-and-spoke: Theni collection spokes -> ripening-chamber hubs -> retail; return legs loaded with Karnataka-cluster goods (coffee etc.) for max truck uptime" },
+      { "function": "Traceability", "before": "None -- RBI explicitly states banana has no GrapeNet/MangoNet equivalent", "platform": "QR lot ID: farmer, village, harvest date, grade, ripening status -- retailers subscribe to recurring supply against a spec" }
+    ],
+    "note": "The 'before' column cells cite already-sourced figures (Rs 2/kg ripening toll, 10% TN commission, A/B/C grade spread, RBI traceability-gap finding). The 'platform' column is our proposed operating model -- a re-routing of the same functions, not a sourced fact. Present the before column as fact, the platform column as proposed design.",
+    "tag": "design",
+    "source": "design-intent"
+  },
+  "ripeningOwnershipStages": {
+    "stages": [
+      { "stage": "Access", "description": "Use existing govt-MIDH ripening chambers (5 units, 895 MT, Theni) via order-allocated scheduling. No capex, no lease, no opex risk." },
+      { "stage": "Control", "description": "Priority/contracted access to existing chamber capacity at the same Rs 2/kg market toll, secured via volume commitment -- still no ownership." },
+      { "stage": "Lease", "description": "FPO leases dedicated chamber capacity once volume and grade-timing predictability justify it." },
+      { "stage": "Own", "description": "FPO owns chamber capacity outright (capex Rs 1.00 lakh/MT, 35-50% subsidized) once scale and unit economics are proven." }
+    ],
+    "stageGates": [
+      { "gate": "Access -> Control", "condition": "Proven order-book volume through existing capacity over multiple seasons" },
+      { "gate": "Control -> Lease", "condition": "Known electricity cost per kg processed -- CURRENTLY UNSOURCED. No Rs/kWh or Rs/kg opex figure exists anywhere (see ripeningChamberOpexGap). This gate cannot be honestly claimed as passable until that number exists." },
+      { "gate": "Lease -> Own", "condition": "Demonstrated positive lease-vs-own economics across multiple seasons, i.e. leased throughput and cost data showing ownership beats leasing at the FPO's actual volume -- not yet modeled, no reference case exists." }
+    ],
+    "note": "This entire staged framework (access -> control -> lease -> own) is a PROPOSED operating-model construct, not sourced anywhere in the vault research. It borrows the Sahyadri precedent's general pattern (assets follow order-book proof, not the other way round -- Precedents.md) but the four named stages and their gate conditions are our own design, not independently validated against any real FPO's actual ripening-asset acquisition path. Present explicitly as 'how we propose to stage it,' never as an established model.",
+    "tag": "design",
+    "source": "design-intent"
+  },
+  "governanceMechanisms": {
+    "chamberFeeSetting": {
+      "description": "Proposed mechanism: chamber usage fee set at or below the prevailing Rs 2/kg market toll (ripeningCharge), reviewed seasonally by an FPO board committee, with any FPO-operated-chamber margin capped and disclosed to members.",
+      "note": "Proposed governance mechanism, not yet validated against a real FPO's bylaws. No existing FPO fee-setting bylaw was found in the research to model this on directly."
+    },
+    "memberPatronageDistribution": {
+      "description": "Proposed: platform-fee surplus (after ops cost) distributed to members pro-rata to volume supplied through the platform, on a patronage-dividend model, disclosed at each settlement cycle.",
+      "note": "Proposed governance mechanism, not yet validated against a real FPO's bylaws. This is explicitly the 'FPO capture mechanism' flagged as an open design question in the Handoff Spec §5/§7 -- asserted as intent, not proven or specified in enforceable bylaw language."
+    },
+    "riskReserve": {
+      "description": "Proposed: a small percentage of platform-fee revenue held back into a reserve fund to absorb price-crash/quality-dispute shocks, so the FPO does not have to pass 100% of downside back onto members mid-season the way informal contractors currently absorb (or don't) crash losses.",
+      "note": "Proposed governance mechanism, not yet validated against a real FPO's bylaws. No sourced reserve-ratio precedent exists in the research; any specific percentage shown on the site must be labeled illustrative."
+    },
+    "fpoCaptureMechanismOpenQuestion": {
+      "description": "The e-Choupal precedent proves coordination-over-ownership works, but ITC (the buyer) captured the uplift, not farmers. Our stated delta is that because the FPO is farmer-owned, uplift should accrue to members -- but there is no citable mechanism (bylaws, profit-distribution formula, membership economics) establishing HOW capture is guaranteed rather than merely intended.",
+      "note": "This is the single most important honesty flag in the governance section. State it as an explicitly open question if asked, not as solved."
+    },
+    "tag": "design",
+    "source": "design-intent"
+  },
+  "scalingRoadmapSequencing": {
+    "principle": "Asset-light is the year-0-2 posture. The FPO's own-vs-rent line moves right as volume proves out; it does not start there.",
+    "precedent": "Sahyadri Farms (Nashik, 2010-) is the closest real-world precedent for demand-first sequencing: it operated on an order-book-first model before eventually acquiring physical assets, and farmer-owned governance survived that scale (Rs 1,954.7 Cr FY25, 26% CAGR, 18-30k farmers).",
+    "caveat": "The specific claim that Sahyadri waited approximately 15 years before buying assets is a general characterization from the sequencing pattern, not an independently pinned figure -- Sahyadri's early-years (2010-14) unit economics have not yet been extracted from primary MANAGE/RBI-CAB sources (Link Ledger gaps queue item, Precedents.md). Sahyadri also proves the pattern CAN work in export-grade horticulture; it does NOT prove the same sequencing is replicable on a median FPO's much thinner balance sheet (working capital <Rs 3 lakh) -- state that limit alongside the precedent every time it's cited.",
+    "tag": "design",
+    "source": "sahyadri-financials"
+  },
+
   "sources": {
     "rbi-top-2024": {
       "title": "RBI Working Paper: Vegetables Inflation in India: A Study of Tomato, Onion and Potato (TOP)",
@@ -492,6 +639,36 @@
       "url": "",
       "year": 2026,
       "tag": "estimated"
+    },
+    "nhb-cost-norms": {
+      "title": "NHB Cost Norms (nhb.gov.in) -- ripening chamber capex/subsidy schedule",
+      "url": "",
+      "year": 2026,
+      "tag": "verified"
+    },
+    "ninjacart-secondary": {
+      "title": "Ninjacart investor/company materials via secondary press coverage (VFS, mutualfundsguide) -- not a primary filing; gross-margin comparable only, not a fee schedule",
+      "url": "",
+      "year": 2026,
+      "tag": "reported"
+    },
+    "national-freight-index-backhaul": {
+      "title": "National Freight Index blog, citing CRISIL Research / Logistics Sector Skill Council backhaul estimates -- generic India road-freight, not banana-specific; NITI Aayog primary PDF blocked (HTTP 403)",
+      "url": "",
+      "year": 2026,
+      "tag": "reported"
+    },
+    "fpo-central-sector-scheme": {
+      "title": "Central Sector FPO Scheme provisions (matching equity grant, credit guarantee) via secondary notebook synthesis",
+      "url": "",
+      "year": 2026,
+      "tag": "reported"
+    },
+    "design-intent": {
+      "title": "Proposed operating-model design -- our own construct, not sourced from any external document. Present as 'how we propose to run it,' never as fact.",
+      "url": "",
+      "year": 2026,
+      "tag": "design"
     }
   }
 }
