@@ -51,21 +51,25 @@ export default function SiteNav() {
   }, [isHome]);
 
   return (
+    // Outer band is transparent and only as tall as the pill — deck-style
+    // centered ribbon, not a full-width website header. inset-x-0 keeps it
+    // fixed for centering math, but pointer-events-none on the band means
+    // nothing outside the pill itself intercepts clicks.
     <nav
       aria-label="Site"
-      className="fixed inset-x-0 top-0 z-40 border-b border-hairline bg-bg/85 backdrop-blur-sm"
+      className="pointer-events-none fixed inset-x-0 top-0 z-40 flex h-[52px] items-center justify-center px-g3"
     >
-      <div className="mx-auto flex h-[52px] max-w-[1400px] items-center gap-g3 overflow-x-auto whitespace-nowrap px-g3">
+      <div className="glow-signal-box pointer-events-auto flex max-w-full items-center gap-g3 overflow-x-auto whitespace-nowrap rounded-full border border-hairline bg-bg/80 px-g4 py-2 backdrop-blur-md">
         <Link
           href="/"
-          className="micro-label mr-2 shrink-0 text-text hover:text-signal"
+          className="micro-label mr-1 shrink-0 text-muted hover:text-signal"
         >
-          OutPrompt PS4
+          PS4
         </Link>
         <div
           role="separator"
           aria-orientation="vertical"
-          className="h-[16px] w-px shrink-0 bg-hairline"
+          className="h-[14px] w-px shrink-0 bg-hairline"
         />
         {HOME_SECTIONS.map(({ id, label }, i) => (
           <Fragment key={id}>
@@ -73,7 +77,7 @@ export default function SiteNav() {
               <div
                 role="separator"
                 aria-orientation="vertical"
-                className="h-[16px] w-px shrink-0 bg-hairline"
+                className="h-[14px] w-px shrink-0 bg-hairline"
               />
             )}
             <Link
@@ -92,7 +96,7 @@ export default function SiteNav() {
         <div
           role="separator"
           aria-orientation="vertical"
-          className="h-[16px] w-px shrink-0 bg-hairline"
+          className="h-[14px] w-px shrink-0 bg-hairline"
         />
         {PAGES.map(({ href, label }) => (
           <Link

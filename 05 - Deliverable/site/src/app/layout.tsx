@@ -4,6 +4,7 @@ import "./globals.css";
 import CiteDrawer from "@/components/CiteDrawer";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
+import SectionTracker from "@/components/SectionTracker";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -43,6 +44,7 @@ export default function RootLayout({
         <SiteNav />
         {children}
         <SiteFooter />
+        <SectionTracker />
         <CiteDrawer />
       </body>
     </html>

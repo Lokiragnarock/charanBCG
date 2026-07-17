@@ -1,12 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0c0b;
-  --panel: #10 14 13;
-  --panel-hex: #101413;
-  --hairline: #1e2422;
-  --text: #e8eae6;
-  --muted: #8a928d;
+  /* Inverted palette: true black base (was near-black #0a0c0b), less
+     light-grey/white noise in the recessive tokens (hairline, muted),
+     text pulled in slightly from pure white for the same reason. Signal
+     green is unchanged in hue but now carries an explicit glow system
+     (see "Signal glow" below) so it reads as luminous against the
+     darker field. Reference triangle still applies: glowing green on
+     near-black, not a light-mode flip. */
+  --bg: #000000;
+  --panel: 11 15 13;
+  --panel-hex: #0b0f0d;
+  --hairline: #191f1c;
+  --text: #d8dad4;
+  --muted: #767d78;
   --signal: #58f27d;
   --danger: #ff5c5c;
 
@@ -34,6 +41,14 @@
   /* Emil easing law — no built-in ease-in on UI, custom curves only */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* Signal glow — the one thing allowed to look luminous against the
+     now-truer black. Two-layer recipe (tight core + wide bloom) reused
+     everywhere green needs to read as light rather than paint. */
+  --glow-core: color-mix(in srgb, var(--signal) 60%, transparent);
+  --glow-bloom: color-mix(in srgb, var(--signal) 28%, transparent);
+  --glow-core-strong: color-mix(in srgb, var(--signal) 80%, transparent);
+  --glow-bloom-strong: color-mix(in srgb, var(--signal) 42%, transparent);
 }
 
 @theme inline {
@@ -105,10 +120,47 @@ body {
   background: color-mix(in srgb, var(--panel-hex) 92%, transparent);
 }
 
-/* Number protagonists */
+/* Number protagonists — glow is the signal color's "loud" state */
 .stat {
   font-family: var(--font-mono), monospace;
   color: var(--signal);
+  text-shadow: 0 0 10px var(--glow-core), 0 0 26px var(--glow-bloom);
+  animation: glow-pulse 3.6s var(--ease-in-out) infinite;
+}
+
+/* Reusable glow hooks for non-.stat elements (boxes/chips vs. text) */
+.glow-signal-text {
+  text-shadow: 0 0 10px var(--glow-core), 0 0 26px var(--glow-bloom);
+}
+
+.glow-signal-box {
+  box-shadow: 0 0 10px var(--glow-core), 0 0 26px var(--glow-bloom);
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 8px var(--glow-core), 0 0 18px var(--glow-bloom);
+  }
+  50% {
+    text-shadow: 0 0 13px var(--glow-core-strong), 0 0 32px var(--glow-bloom-strong);
+  }
+}
+
+/* Active/current state — persistent indicator, not a hover effect, so it
+   isn't gated behind (hover: hover). Covers nav "you are here" links and
+   the section tracker's live digits. */
+[aria-current="true"] {
+  filter: drop-shadow(0 0 6px var(--glow-core));
+}
+
+/* Hover glow on signal-colored links — gated per the hover-capable-input
+   rule (touch fires :hover on tap otherwise). */
+@media (hover: hover) and (pointer: fine) {
+  .hover\:text-signal:hover {
+    filter: drop-shadow(0 0 6px var(--glow-core)) drop-shadow(0 0 16px var(--glow-bloom));
+    transition: filter 200ms var(--ease-out);
+  }
 }
 
 ::selection {
