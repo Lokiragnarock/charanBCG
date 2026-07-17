@@ -3,6 +3,10 @@
 > Team second brain for the **BCG AI Case Competition, Round 1**.
 > Pushed to GitHub as the common team point. Everything the team thinks, decides, rejects, and builds lives here.
 
+## 🏆✨🚀 THE SUBMISSION LINK 🚀✨🏆
+### 🔗 **https://bcg-outprompt.vercel.app/** 🔗
+> ⚡ This is the link. This is the one that wins it. ⚡
+
 ## ⏰ Hard facts
 - **Deadline: 11:59 PM IST, 17 July 2026** (8 days from vault opening on 2026-07-09)
 - Submit at: https://www.113.vovici.net/se/13B2588B14D83514
