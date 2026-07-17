@@ -7,9 +7,14 @@ export type Candidate = {
   top3Pct: number;
   opening: number;
   farmerShare: number;
+  farmerShareSource?: string;
   score: number;
   top3: string[];
   source: string;
+  pick?: boolean;
+  cluster?: string;
+  clusterNote?: string;
+  clusterSource?: string;
 };
 
 export const spectrum = spectrumData as {

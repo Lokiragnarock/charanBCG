@@ -86,12 +86,12 @@ function strokeColorFor(score: number) {
 }
 
 export default function S4() {
-  const [selectedKey, setSelectedKey] = useState("tomato");
+  const [selectedKey, setSelectedKey] = useState("banana");
   const [hoverKey, setHoverKey] = useState<string | null>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const bubbleGroupRefs = useRef<Record<string, SVGGElement | null>>({});
 
-  const placements = useMemo(layoutBubbles, []);
+  const placements = useMemo(() => layoutBubbles(), []);
   const placeByKey = useMemo(() => {
     const m: Record<string, Placed> = {};
     placements.forEach((p) => (m[p.key] = p));
@@ -161,8 +161,10 @@ export default function S4() {
           </h2>
           <p className="mt-4 max-w-xl text-muted">
             Ten candidate crops, scored on TAM, incumbent concentration, and
-            opening. Tomato sits in the green: the least contested, most
-            open market of scale.
+            opening. The scoring is honest — it is not rigged to justify a
+            choice: <span className="stat">Banana</span> is our pick on
+            strategic fit (the Theni cluster and the e-Choupal coordination
+            thesis), not on topping this chart.
           </p>
         </Reveal>
 
@@ -245,6 +247,7 @@ export default function S4() {
                       style={{ fontSize: 13, fill: strokeColorFor(active.score) }}
                     >
                       {active.label}, score {active.score.toFixed(2)}
+                      {active.pick ? " — our pick" : ""}
                     </text>
                   </g>
                 )}
@@ -252,7 +255,7 @@ export default function S4() {
                 {CANDIDATES.map((c) => {
                   const p = placeByKey[c.key];
                   if (!p) return null;
-                  const isTomato = c.key === "tomato";
+                  const isPick = Boolean(c.pick);
                   const isActive = c.key === activeKey;
                   const showLabel = p.r >= 20;
                   const dimmed = hoverKey !== null && !isActive;
@@ -273,7 +276,7 @@ export default function S4() {
                         style={{
                           opacity: dimmed ? 0.45 : 1,
                           transition: "opacity 200ms ease-out, stroke-width 200ms ease-out",
-                          ...(isTomato
+                          ...(isPick
                             ? {
                                 filter:
                                   "drop-shadow(0 0 10px color-mix(in srgb, var(--signal) 70%, transparent))",
@@ -286,10 +289,28 @@ export default function S4() {
                         onClick={() => setSelectedKey(c.key)}
                         tabIndex={0}
                         role="button"
-                        aria-label={`${c.label}, score ${c.score.toFixed(2)}`}
+                        aria-label={`${c.label}, score ${c.score.toFixed(2)}${
+                          isPick ? ", our pick" : ""
+                        }`}
                         onFocus={() => setHoverKey(c.key)}
                         onBlur={() => setHoverKey(null)}
                       />
+                      {isPick && !isActive && (
+                        <text
+                          x={p.cx}
+                          y={p.cy - p.r - 8}
+                          textAnchor="middle"
+                          className="pointer-events-none font-mono uppercase"
+                          style={{
+                            fontSize: 9,
+                            letterSpacing: "0.1em",
+                            fill: "var(--signal)",
+                            opacity: hoverKey !== null ? 0.45 : 1,
+                          }}
+                        >
+                          our pick
+                        </text>
+                      )}
                       {showLabel && (
                         <text
                           x={p.cx}
@@ -315,13 +336,37 @@ export default function S4() {
 
             {/* Right rail: detail panel for the active candidate */}
             <div className="border-t border-hairline p-6 lg:border-t-0 lg:border-l">
-              <div className="micro-label mb-4">
+              <div className="micro-label mb-4 flex items-center gap-2">
                 {active.label}
                 <Cite id={active.source} />
+                {active.pick && (
+                  <span className="border border-signal/40 px-1.5 py-0.5 text-[9px] text-signal">
+                    OUR PICK
+                  </span>
+                )}
               </div>
 
+              {active.cluster && (
+                <div className="mb-4 border-l-2 border-signal/50 pl-3">
+                  <div className="micro-label mb-1 text-[10px]">
+                    Segment / cluster
+                    {active.clusterSource && <Cite id={active.clusterSource} />}
+                  </div>
+                  <div className="font-mono text-sm text-signal">
+                    {active.cluster}
+                  </div>
+                  {active.clusterNote && (
+                    <p className="mt-1 text-xs text-muted">
+                      {active.clusterNote}
+                    </p>
+                  )}
+                </div>
+              )}
+
               <div className="mb-4">
-                <div className="micro-label mb-1 text-[10px]">TAM (Rs Cr/yr)</div>
+                <div className="micro-label mb-1 text-[10px]">
+                  TAM (Rs Cr/yr) <span className="text-danger">est.</span>
+                </div>
                 <div className="font-mono text-2xl text-text">
                   {active.tamCr.toLocaleString("en-IN")}
                 </div>
@@ -362,6 +407,9 @@ export default function S4() {
                   </div>
                   <div className="font-mono text-lg text-signal">
                     {active.farmerShare}%
+                    {active.farmerShareSource && (
+                      <Cite id={active.farmerShareSource} />
+                    )}
                   </div>
                 </div>
               </div>

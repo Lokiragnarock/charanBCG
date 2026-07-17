@@ -13,6 +13,7 @@ The PS4 thinking apparatus. Flat research notes stay in `02 - Research/` root (I
 | Note | Role | Feeds |
 |---|---|---|
 | [[The Spine - Central Argument]] | **The evolution-of-thought note.** Versioned claims; current argument at top | Element 2 (rec), S1/S5 |
+| [[e-Choupal Banana OS]] | **The operating model** (07-17 pivot): banana/Theni chain run backwards on e-Choupal's coordination law | Website arc (precedence → rupee split → chain replacement), S2/S3 |
 | [[Schools of Thought]] | The competing frameworks we're choosing between, each steel-manned | Element 4, S3 scenarios |
 | [[Precedents]] | Case law: what each real-world example proves and does NOT prove | Evidence, Adversary fuel |
 | [[Tangents]] | Parking lot with triage — ideas that don't belong to the spine *yet* | Element 4, R2 ideas |

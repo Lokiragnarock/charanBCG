@@ -4,6 +4,8 @@ import { Fragment, useEffect, useState } from "react";
 
 const SECTIONS: { id: string; label: string }[] = [
   { id: "s1", label: "The ₹100 Problem" },
+  { id: "history", label: "Precedence" },
+  { id: "banana-split", label: "Rupee Split" },
   { id: "s2", label: "The Chain" },
   { id: "s3", label: "Living Model" },
   { id: "s4", label: "Sweet Spot" },

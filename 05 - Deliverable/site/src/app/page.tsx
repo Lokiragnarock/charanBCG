@@ -3,6 +3,8 @@ import SectionBar from "@/components/SectionBar";
 import ExhibitStage from "@/components/ExhibitStage";
 import SmallholderDonut from "@/components/charts/SmallholderDonut";
 import S1 from "@/components/scenes/S1";
+import History from "@/components/scenes/History";
+import BananaSplit from "@/components/scenes/BananaSplit";
 import S2 from "@/components/scenes/S2";
 import S3 from "@/components/scenes/S3";
 import S4 from "@/components/scenes/S4";
@@ -22,6 +24,9 @@ export default function Home() {
         >
           <SmallholderDonut />
         </ExhibitStage>
+        {/* Narrative arc: precedence -> rupee split -> chain replacement */}
+        <History />
+        <BananaSplit />
         <S2 />
         <S3 />
         <S4 />

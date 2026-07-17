@@ -103,6 +103,136 @@
     "imagerySource": "Sentinel-2, ~10m, ~5-day revisit",
     "source": "brief-exhibit-d"
   },
+  "topStageSplit": {
+    "tomato": { "farmer": 33.5, "trader": 21.3, "wholesaler": 16.1, "retailer": 29.1 },
+    "onion": { "farmer": 36.2, "trader": 17.6, "wholesaler": 15.0, "retailer": 31.3 },
+    "potato": { "farmer": 36.7, "trader": 16.2, "wholesaler": 16.0, "retailer": 31.0 },
+    "source": "rbi-top-2024"
+  },
+  "bananaFarmerShare": {
+    "value": 30.8,
+    "rangeLow": 20,
+    "rangeHigh": 35,
+    "postPeak": 35,
+    "note": "Lowest of the three fruits studied (grapes 35%, mango 42-43%)",
+    "source": "rbi-fruits-2024"
+  },
+  "bananaStageContent": {
+    "trader": "long-haul transport",
+    "wholesaler": "ripening + labour + local transport",
+    "retailer": "perishability risk",
+    "note": "Exact stage-wise %-split is image-only (Chart 29, p.30) — not extractable. Farmer share is the verified anchor; stage content is descriptive, not a fabricated split.",
+    "source": "rbi-fruits-2024"
+  },
+  "bananaFarmgatePrice": {
+    "y2021_22Low": 14,
+    "y2021_22High": 15,
+    "y2022_23Low": 27,
+    "y2022_23High": 28,
+    "source": "rbi-fruits-2024"
+  },
+  "bananaCultivationCost": {
+    "perHa": 128825,
+    "perKg": 3.48,
+    "source": "rbi-fruits-2024"
+  },
+  "theniChannelPrices": {
+    "commissionAgentLow": 9,
+    "commissionAgentHigh": 10,
+    "commissionAgentSharePct": [85, 90],
+    "fpoCoopLow": 10,
+    "fpoCoopHigh": 11,
+    "fpoCoopSharePct": [5, 10],
+    "organizedLow": 12,
+    "organizedHigh": 14,
+    "organizedSharePct": [3, 4],
+    "exportLow": 13,
+    "exportHigh": 15,
+    "exportSharePct": [1, 2],
+    "year": "2020-21",
+    "source": "gt-deck"
+  },
+  "bananaValueChainLossTN": {
+    "totalPct": 9,
+    "retailPct": 3.9,
+    "storageRipeningPct": 2.1,
+    "wholesalePct": 1.9,
+    "fieldPct": 0.8,
+    "transportPct": 0.3,
+    "source": "gt-deck"
+  },
+  "ripeningCharge": {
+    "perKg": 2,
+    "note": "MIDH-assisted units, Theni; high electricity load",
+    "source": "gt-deck"
+  },
+  "bananaDomesticTransport": {
+    "perKgLow": 1,
+    "perKgHigh": 1.5,
+    "source": "gt-deck"
+  },
+  "bananaElasticity": {
+    "value": -0.21,
+    "note": "long-run ARDL: +1% availability-usage ratio -> -0.21% banana CPI",
+    "source": "rbi-fruits-2024"
+  },
+  "mangoFarmerShare": {
+    "valueLow": 42,
+    "valueHigh": 43,
+    "note": "Highest of the three fruits, WITH a pre-harvest contractor (PHC) layer — the contractor is a bundle, not a toll",
+    "source": "rbi-fruits-2024"
+  },
+  "bananaCorridorIllustrative": {
+    "farmgate": 13,
+    "trader": 18,
+    "traderNote": "PHC commission + labour",
+    "wholesale": 21.5,
+    "wholesaleNote": "ripening + transport",
+    "retail": 25,
+    "impliedFarmerSharePct": 52,
+    "conflictNote": "This corridor implies ~52% farmer share (13/25), against RBI's verified 30.8% for the same corridor description — different year/source, or a NotebookLM blend across sources. Treated as an illustrative build-up, not the RBI decomposition, until reconciled to a primary page.",
+    "source": "notebooklm-banana-corridor"
+  },
+  "bananaChainUplift": {
+    "traditionalPct": 52,
+    "modernPct": 65.45,
+    "note": "BVC1 (traditional multi-layer chain) vs BVC2 (modern wholesale agency with farmer co-ownership, bypasses retail-level commission agents) — South India case study; the citable value-prop number",
+    "source": "mdpi-bvc-south-india"
+  },
+  "bananaGradePricesByState": {
+    "gjTn": [10, 8, 5],
+    "up": [11, 8, 5],
+    "ap": [12, 9, 5.5],
+    "mhJalgaon": [11, 7, 5],
+    "domesticGoodLow": 10,
+    "domesticGoodHigh": 12,
+    "exportLow": 13,
+    "exportHigh": 15,
+    "year": "2020-21",
+    "source": "mofpi-gt-diagnostic-2021"
+  },
+  "bananaNendranFarmgate": {
+    "perKgLow": 18,
+    "perKgHigh": 20,
+    "note": "chips-grade Nendran, farmgate",
+    "source": "mofpi-gt-diagnostic-2021"
+  },
+  "bananaCertificationPremium": {
+    "conventionalUsd": 0.4,
+    "organicUsd": 0.65,
+    "fairtradeUsd": 0.81,
+    "fairtradeOrganicUsd": 1.0,
+    "note": "FOB, per kg, 2021",
+    "source": "iisd-2023"
+  },
+  "bananaPseudostem": {
+    "rawStemPerMt": 400,
+    "fiberAGradePerKgLow": 300,
+    "fiberAGradePerKgHigh": 400,
+    "profitabilityUpliftPctLow": 15.5,
+    "profitabilityUpliftPctHigh": 17,
+    "source": "mdpi-circular-bioeconomy"
+  },
   "sources": {
     "rbi-top-2024": {
       "title": "RBI Working Paper: Vegetables Inflation in India: A Study of Tomato, Onion and Potato (TOP)",
@@ -186,6 +316,48 @@
       "title": "Sahyadri Farms (Nashik): reported financials",
       "url": "",
       "year": 2025,
+      "tag": "reported"
+    },
+    "rbi-fruits-2024": {
+      "title": "RBI Working Paper (DEPR) 06/2024: Grapes, Bananas, Mangoes — price formation study",
+      "url": "https://agritech.tnau.ac.in/govt_schemes_services/pdf/grapes,%20bananas,%20mangoes%20report.pdf",
+      "year": 2024,
+      "tag": "verified"
+    },
+    "gt-deck": {
+      "title": "GT diagnostic deck, Cluster 2 (Theni / Tuticorin / Madurai)",
+      "url": "",
+      "year": 2026,
+      "tag": "reported"
+    },
+    "notebooklm-banana-corridor": {
+      "title": "NotebookLM synthesis: Jalgaon-Delhi banana corridor build-up, over RBI WPS 06/2024 + MoFPI/Grant Thornton diagnostic (Oct 2021) + IISD Global Market Report (Mar 2023) — illustrative, conflicts with the RBI 30.8% headline (implies ~52%); not yet traced to a primary page",
+      "url": "https://notebooklm.google.com/notebook/33919483-c1f0-440e-9b78-e6950cba8a11",
+      "year": 2026,
+      "tag": "reported"
+    },
+    "mdpi-bvc-south-india": {
+      "title": "MDPI/ResearchGate: traditional vs modern banana value chain, South India (BVC1 52% vs BVC2 65.45% farmer share)",
+      "url": "",
+      "year": 2026,
+      "tag": "reported"
+    },
+    "mofpi-gt-diagnostic-2021": {
+      "title": "MoFPI / Grant Thornton banana diagnostic deck, Oct 2021",
+      "url": "",
+      "year": 2021,
+      "tag": "reported"
+    },
+    "iisd-2023": {
+      "title": "IISD Global Market Report, Mar 2023 (banana)",
+      "url": "",
+      "year": 2023,
+      "tag": "reported"
+    },
+    "mdpi-circular-bioeconomy": {
+      "title": "MDPI circular-bioeconomy papers: banana pseudostem monetization",
+      "url": "",
+      "year": 2026,
       "tag": "reported"
     },
     "mock-v0": {
