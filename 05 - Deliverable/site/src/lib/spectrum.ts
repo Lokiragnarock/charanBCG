@@ -1,24 +1,60 @@
 import spectrumData from "@/data/spectrum.json";
 
-export type Candidate = {
+export type GiStatus = "none" | "monetized" | "unmonetized-hill" | "unmonetized-local";
+
+export type Cluster = {
   key: string;
   label: string;
-  tamCr: number;
-  top3Pct: number;
-  opening: number;
-  farmerShare: number;
-  farmerShareSource?: string;
-  score: number;
-  top3: string[];
-  source: string;
+  region: string;
+  areaKHa: number;
+  productionMnMt: number;
+  yieldMtHa?: number;
+  productionCagrPct?: number;
+  marketSurplusLMt: number;
+  marketSurplusNote?: string;
+  marketSurplusFlag?: string;
+  marketSurplusReconcileNote?: string;
+  marketSurplusReconcileSource?: string;
+  variety: string;
+  giStatus: GiStatus;
+  giNote: string;
+  giPremiumPct?: number;
+  competitionLabel: string;
+  directSourcingPct?: number;
+  inputMonopoly: boolean;
+  postHarvestLossPct: number;
+  postHarvestLossRange?: [number, number];
+  postHarvestLossNote?: string;
+  commissionRatePct?: number;
+  ripeningCapacityMt?: number;
+  ripeningCapacitySource?: string;
+  portConnectivity: string;
+  portConnectivitySource?: string;
+  efficiencyScore: number;
+  giHeadroomScore: number;
+  delta: number;
   pick?: boolean;
-  cluster?: string;
-  clusterNote?: string;
-  clusterSource?: string;
+  cons?: string[];
+  source: string;
 };
 
 export const spectrum = spectrumData as {
-  formula: string;
+  version: number;
   note: string;
-  candidates: Candidate[];
+  formula: string;
+  constants: {
+    ripeningPerKg: number;
+    commissionAgentVolumeSharePctLow: number;
+    commissionAgentVolumeSharePctHigh: number;
+    note: string;
+    source: string;
+  };
+  commissionRate: {
+    tnPct: number;
+    northPctLow: number;
+    northPctHigh: number;
+    note: string;
+    source: string;
+  };
+  clusters: Cluster[];
 };

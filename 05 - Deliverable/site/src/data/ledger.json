@@ -233,6 +233,60 @@
     "profitabilityUpliftPctHigh": 17,
     "source": "mdpi-circular-bioeconomy"
   },
+  "bvcPrecedent": {
+    "bvc1Pct": 52,
+    "bvc2Pct": 65.45,
+    "deltaPts": 13.45,
+    "village": "Chinnamanur",
+    "district": "Theni",
+    "corridorKm": 130,
+    "corridorNote": "Theni -> Madurai/Cochin, local corridor",
+    "note": "BVC1 = traditional multi-layer chain (runs on sociocultural trust: farmers rarely bargain, accept payment delays, trust buyers to absorb crash losses). BVC2 = farmer-co-owned modern wholesale agency -- aggregates, controls ripening, sells direct to supermarkets/retailers/city wholesalers. The precedent sits inside our own cluster.",
+    "source": "tnau-pauline-ajjan-2014"
+  },
+  "corridorLengthComparison": {
+    "longHaulShare": 30.8,
+    "longHaulKm": 1100,
+    "longHaulLabel": "Jalgaon -> Delhi",
+    "longHaulSource": "rbi-fruits-2024",
+    "localShareLow": 52,
+    "localShareHigh": 65.45,
+    "localKm": 130,
+    "localLabel": "Theni -> Madurai/Cochin",
+    "localSource": "tnau-pauline-ajjan-2014",
+    "note": "Distance is a structural determinant of farmer share -- proximity is a Theni-cluster advantage, not just a chain-design advantage."
+  },
+  "contractorAdvanceTerms": {
+    "type": "interest-free cash advance + inputs/suckers",
+    "adjustedAt": "final sale",
+    "delayWeeksMax": 3,
+    "pricingNote": "zero-bargaining fixed pricing; buyer absorbs 100% of crash losses",
+    "costNote": "the advance costs the farmer price, not interest -- the moat is trust and convenience, not rate",
+    "source": "tnau-pauline-ajjan-2014"
+  },
+  "commissionRateByRegion": {
+    "tnPct": 10,
+    "northPctLow": 4,
+    "northPctHigh": 6,
+    "note": "TN-specific rate (Pauline & Ajjan, TNAU 2014); commission agents handle 85-90% of farmer volume nationwide regardless of rate",
+    "source": "tnau-pauline-ajjan-2014"
+  },
+  "gradeSpreadCapture": {
+    "gradeA": 10,
+    "gradeB": 8,
+    "gradeC": 5,
+    "note": "Grading happens post-sale, in the contractor's hands -- the farmer sells at a flat price before grading and never captures the A/B/C spread",
+    "source": "mofpi-gt-diagnostic-2021"
+  },
+  "retailResidualDerived": {
+    "farmgateLow": 9,
+    "farmgateHigh": 10,
+    "bvc1SharePct": 52,
+    "retailImpliedLow": 17.3,
+    "retailImpliedHigh": 19.2,
+    "note": "Derived, not directly reported: Theni commission-agent farmgate (Rs 9-10/kg) divided by the BVC1 traditional-chain farmer share (52%) implies a local retail price of roughly Rs 17-19/kg. Shown as a labeled estimate, not a verified retail quote.",
+    "source": "derived-bvc1-retail"
+  },
   "sources": {
     "rbi-top-2024": {
       "title": "RBI Working Paper: Vegetables Inflation in India: A Study of Tomato, Onion and Potato (TOP)",
@@ -343,10 +397,22 @@
       "tag": "reported"
     },
     "mofpi-gt-diagnostic-2021": {
-      "title": "MoFPI / Grant Thornton banana diagnostic deck, Oct 2021",
+      "title": "MoFPI/GT diagnostic 2021 (via NotebookLM synthesis)",
       "url": "",
       "year": 2021,
       "tag": "reported"
+    },
+    "tnau-pauline-ajjan-2014": {
+      "title": "Pauline & Ajjan (TNAU, 2014): South India banana value chains -- BVC1 (traditional, 52%) vs BVC2 (farmer-co-owned modern wholesale agency, 65.45%), Chinnamanur village, Theni district",
+      "url": "",
+      "year": 2014,
+      "tag": "reported"
+    },
+    "derived-bvc1-retail": {
+      "title": "Derived: local retail price implied by Theni commission-agent farmgate (Rs 9-10/kg) divided by the BVC1 farmer share (52%)",
+      "url": "",
+      "year": 2026,
+      "tag": "estimated"
     },
     "iisd-2023": {
       "title": "IISD Global Market Report, Mar 2023 (banana)",
