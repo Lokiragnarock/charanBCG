@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import CiteDrawer from "@/components/CiteDrawer";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -38,7 +40,9 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full`}
     >
       <body suppressHydrationWarning className="min-h-full bg-bg text-text antialiased">
+        <SiteNav />
         {children}
+        <SiteFooter />
         <CiteDrawer />
       </body>
     </html>

@@ -96,5 +96,22 @@ The judge-facing requirement: every hop costed. Current state of the numbers (al
 ## What this means for the website (capture only — deliverable structure is Charan's draft)
 Arc as dictated 07-17: **(1) Precedence** — e-Choupal (+ Sahyadri, Amul as case law) opens the story → **(2) the rupee split** — the ₹100 waterfall across the as-is chain (RBI TOP + RBI Fruits banana 30.8%) → **(3) value-chain replacement** — as-is process vs the inverse platform flow (demand schedule → farm grading → lot ID → ripening → hub-and-spoke with backhaul), every hop costed.
 
+### The three-toggle value-chain scene (spec'd 07-17, second pass)
+One chain diagram, three states:
+1. **Toggle 1 — PLAYERS:** just the actors: farmer · contractor/PHC · commission agent · wholesaler · retailer, plus the shadow players (financier, transporter, ripening-chamber operator, marketing/brokerage).
+2. **Toggle 2 — VALUE-ADD:** same chain, but each node shows the *activity* and the money received/paid to do it (aggregation, grading, financing, marketing, logistics, ripening…).
+3. **Toggle 3 — REINVENTED:** the platform chain — new value-add AND new player at each position (demand scheduling from source, farm-gate grading, lot ID, ripening allocation, backhaul logistics), then scroll continues to next section.
+
+### Site structure v3 (07-17, third pass — supersedes toggle-scene-only spec)
+- **Main page** (cinematic scroll): cover hook → national ₹100 problem → sweet spot/why-Theni (BEFORE corridor detail) → Theni corridor money → three-toggle reinvention → close. Simulator KILLED.
+- **/history** — precedents in depth. **/appendix** — citations + all caveats (only place process meta may exist).
+- **/clusters** — select a cluster → LEFT: supporting-document links (historical data per cluster) · RIGHT: three components: (a) achievable market share (surplus + modelled band), (b) improvement delta + FPO/organized whitespace, (c) platform engagement capacity; plus GI branding strip.
+- **/platform** — the platform as its own tab: rerouted chain function-by-function (before → platform → money moved) · hub-and-spoke + backhaul roadmap (Theni spokes → chamber hubs → retail; returns loaded with Karnataka-cluster goods for max truck uptime) · QR lot-ID scan flow (farmer, village, harvest date, grade, ripening status; retailer spec subscriptions) · demand-scheduling feedback loop (retail orders → schedule → synchronized planting) + per-order GAP advisory (practices, pesticide discipline to buyer spec).
+
+### Spectrum v2 — cluster mapping (why banana, why Theni; data pending from Charan)
+- **Left (replaces mock data):** circle area = market size; toggles for competition intensity, entry size, registration fees.
+- **Right:** current efficiency vs modelled/projected delta growth; **x-axis = delta, toward green**; port connectivity; **GI-tag demand** (Virupakshi + Sirumalai hill banana GIs = branding/markets other clusters can't copy — GT Deck §8).
+- Corridor-length argument now citable: farmer share 30.8% at ~1,100 km (RBI) vs 52–65% at ~130 km (TNAU 2014, Theni→Madurai/Cochin) — **proximity is a structural cluster advantage** (Ledger §B5).
+
 ## Links
 [[The Spine - Central Argument]] · [[../PS4 - RBI Fruits Decomposition]] · [[GT Deck]] · [[Bananas]] · [[Precedents]] · [[Tangents]] · [[../PS4 - Link Ledger]]

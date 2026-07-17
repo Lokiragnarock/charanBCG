@@ -16,4 +16,10 @@ tags: [ps4, decision, banana, e-choupal]
 - Precedents: eChoupal row recast as the operating template; mango PHC added as case law; Milkymist/Kashmir-apple backhaul numbers queued.
 - Tangents: T7 backhaul network 🌱, T8 on-plant holding 🌱, T9 blockchain-vs-QR 🧊, T10 pseudo-stem waste 🧊.
 
+**Later same day — site IA restructure decisions (Charan):**
+- Main page = cinematic scroll (cover → national ₹100 problem → sweet spot/why-Theni → Theni corridor money → three-toggle reinvention → close); in-depth content moves to separate linked pages (/history, /clusters, /appendix). Everything cross-linked.
+- **S3 living model / simulator KILLED** ("complete and utter bs") — removed from site entirely; model.ts orphaned in repo. The interactive-scenario idea is dead for R1; scenario analysis, if needed, goes static in the appendix.
+- All research-process meta (NotebookLM mentions, reconciliation flags, "image-only chart" notes) purged from reader-facing copy; caveats live only in /appendix.
+- Sweet spot must precede corridor economics: the reader sees the cluster get picked before entering its numbers.
+
 **Website arc (as dictated, deliverable structure to be drafted by Charan):** precedence (e-Choupal) → the rupee split across the chain → as-is value chain vs the inverse platform flow (demand schedule → farm-gate grading + lot ID → ripening → hub-and-spoke with loaded backhauls), every hop costed.

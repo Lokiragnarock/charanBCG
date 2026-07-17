@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import Cite from "@/components/Cite";
 import Reveal from "@/components/Reveal";
 import { ledger } from "@/lib/ledger";
@@ -295,7 +296,6 @@ export default function ValueChain() {
                     &#8377;{retailResidualDerived.retailImpliedLow}&ndash;
                     {retailResidualDerived.retailImpliedHigh}/kg
                     <Cite id={retailResidualDerived.source} />
-                    <span className="ml-1 text-[9px] uppercase">derived</span>
                   </div>
                   <div className="text-[11px] text-muted">
                     local retail (implied by the {retailResidualDerived.bvc1SharePct}
@@ -419,6 +419,11 @@ export default function ValueChain() {
                     <Cite id={bvcPrecedent.source} />: aggregate, control
                     ripening, sell direct to supermarkets, retailers, and city
                     wholesalers.
+                  </p>
+                  <p className="mt-3 text-sm">
+                    <Link href="/platform" className="text-signal hover:underline">
+                      See the platform in depth &rarr;
+                    </Link>
                   </p>
                 </div>
                 <div className="col-span-12 flex items-end gap-g4 md:col-span-7 md:justify-end">
