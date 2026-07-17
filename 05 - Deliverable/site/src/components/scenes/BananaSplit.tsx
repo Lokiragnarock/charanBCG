@@ -259,9 +259,10 @@ export default function BananaSplit() {
               <Cite id={bananaCorridorIllustrative.source} />
             </div>
             <p className="mt-2 max-w-[64ch] text-sm text-muted">
-              Not the RBI decomposition. A NotebookLM synthesis of the
-              Jalgaon &rarr; Delhi corridor, shown here to make the conflict
-              visible rather than to hide it.
+              Distinct from the RBI decomposition above: an illustrative
+              build-up of the Jalgaon &rarr; Delhi corridor compiled from
+              secondary sources, presented separately because the two
+              estimates conflict.
             </p>
 
             <div className="mt-g4 flex flex-wrap items-stretch gap-0">

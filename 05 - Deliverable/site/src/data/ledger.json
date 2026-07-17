@@ -241,7 +241,7 @@
     "wholesaleNote": "ripening + transport",
     "retail": 25,
     "impliedFarmerSharePct": 52,
-    "conflictNote": "This corridor implies ~52% farmer share (13/25), against RBI's verified 30.8% for the same corridor description — different year/source, or a NotebookLM blend across sources. Treated as an illustrative build-up, not the RBI decomposition, until reconciled to a primary page.",
+    "conflictNote": "This build-up implies a ~52% farmer share (₹13 of ₹25), against the RBI-verified 30.8% for a comparable corridor — a gap that likely reflects differing years and source datasets. It is presented as illustrative until reconciled to a primary source.",
     "source": "notebooklm-banana-corridor"
   },
   "bananaChainUplift": {

@@ -99,14 +99,16 @@ export default function ValueChain() {
             The Theni corridor, three ways
           </h2>
           <p className="mt-4 max-w-2xl text-muted">
-            This models the <span className="stat">local Theni corridor</span>{" "}
+            The <span className="stat">local Theni corridor</span>{" "}
             (&asymp; {corridorLengthComparison.localKm} km,{" "}
-            {corridorLengthComparison.localLabel}) &mdash; not the long-haul
-            Jalgaon&rarr;Delhi corridor used earlier for the RBI-verified
-            30.8% national figure. Baseline farmer share here is{" "}
-            <span className="stat font-mono">{bvcPrecedent.bvc1Pct}%</span>
+            {corridorLengthComparison.localLabel}) is a short-haul chain, and
+            behaves differently from long-haul routes like Jalgaon&rarr;Delhi
+            that underpin the RBI&apos;s 30.8% national farmer-share figure. In
+            the traditional Theni chain, farmers retain{" "}
+            <span className="stat font-mono">{bvcPrecedent.bvc1Pct}%</span> of
+            the consumer rupee
             <Cite id={bvcPrecedent.source} /> (Pauline &amp; Ajjan, TNAU 2014
-            &mdash; BVC1, the traditional chain).
+            &mdash; BVC1).
           </p>
         </Reveal>
 
