@@ -16,6 +16,8 @@ The PS4 thinking apparatus. Flat research notes stay in `02 - Research/` root (I
 | [[e-Choupal Banana OS]] | **The operating model** (07-17 pivot): banana/Theni chain run backwards on e-Choupal's coordination law | Website arc (precedence → rupee split → chain replacement), S2/S3 |
 | [[Banana Cluster Spectrum Data]] | The 8-cluster MoFPI/GT dataset: why banana, why Theni (surplus, ports, GI, losses, competition) | Spectrum v2 (S4), C6 validation |
 | [[Financials and Margins Deliberation]] | The money-split deliberation of record: corridor choice, who-earns-what today vs re-routed, platform P&L front | Problem section, /platform page, R2 financials |
+| [[Crop-Geography Page/README\|Crop-Geography Page]] | Archived PRD/Spec/Wireframe for a separate "v1 shipped" HTML artifact not present in this repo | Reference only; content superseded by Banana OS + Ledger |
+| [[FPO Platform Model — Handoff Spec]] | **What the site never says outright:** what the FPO is, owns/rents, earns, and how it's governed — self-contained handoff for a reasoning agent | Fills the "FPO model unexplained" gap in the main site narrative |
 | [[Schools of Thought]] | The competing frameworks we're choosing between, each steel-manned | Element 4, S3 scenarios |
 | [[Precedents]] | Case law: what each real-world example proves and does NOT prove | Evidence, Adversary fuel |
 | [[Tangents]] | Parking lot with triage — ideas that don't belong to the spine *yet* | Element 4, R2 ideas |
