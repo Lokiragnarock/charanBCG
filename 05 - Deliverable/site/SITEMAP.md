@@ -59,12 +59,20 @@ State (`selectedKey`, default `"tn-c2"` = Theni) lives in the page component, sh
 Data: `src/data/spectrum.json` (8 clusters), read via `src/lib/spectrum.ts`.
 
 ## Route: `/platform`
-File: `src/app/platform/page.tsx` — **monolithic, 300 lines, no sub-components.** Four sections by heading, all inline in this one file:
-1. "The platform, in depth" (~line 93) — rerouted-chain function blocks
-2. "Logistics roadmap" (~line 132) — hub-and-spoke + backhaul SVG diagram
-3. "Traceability" (~line 219) — QR lot-ID scan flow
-4. "Demand → supply feedback" (~line 244) — GAP/demand-scheduling loop
-**If two agents need to edit different sections of /platform simultaneously, they WILL collide — it's one file.** Consider this the top collision-risk route; see below.
+File: `src/app/platform/page.tsx` — **thin assembly file (refactored 2026-07-17), no longer monolithic:**
+```
+<PlatformHero />   ← src/components/platform/PlatformHero.tsx (intro: micro-label + "The rerouted chain" h1 + dek)
+<OperatingLoop />  ← src/components/platform/OperatingLoop.tsx (the 4 content sections below, as internal subsections)
+{/* WAVE 3: <OwnershipModel />, <SolutionEngine />, etc. go here */}
+<Reveal>...</Reveal>  ← inline closing CTA to /appendix, stays in page.tsx
+```
+`OperatingLoop.tsx` contains, in order (all as subsections within one component, not split further):
+1. "The platform, in depth" — rerouted-chain function blocks (FUNCTIONS array, reads `ledger.json`)
+2. "Logistics roadmap" — hub-and-spoke + backhaul SVG diagram
+3. "Traceability" — QR lot-ID scan flow
+4. "Demand → supply feedback" — GAP/demand-scheduling loop
+Zero content/citation/data changes from the pre-refactor version — extraction only.
+**Wave 3 will add new top-level sections to page.tsx** at the marked placeholder comment; those get their own fresh components, not folded into OperatingLoop.
 
 ## Route: `/appendix`
 File: `src/app/appendix/page.tsx` (125 lines)
@@ -92,6 +100,6 @@ Plus inline JSX for the rest of the page — check the file directly for exact s
 ## Known collision risks (for parallel-agent coordination)
 1. **`layout.tsx` + `SiteNav.tsx` + `SectionTracker.tsx`** are a coupled triplet — any change to the main-page section list or the deep-page set touches all three. One agent should own this triplet per change, not split across parallel agents.
 2. **`ledger.json`** is shared by every content-adding task. Two agents adding fields concurrently will conflict on the same JSON block — prefer one agent per ledger-touching task, or explicitly partition by top-level key.
-3. **`/platform/page.tsx`** is monolithic — no safe way to parallelize edits within it. Treat as single-owner per session.
+3. **`/platform`** was refactored 2026-07-17 into `page.tsx` + `PlatformHero.tsx` + `OperatingLoop.tsx` (see route entry above). `OperatingLoop.tsx` still bundles all 4 content subsections in one file — same single-owner caution applies to edits within it, though hero vs. operating-loop edits can now run in parallel across the two component files.
 4. **`ProblemNational.tsx`** has been the site's most frequently re-edited file (TOP table removal, contrast-case removal, stat-row rebuild all landed here) — check git log for this file specifically before assuming its current state matches an old brief.
 5. **General rule proven necessary 2026-07-17:** if you dispatch two site-editing agents in the same session, either (a) partition by file/route so they never touch the same file, or (b) run them sequentially, not concurrently — concurrent commits to the same repo caused a real git divergence that had to be manually reconciled (see `04 - Decision Log` for that incident if it's logged).
