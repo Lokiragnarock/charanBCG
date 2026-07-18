@@ -53,6 +53,10 @@ export default function Cover() {
           </span>
         </a>
       </Reveal>
+
+      <Reveal delay={0.4} className="mt-g4">
+        <p className="micro-label text-muted/70">Charan &middot; Apoorv</p>
+      </Reveal>
     </section>
   );
 }

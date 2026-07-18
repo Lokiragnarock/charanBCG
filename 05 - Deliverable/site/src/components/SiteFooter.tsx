@@ -19,7 +19,7 @@ export default function SiteFooter() {
         <div className="micro-label text-muted">
           BCG OutPrompt &middot; Problem 4 &middot; The Banana Case
         </div>
-        <div className="flex flex-wrap gap-g3">
+        <div className="flex flex-wrap items-center gap-g3">
           {LINKS.map((l) => (
             <Link
               key={l.href}
@@ -29,6 +29,7 @@ export default function SiteFooter() {
               {l.label}
             </Link>
           ))}
+          <span className="micro-label text-muted/70">Charan &middot; Apoorv</span>
         </div>
       </div>
     </footer>
