@@ -294,7 +294,7 @@
     "district": "Theni",
     "corridorKm": 130,
     "corridorNote": "Theni -> Madurai/Cochin, local corridor",
-    "note": "BVC1 = traditional multi-layer chain (runs on sociocultural trust: farmers rarely bargain, accept payment delays, trust buyers to absorb crash losses). BVC2 = farmer-co-owned modern wholesale agency -- aggregates, controls ripening, sells direct to supermarkets/retailers/city wholesalers. The precedent sits inside our own cluster.",
+    "note": "BVC1 = traditional multi-layer chain (runs on sociocultural trust: farmers rarely bargain, accept payment delays, trust buyers to absorb crash losses). BVC2 = farmer-co-owned modern wholesale agency -- aggregates, controls ripening, sells direct to supermarkets/retailers/city wholesalers. The precedent sits inside the selected cluster.",
     "source": "tnau-pauline-ajjan-2014"
   },
   "corridorLengthComparison": {
@@ -386,12 +386,12 @@
     "ondcFlatFeeTxnFloorRs": 250,
     "ondcOnboardedFpoCount": 5000,
     "ondcRegisteredFpoCount": 8000,
-    "note": "Ninjacart figures are a blended trading-book gross margin, not a published fee schedule -- loosest available comparable, not a benchmark for our fee. A circulating 'ONDC charges 2-5% vs 15-25% on Amazon/Flipkart-type platforms' claim was checked and REJECTED: its sole source is an uncited agritech blog with no methodology or government citation. Do not cite the 2-5% figure as fact anywhere.",
+    "note": "Ninjacart figures are a blended trading-book gross margin, not a published fee schedule -- loosest available comparable, not a benchmark for the platform fee. A circulating 'ONDC charges 2-5% vs 15-25% on Amazon/Flipkart-type platforms' claim was checked and REJECTED: its sole source is an uncited agritech blog with no methodology or government citation. Do not cite the 2-5% figure as fact anywhere.",
     "source": "ninjacart-secondary"
   },
   "platformFeeWorkingAssumption": {
     "assumedPctOfScheduledVolume": 2,
-    "note": "Our own working assumption for the platform/FPO per-kg linkage fee. No external benchmark closes it -- Ninjacart's 12-15% gross margin is the loosest available comparable (a trading-book margin, not a fee schedule) and the circulating 'ONDC 2-5%' figure is rejected as unsourced. Present as an assumption to be tested, never as a benchmarked or validated number.",
+    "note": "A stated working assumption for the platform/FPO per-kg linkage fee. No external benchmark closes it -- Ninjacart's 12-15% gross margin is the loosest available comparable (a trading-book margin, not a fee schedule) and the circulating 'ONDC 2-5%' figure is rejected as unsourced. Present as an assumption to be tested, never as a benchmarked or validated number.",
     "tag": "design",
     "source": "design-intent"
   },
@@ -414,7 +414,7 @@
     "creditGuaranteeCoverPctUpTo1Cr": 85,
     "creditGuaranteeCoverPct1to2Cr": 75,
     "chinnamanurFpcCreditExtensionPct": 100,
-    "note": "Central Sector FPO scheme provisions. Chinnamanur FPC (the BVC2 precedent village, inside Theni) extends credit and extension services to 100% of its active members -- a real-world data point for what a functioning member-credit mechanism looks like, though not a description of OUR proposed mechanism.",
+    "note": "Central Sector FPO scheme provisions. Chinnamanur FPC (the BVC2 precedent village, inside Theni) extends credit and extension services to 100% of its active members -- a real-world data point for what a functioning member-credit mechanism looks like, though not a description of the proposed mechanism itself.",
     "source": "fpo-central-sector-scheme"
   },
   "assetOwnershipBoundary": {
@@ -434,7 +434,7 @@
     "maybeYear3Plus": [
       { "asset": "Ripening chambers, if scaled", "basis": "now costable: capex Rs 1.00 lakh/MT, MIDH/NHB subsidy 35% general / 50% hilly-NE -- see ripeningChamberCapex" }
     ],
-    "note": "This is the FPO's proposed own-vs-rent operating posture, not an externally sourced fact -- it is our design decision, built on top of sourced figures (chamber capex/subsidy, working-capital ceiling, existing Theni infrastructure) that are individually cited elsewhere in this file.",
+    "note": "This is the FPO's proposed own-vs-rent operating posture, not an externally sourced fact -- it is a design decision, built on top of sourced figures (chamber capex/subsidy, working-capital ceiling, existing Theni infrastructure) that are individually cited elsewhere in this file.",
     "tag": "design",
     "source": "design-intent"
   },
@@ -447,7 +447,7 @@
       { "function": "Logistics", "before": "Fragmented, commission-agent-arranged, empty backhauls", "platform": "Hub-and-spoke: Theni collection spokes -> ripening-chamber hubs -> retail; return legs loaded with Karnataka-cluster goods (coffee etc.) for max truck uptime" },
       { "function": "Traceability", "before": "None -- RBI explicitly states banana has no GrapeNet/MangoNet equivalent", "platform": "QR lot ID: farmer, village, harvest date, grade, ripening status -- retailers subscribe to recurring supply against a spec" }
     ],
-    "note": "The 'before' column cells cite already-sourced figures (Rs 2/kg ripening toll, 10% TN commission, A/B/C grade spread, RBI traceability-gap finding). The 'platform' column is our proposed operating model -- a re-routing of the same functions, not a sourced fact. Present the before column as fact, the platform column as proposed design.",
+    "note": "The 'before' column cells cite already-sourced figures (Rs 2/kg ripening toll, 10% TN commission, A/B/C grade spread, RBI traceability-gap finding). The 'platform' column is the proposed operating model -- a re-routing of the same functions, not a sourced fact. Present the before column as fact, the platform column as proposed design.",
     "tag": "design",
     "source": "design-intent"
   },
@@ -463,7 +463,7 @@
       { "gate": "Control -> Lease", "condition": "Known electricity cost per kg processed -- CURRENTLY UNSOURCED. No Rs/kWh or Rs/kg opex figure exists anywhere (see ripeningChamberOpexGap). This gate cannot be honestly claimed as passable until that number exists." },
       { "gate": "Lease -> Own", "condition": "Demonstrated positive lease-vs-own economics across multiple seasons, i.e. leased throughput and cost data showing ownership beats leasing at the FPO's actual volume -- not yet modeled, no reference case exists." }
     ],
-    "note": "This entire staged framework (access -> control -> lease -> own) is a PROPOSED operating-model construct, not sourced anywhere in the vault research. It borrows the Sahyadri precedent's general pattern (assets follow order-book proof, not the other way round -- Precedents.md) but the four named stages and their gate conditions are our own design, not independently validated against any real FPO's actual ripening-asset acquisition path. Present explicitly as 'how we propose to stage it,' never as an established model.",
+    "note": "This entire staged framework (access -> control -> lease -> own) is a PROPOSED operating-model construct, not sourced anywhere in the vault research. It borrows the Sahyadri precedent's general pattern (assets follow order-book proof, not the other way round -- Precedents.md) but the four named stages and their gate conditions are a design construct, not independently validated against any real FPO's actual ripening-asset acquisition path. Present explicitly as a proposed staging, never as an established model.",
     "tag": "design",
     "source": "design-intent"
   },
@@ -481,8 +481,8 @@
       "note": "Proposed governance mechanism, not yet validated against a real FPO's bylaws. No sourced reserve-ratio precedent exists in the research; any specific percentage shown on the site must be labeled illustrative."
     },
     "fpoCaptureMechanismOpenQuestion": {
-      "description": "The e-Choupal precedent proves coordination-over-ownership works, but ITC (the buyer) captured the uplift, not farmers. Our stated delta is that because the FPO is farmer-owned, uplift should accrue to members -- but there is no citable mechanism (bylaws, profit-distribution formula, membership economics) establishing HOW capture is guaranteed rather than merely intended.",
-      "note": "This is the single most important honesty flag in the governance section. State it as an explicitly open question if asked, not as solved."
+      "description": "The e-Choupal precedent proves coordination-over-ownership works, but ITC (the buyer) captured the uplift, not farmers. The stated delta is that because the FPO is farmer-owned, uplift should accrue to members -- but there is no citable mechanism (bylaws, profit-distribution formula, membership economics) establishing HOW capture is guaranteed rather than merely intended.",
+      "note": "This is the single most important honesty flag in the governance section. It is held as an explicitly open question, not presented as solved."
     },
     "tag": "design",
     "source": "design-intent"
@@ -665,7 +665,7 @@
       "tag": "reported"
     },
     "design-intent": {
-      "title": "Proposed operating-model design -- our own construct, not sourced from any external document. Present as 'how we propose to run it,' never as fact.",
+      "title": "Proposed operating-model design -- a design construct, not sourced from any external document. Present as a proposed operating model, never as fact.",
       "url": "",
       "year": 2026,
       "tag": "design"

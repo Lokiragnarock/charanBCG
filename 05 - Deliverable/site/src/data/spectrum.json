@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "note": "8 real banana clusters (MoFPI/Grant Thornton diagnostic, Oct 2021, via NotebookLM synthesis -- all rows 🟡 pending primary-page traceback), scored on an honest, displayed formula. Theni (TN C2) is our pick because it combines the best post-harvest efficiency floor with the only unmonetized GI headroom in the set -- not because the formula was built to favor it.",
+  "note": "8 real banana clusters (MoFPI/Grant Thornton diagnostic, Oct 2021, via NotebookLM synthesis -- all rows 🟡 pending primary-page traceback), scored on an honest, displayed formula. Theni (TN C2) is the selected cluster because it combines the best post-harvest efficiency floor with the only unmonetized GI headroom in the set -- not because the formula was built to favor it.",
   "formula": "delta = 0.5 x efficiencyScore + 0.5 x giHeadroomScore, where efficiencyScore = (30.5 - lossPct) / (30.5 - 9) [normalized against the worst (MH, 30.5%) and best (TN, 9%) clusters in this set] and giHeadroomScore = 1.0 unmonetized GI / 0.6 unmarketed local-variety GI / 0.1 already-monetized GI / 0 no GI",
   "constants": {
     "ripeningPerKg": 2,
