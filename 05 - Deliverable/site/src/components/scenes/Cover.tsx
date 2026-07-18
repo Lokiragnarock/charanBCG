@@ -16,7 +16,10 @@ export default function Cover() {
       className="relative flex min-h-screen w-full flex-col items-center justify-center px-6 pt-[52px] text-center"
     >
       <Reveal>
-        <div className="micro-label">BCG OutPrompt &middot; Problem 4</div>
+        <div className="micro-label">
+          BCG OutPrompt &middot; Problem 4 &middot;{" "}
+          <span className="text-text/80">Charan &amp; Apoorv</span>
+        </div>
       </Reveal>
 
       <Reveal delay={0.1} className="relative mt-g5">
@@ -36,7 +39,7 @@ export default function Cover() {
 
       <Reveal delay={0.2} className="mt-g5">
         <p className="font-mono text-sm text-muted">
-          {bananaFarmerShare.value}% farmer share &mdash; the lowest of the
+          {bananaFarmerShare.value}% farmer share, the lowest of the
           fruits RBI studied
           <Cite id={bananaFarmerShare.source} />
         </p>
@@ -54,9 +57,6 @@ export default function Cover() {
         </a>
       </Reveal>
 
-      <Reveal delay={0.4} className="mt-g4">
-        <p className="micro-label text-muted/70">Charan &middot; Apoorv</p>
-      </Reveal>
     </section>
   );
 }

@@ -19,7 +19,7 @@ const FUNCTIONS: {
 }[] = [
   {
     name: "Demand scheduling",
-    before: "Contractors forecast volume and tonnage off flowering — a guess, fixed months early.",
+    before: "Contractors forecast volume and tonnage off flowering, a guess fixed months early.",
     platform: "The retailer order book drives volume, grade, and delivery cadence directly.",
     money: (
       <>
@@ -30,14 +30,14 @@ const FUNCTIONS: {
   },
   {
     name: "Farm-gate grading + lot ID",
-    before: "Grading happens post-sale, in the contractor's hands — the farmer sells at a flat price and never sees the spread.",
+    before: "Grading happens post-sale in the contractor's hands; the farmer sells at a flat price and never sees the spread.",
     platform: "Farm-gate grading with a digital lot ID captures grade at the source.",
     money: (
       <>
         A/B/C grades resolve to &#8377;{gradeSpreadCapture.gradeA}/
         {gradeSpreadCapture.gradeB}/{gradeSpreadCapture.gradeC} per kg
-        <Cite id={gradeSpreadCapture.source} /> — paid to the farmer, not
-        absorbed downstream.
+        <Cite id={gradeSpreadCapture.source} />, paid to the farmer instead
+        of being absorbed downstream.
       </>
     ),
   },
@@ -48,14 +48,14 @@ const FUNCTIONS: {
     money: (
       <>
         The advance always cost price, not interest
-        <Cite id={contractorAdvanceTerms.source} /> — removing the lock
-        removes that cost, not a rate.
+        <Cite id={contractorAdvanceTerms.source} />. Removing the lock
+        removes that cost.
       </>
     ),
   },
   {
     name: "Ripening allocation",
-    before: `Ripening-chamber time tolled by volume, &#8377;${ripeningCharge.perKg}/kg regardless of order.`,
+    before: `Ripening-chamber time tolled by volume, ₹${ripeningCharge.perKg}/kg regardless of order.`,
     platform: "Allocation by grade and buyer delivery timeline, not by who arrives first.",
     money: (
       <>
@@ -73,7 +73,7 @@ const FUNCTIONS: {
       <>
         &#8377;{bananaDomesticTransport.perKgLow}&ndash;
         {bananaDomesticTransport.perKgHigh}/kg
-        <Cite id={bananaDomesticTransport.source} /> domestic transport cost —
+        <Cite id={bananaDomesticTransport.source} /> domestic transport cost,
         spread across two loaded legs instead of one.
       </>
     ),
@@ -190,8 +190,8 @@ export default function OperatingLoop() {
         <p className="mt-3 max-w-[64ch] text-xs text-muted">
           Collection spokes feed one ripening hub; delivery legs run
           forward loaded, backhaul legs return loaded with Karnataka-cluster
-          goods (coffee and others) instead of running empty &mdash;
-          maximizing truck uptime on the same corridor.
+          goods (coffee and others) instead of running empty, which keeps
+          the trucks earning on the same corridor.
         </p>
       </Reveal>
 
@@ -215,8 +215,8 @@ export default function OperatingLoop() {
           )}
         </div>
         <p className="mt-4 max-w-[60ch] text-sm text-muted">
-          Retailers subscribe to a spec (grade, variety, ripening window) —
-          the platform only routes lots that match it to that buyer.
+          Retailers subscribe to a spec (grade, variety, ripening window);
+          the platform routes only matching lots to that buyer.
         </p>
       </Reveal>
 
@@ -256,7 +256,7 @@ export default function OperatingLoop() {
               Branches off &quot;Synchronized planting&quot;
             </div>
             <p className="max-w-[60ch] text-sm text-muted">
-              GAP advisory customized per order spec &mdash; practices and
+              GAP advisory customized per order spec: practices and
               pesticide discipline tuned so the harvest matches the
               buyer&apos;s grade requirement, not a generic playbook.
             </p>

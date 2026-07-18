@@ -149,8 +149,8 @@ export default function ValueChain() {
                 One member-owned FPO runs the coordination
               </h2>
               <p className="mt-4 max-w-[36ch] text-sm text-muted">
-                Farmers as shareholders. Same physical chain, rerouted &mdash;
-                the e-Choupal law, run by the growers.
+                Farmers hold the shares. The physical chain stays; the
+                coordination changes hands.
               </p>
             </div>
             <div className="col-span-12 flex flex-col divide-y divide-hairline md:col-span-8">
@@ -173,8 +173,8 @@ export default function ValueChain() {
               <div className="py-4 last:pb-0">
                 <p className="text-sm font-medium text-text">Paid on day 0</p>
                 <p className="mt-1 text-sm text-muted">
-                  Digital payment on partner rails (KCC/pledge/anchor), never
-                  the FPO&apos;s book.
+                  Digital payment on partner rails (KCC, pledge, anchor
+                  finance); the FPO carries no credit book.
                 </p>
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function ValueChain() {
             <ValueStat
               value={<>&#8377;{ripeningCharge.perKg}/kg</>}
               citeId={ripeningCharge.source}
-              caption="ripening allocated by order, not tolled"
+              caption="allocated by order, spent on fruit that sells"
             />
           </div>
         </Reveal>
@@ -234,9 +234,9 @@ export default function ValueChain() {
             +{bvcPrecedent.deltaPts} pts
           </p>
           <p className="mx-auto mt-4 max-w-[50ch] text-sm text-muted">
-            Already running, {bvcPrecedent.corridorKm} km away &mdash;
-            farmer-co-owned chain, {bvcPrecedent.village}, {bvcPrecedent.district}{" "}
-            district.
+            Already running {bvcPrecedent.corridorKm} km away: the
+            farmer-co-owned chain in {bvcPrecedent.village},{" "}
+            {bvcPrecedent.district} district.
           </p>
           <p className="mt-6 text-sm">
             <Link href="/platform" className="text-signal hover:underline">

@@ -15,16 +15,14 @@ export default function FPOModel() {
       <Reveal>
         <div className="micro-label">The FPO model</div>
         <h2 className="font-display mt-3 text-3xl tracking-tight sm:text-4xl">
-          One crop, one district, one coordination OS
+          One crop, one district, one company
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
-          The FPO is a member-owned company, farmers as shareholders,
-          operating on banana, in Theni, and nowhere else yet. It is
-          not a new middleman layered onto the existing chain. It is a
-          replacement operating system for the coordination function that
-          contractors, commission agents, and wholesalers currently perform:
-          the e-Choupal law of asset-light coordination over ownership, run
-          by farmers instead of a buyer.
+          The FPO is a company owned by the farmers who supply it. One crop,
+          one district. It takes over the coordination jobs held today by
+          contractors, commission agents, and wholesalers: scheduling,
+          grading, payment, routing. e-Choupal ran the same play for ITC at
+          national scale. Here the growers own the coordinator.
         </p>
       </Reveal>
 
@@ -122,11 +120,11 @@ export default function FPOModel() {
           </div>
         </div>
         <p className="mt-4 max-w-[70ch] text-sm text-muted">
-          This is not a projection. It is a precedent that already
-          exists inside the selected cluster. The farmer-co-owned BVC2 chain in
-          Chinnamanur, {bvcPrecedent.corridorKm} km from Theni, already
-          clears {bvcPrecedent.bvc2Pct}% farmer share. The precedent{" "}
-          <em>is</em> the claim; nothing beyond it is asserted here.
+          The {bvcPrecedent.bvc2Pct}% is measured, not modelled. A
+          farmer-co-owned chain in {bvcPrecedent.village},{" "}
+          {bvcPrecedent.corridorKm} km from Theni, was already clearing that
+          share when TNAU studied it in 2014. The claim goes no further than
+          what {bvcPrecedent.village} has done.
         </p>
       </Reveal>
 

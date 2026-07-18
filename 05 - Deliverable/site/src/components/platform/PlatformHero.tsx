@@ -8,9 +8,9 @@ export default function PlatformHero() {
         The rerouted chain
       </h1>
       <p className="mt-4 max-w-2xl text-muted">
-        Same physical functions, same physical labour &mdash; scheduled,
-        graded, financed, and routed by the platform instead of by an
-        informal chain of tolls.
+        The same functions and the same labour, now scheduled, graded,
+        financed, and routed by the platform instead of an informal chain
+        of tolls.
       </p>
     </Reveal>
   );

@@ -434,18 +434,18 @@
     "maybeYear3Plus": [
       { "asset": "Ripening chambers, if scaled", "basis": "now costable: capex Rs 1.00 lakh/MT, MIDH/NHB subsidy 35% general / 50% hilly-NE -- see ripeningChamberCapex" }
     ],
-    "note": "The own-vs-rent split is a deliberate design decision -- asset-light by intent, per the e-Choupal law -- built on sourced figures (chamber capex and subsidy, working-capital ceiling, existing Theni infrastructure) cited throughout.",
+    "note": "The own-vs-rent split is a design decision: asset-light on purpose, following e-Choupal. The figures beneath it (chamber capex and subsidy, working-capital ceiling, existing Theni infrastructure) are each cited in this ledger.",
     "tag": "design",
     "source": "design-intent"
   },
   "sixFunctionReroute": {
     "functions": [
       { "function": "Demand scheduling", "before": "Contractor guesses/reacts to market; farmer grows blind", "platform": "Retailer order book (volume, grade, delivery cadence, forecast) drives planting schedule before harvest" },
-      { "function": "Grading", "before": "Post-sale, in contractor's hands -- farmer never captures the A/B/C spread (Rs 10/8/5, a 2x gap)", "platform": "Farm-gate, pre-sale, with a digital lot ID (QR) attached -- farmer captures part of the grade spread" },
-      { "function": "Financing", "before": "Contractor's interest-free advance, cost extracted through price (zero-bargaining, up to 3-week payment delays, buyer absorbs crash losses)", "platform": "Day-0 digital payment on partner rails only (KCC/pledge/anchor finance) -- never the FPO's own book" },
-      { "function": "Ripening", "before": "Rs 2/kg toll, allocation-blind, dwell-time and loss unmanaged", "platform": "Allocated by order -- matched to grade x buyer delivery timeline, same toll, less loss" },
+      { "function": "Grading", "before": "Post-sale, in the contractor's hands; the farmer never sees the A/B/C spread (Rs 10/8/5, a 2x gap)", "platform": "Farm-gate and pre-sale, with a digital lot ID (QR); the farmer keeps part of the grade spread" },
+      { "function": "Financing", "before": "Contractor's interest-free advance, cost extracted through price (zero-bargaining, up to 3-week payment delays, buyer absorbs crash losses)", "platform": "Day-0 digital payment on partner rails (KCC, pledge, anchor finance); the FPO carries no credit book" },
+      { "function": "Ripening", "before": "Rs 2/kg toll, allocation-blind, dwell-time and loss unmanaged", "platform": "Allocated by order: grade matched to the buyer's delivery timeline, same toll, less loss" },
       { "function": "Logistics", "before": "Fragmented, commission-agent-arranged, empty backhauls", "platform": "Hub-and-spoke: Theni collection spokes -> ripening-chamber hubs -> retail; return legs loaded with Karnataka-cluster goods (coffee etc.) for max truck uptime" },
-      { "function": "Traceability", "before": "None -- RBI explicitly states banana has no GrapeNet/MangoNet equivalent", "platform": "QR lot ID: farmer, village, harvest date, grade, ripening status -- retailers subscribe to recurring supply against a spec" }
+      { "function": "Traceability", "before": "None; RBI states banana has no GrapeNet or MangoNet equivalent", "platform": "QR lot ID carries farmer, village, harvest date, grade, and ripening status; retailers subscribe to recurring supply against a spec" }
     ],
     "note": "The 'before' column cells cite already-sourced figures (Rs 2/kg ripening toll, 10% TN commission, A/B/C grade spread, RBI traceability-gap finding). The 'platform' column is the proposed operating model -- a re-routing of the same functions, not a sourced fact. Present the before column as fact, the platform column as proposed design.",
     "tag": "design",
@@ -481,8 +481,8 @@
       "note": "Proposed governance mechanism, not yet validated against a real FPO's bylaws. No sourced reserve-ratio precedent exists in the research; any specific percentage shown on the site must be labeled illustrative."
     },
     "fpoCaptureMechanismOpenQuestion": {
-      "description": "e-Choupal proved coordination-over-ownership works -- and ITC captured the uplift because ITC owned the platform. This design inverts that: the FPO is farmer-owned, so the platform margin lands on the same people who grow the fruit. Ownership is the capture mechanism. The bylaw mechanics -- profit-distribution formula, membership economics -- are a Year-0 incorporation task for the member board, defined before the first transaction, not an afterthought.",
-      "note": "No precedent FPO bylaw is cited for the distribution formula; it is set by the members at incorporation. The design principle -- capture follows ownership -- is fixed here."
+      "description": "e-Choupal settled whether coordination can beat ownership. It also showed who wins: ITC ran the platform, so ITC kept the uplift. Here the coordinator is owned by the growers. The platform margin is FPO profit, and FPO profit belongs to the members. The distribution formula and membership economics go into the bylaws at incorporation, before the first lot moves.",
+      "note": "No precedent bylaw is cited for the formula; the members set it at incorporation. The principle is fixed: capture follows ownership."
     },
     "tag": "design",
     "source": "design-intent"
