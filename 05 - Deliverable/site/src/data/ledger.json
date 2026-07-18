@@ -611,7 +611,7 @@
       "tag": "reported"
     },
     "tnau-pauline-ajjan-2014": {
-      "title": "Pauline & Ajjan (TNAU, 2014): South India banana value chains -- BVC1 (traditional, 52%) vs BVC2 (farmer-co-owned modern wholesale agency, 65.45%), Chinnamanur village, Theni district",
+      "title": "Pauline & Ajjan (TNAU, 2014): South India banana value chains. BVC1 (traditional, 52%) vs BVC2 (farmer-co-owned modern wholesale agency, 65.45%), Chinnamanur village, Theni district",
       "url": "",
       "year": 2014,
       "tag": "reported"
@@ -641,19 +641,19 @@
       "tag": "estimated"
     },
     "nhb-cost-norms": {
-      "title": "NHB Cost Norms (nhb.gov.in) -- ripening chamber capex/subsidy schedule",
+      "title": "NHB Cost Norms (nhb.gov.in): ripening chamber capex/subsidy schedule",
       "url": "",
       "year": 2026,
       "tag": "verified"
     },
     "ninjacart-secondary": {
-      "title": "Ninjacart investor/company materials via secondary press coverage (VFS, mutualfundsguide) -- not a primary filing; gross-margin comparable only, not a fee schedule",
+      "title": "Ninjacart investor/company materials via secondary press coverage (VFS, mutualfundsguide); not a primary filing, gross-margin comparable only",
       "url": "",
       "year": 2026,
       "tag": "reported"
     },
     "national-freight-index-backhaul": {
-      "title": "National Freight Index blog, citing CRISIL Research / Logistics Sector Skill Council backhaul estimates -- generic India road-freight, not banana-specific; NITI Aayog primary PDF blocked (HTTP 403)",
+      "title": "National Freight Index blog, citing CRISIL Research / Logistics Sector Skill Council backhaul estimates; generic India road-freight, not banana-specific (NITI Aayog primary PDF blocked, HTTP 403)",
       "url": "",
       "year": 2026,
       "tag": "reported"
@@ -665,7 +665,7 @@
       "tag": "reported"
     },
     "design-intent": {
-      "title": "Operating-model design decisions, made explicitly for this platform -- not drawn from an external document, and labeled as design intent throughout.",
+      "title": "Operating-model design decisions, made explicitly for this platform; not drawn from an external document, and labeled as design intent throughout.",
       "url": "",
       "year": 2026,
       "tag": "design"
