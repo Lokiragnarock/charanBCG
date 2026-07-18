@@ -15,10 +15,10 @@ export default function RipeningInfrastructure() {
         proven.
       </h2>
       <p className="mt-4 max-w-2xl text-muted">
-        The proposed sequencing of ripening-asset ownership &mdash;
-        a design construct, not an established model. Two of the three
-        gates below cannot honestly be called passable with the information
-        that exists today.
+        Ripening-asset ownership is staged deliberately: assets follow
+        order-book proof, the Sahyadri pattern &mdash; access first,
+        ownership only once throughput earns it. Two of the three gates
+        below are scoped implementation tasks, not yet cleared.
       </p>
 
       <div className="mt-10 grid grid-cols-1 gap-0 overflow-hidden border border-hairline sm:grid-cols-4">

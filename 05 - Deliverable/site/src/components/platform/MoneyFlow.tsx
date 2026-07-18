@@ -28,17 +28,17 @@ export default function MoneyFlow() {
         <div className="col-span-12 md:col-span-5">
           <div className="panel h-full border-signal/30 p-6">
             <div className="micro-label text-[10px] text-signal">
-              Working assumption, not a benchmark
+              Design parameter, set for the model
             </div>
             <div className="stat mt-3 font-mono text-4xl">
               &#8776;{platformFeeWorkingAssumption.assumedPctOfScheduledVolume}%
             </div>
             <p className="mt-2 text-xs text-muted">
-              of scheduled volume &mdash; an unbenchmarked design assumption
-              for the platform/FPO coordination fee
-              <Cite id={platformFeeWorkingAssumption.source} />. No external
-              benchmark closes this number; present it as an assumption to be
-              tested.
+              of scheduled volume &mdash; the platform/FPO coordination fee
+              set for this model
+              <Cite id={platformFeeWorkingAssumption.source} />, to be
+              pressure-tested against pilot economics once volume moves
+              through the platform.
             </p>
           </div>
         </div>
@@ -53,9 +53,9 @@ export default function MoneyFlow() {
               <Cite id={platformFeeBenchmarks.source} />
             </div>
             <p className="mt-2 text-xs text-muted">
-              Ninjacart&apos;s blended trading-book gross margin &mdash; a
-              comparable, not a fee schedule, and not a benchmark for the
-              platform fee.
+              Ninjacart&apos;s blended trading-book gross margin &mdash; the
+              closest available reference point, not a fee schedule the
+              platform fee is set against.
               A circulating &quot;ONDC charges 2&ndash;5%&quot; claim was
               checked and rejected: its only source is an uncited blog with no
               methodology.

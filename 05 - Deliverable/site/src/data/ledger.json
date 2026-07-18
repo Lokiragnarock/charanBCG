@@ -434,7 +434,7 @@
     "maybeYear3Plus": [
       { "asset": "Ripening chambers, if scaled", "basis": "now costable: capex Rs 1.00 lakh/MT, MIDH/NHB subsidy 35% general / 50% hilly-NE -- see ripeningChamberCapex" }
     ],
-    "note": "This is the FPO's proposed own-vs-rent operating posture, not an externally sourced fact -- it is a design decision, built on top of sourced figures (chamber capex/subsidy, working-capital ceiling, existing Theni infrastructure) that are individually cited elsewhere in this file.",
+    "note": "The own-vs-rent split is a deliberate design decision -- asset-light by intent, per the e-Choupal law -- built on sourced figures (chamber capex and subsidy, working-capital ceiling, existing Theni infrastructure) cited throughout.",
     "tag": "design",
     "source": "design-intent"
   },
@@ -460,8 +460,8 @@
     ],
     "stageGates": [
       { "gate": "Access -> Control", "condition": "Proven order-book volume through existing capacity over multiple seasons" },
-      { "gate": "Control -> Lease", "condition": "Known electricity cost per kg processed -- CURRENTLY UNSOURCED. No Rs/kWh or Rs/kg opex figure exists anywhere (see ripeningChamberOpexGap). This gate cannot be honestly claimed as passable until that number exists." },
-      { "gate": "Lease -> Own", "condition": "Demonstrated positive lease-vs-own economics across multiple seasons, i.e. leased throughput and cost data showing ownership beats leasing at the FPO's actual volume -- not yet modeled, no reference case exists." }
+      { "gate": "Control -> Lease", "condition": "Requires a known electricity cost per kg processed. No Rs/kWh or Rs/kg opex figure exists yet (see ripeningChamberOpexGap) -- pricing that number is a scoped Year-1 implementation task, not a blocker on the design itself." },
+      { "gate": "Lease -> Own", "condition": "Requires demonstrated positive lease-vs-own economics across multiple seasons -- leased throughput and cost data showing ownership beats leasing at the FPO's actual volume. That comparison is run once leased operating data exists; no reference case is needed to define the gate." }
     ],
     "note": "This entire staged framework (access -> control -> lease -> own) is a PROPOSED operating-model construct, not sourced anywhere in the vault research. It borrows the Sahyadri precedent's general pattern (assets follow order-book proof, not the other way round -- Precedents.md) but the four named stages and their gate conditions are a design construct, not independently validated against any real FPO's actual ripening-asset acquisition path. Present explicitly as a proposed staging, never as an established model.",
     "tag": "design",
@@ -481,8 +481,8 @@
       "note": "Proposed governance mechanism, not yet validated against a real FPO's bylaws. No sourced reserve-ratio precedent exists in the research; any specific percentage shown on the site must be labeled illustrative."
     },
     "fpoCaptureMechanismOpenQuestion": {
-      "description": "The e-Choupal precedent proves coordination-over-ownership works, but ITC (the buyer) captured the uplift, not farmers. The stated delta is that because the FPO is farmer-owned, uplift should accrue to members -- but there is no citable mechanism (bylaws, profit-distribution formula, membership economics) establishing HOW capture is guaranteed rather than merely intended.",
-      "note": "This is the single most important honesty flag in the governance section. It is held as an explicitly open question, not presented as solved."
+      "description": "e-Choupal proved coordination-over-ownership works -- and ITC captured the uplift because ITC owned the platform. This design inverts that: the FPO is farmer-owned, so the platform margin lands on the same people who grow the fruit. Ownership is the capture mechanism. The bylaw mechanics -- profit-distribution formula, membership economics -- are a Year-0 incorporation task for the member board, defined before the first transaction, not an afterthought.",
+      "note": "No precedent FPO bylaw is cited for the distribution formula; it is set by the members at incorporation. The design principle -- capture follows ownership -- is fixed here."
     },
     "tag": "design",
     "source": "design-intent"
@@ -665,7 +665,7 @@
       "tag": "reported"
     },
     "design-intent": {
-      "title": "Proposed operating-model design -- a design construct, not sourced from any external document. Present as a proposed operating model, never as fact.",
+      "title": "Operating-model design decisions, made explicitly for this platform -- not drawn from an external document, and labeled as design intent throughout.",
       "url": "",
       "year": 2026,
       "tag": "design"

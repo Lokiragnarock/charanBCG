@@ -17,7 +17,7 @@ const PAGES: { href: string; label: string }[] = [
   { href: "/history", label: "History" },
   { href: "/clusters", label: "Clusters" },
   { href: "/platform", label: "Platform" },
-  { href: "/appendix", label: "Appendix" },
+  { href: "/appendix", label: "AI Use Case" },
 ];
 
 /**

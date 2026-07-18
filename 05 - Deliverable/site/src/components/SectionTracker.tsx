@@ -21,7 +21,7 @@ const DEEP_PAGES: { href: string; letter: string; label: string }[] = [
   { href: "/history", letter: "A", label: "History" },
   { href: "/clusters", letter: "B", label: "Clusters" },
   { href: "/platform", letter: "C", label: "Platform" },
-  { href: "/appendix", letter: "D", label: "Appendix" },
+  { href: "/appendix", letter: "D", label: "AI Use Case" },
 ];
 
 /**

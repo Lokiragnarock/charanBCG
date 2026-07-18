@@ -4,7 +4,7 @@ import S5 from "@/components/scenes/S5";
 import { ledger, sources, tagEmoji } from "@/lib/ledger";
 
 export const metadata = {
-  title: "Appendix — The Banana Case",
+  title: "AI Use Case — The Banana Case",
 };
 
 const DATA_QUALITY_NOTES: { title: string; body: string }[] = [
@@ -35,7 +35,7 @@ export default function AppendixPage() {
     <main className="relative min-h-screen w-full px-6 pt-[52px] pb-24">
       <div className="mx-auto w-full max-w-[1200px] py-16">
         <Reveal>
-          <div className="micro-label">The appendix</div>
+          <div className="micro-label">AI Use Case</div>
           <h1 className="font-display mt-3 text-4xl tracking-tight sm:text-5xl">
             Every number, every decision
           </h1>

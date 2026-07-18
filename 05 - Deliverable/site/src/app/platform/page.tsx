@@ -28,7 +28,7 @@ export default function PlatformPage() {
             href="/appendix"
             className="micro-label border border-hairline px-4 py-2 text-muted transition-colors duration-150 hover:border-signal hover:text-signal"
           >
-            The Appendix &rarr;
+            AI Use Case &rarr;
           </Link>
         </Reveal>
       </div>

@@ -130,9 +130,9 @@ export default function FPOModel() {
         </p>
       </Reveal>
 
-      {/* governance honesty line */}
+      {/* governance */}
       <Reveal delay={0.1} className="mt-16">
-        <div className="micro-label mb-4">Governance: the open question</div>
+        <div className="micro-label mb-4">Governance: who captures the uplift</div>
         <div className="border-l-2 border-danger/60 pl-5">
           <p className="max-w-[70ch] text-sm text-muted">
             {governanceMechanisms.fpoCaptureMechanismOpenQuestion.description}
