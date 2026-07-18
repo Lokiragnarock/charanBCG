@@ -4,25 +4,25 @@ import S5 from "@/components/scenes/S5";
 import { ledger, sources, tagEmoji } from "@/lib/ledger";
 
 export const metadata = {
-  title: "AI Use Case — The Banana Case",
+  title: "AI Use Case: The Banana Case",
 };
 
 const DATA_QUALITY_NOTES: { title: string; body: string }[] = [
   {
     title: "Jalgaon → Delhi illustrative corridor build-up",
-    body: "A synthesized ₹13 → ₹18 → ₹21.5 → ₹25 farmgate-to-retail build-up implies ~52% farmer share, which conflicts with RBI's verified 30.8% headline for the same corridor description. Different year or source, or a synthesis blend across sources — not yet reconciled to a single primary page. Not shown on any reader-facing page; retained here and in ledger.json only.",
+    body: "A synthesized ₹13 → ₹18 → ₹21.5 → ₹25 farmgate-to-retail build-up implies ~52% farmer share, which conflicts with RBI's verified 30.8% headline for the same corridor description. Different year or source, or a synthesis blend across sources; not yet reconciled to a single primary page. Not shown on any reader-facing page; retained here and in ledger.json only.",
   },
   {
     title: "TN C2 (Theni) marketable surplus: two figures",
-    body: "0.48 lakh MT in the MoFPI/Grant Thornton diagnostic dataset vs 0.35 lakh MT in the internal GT deck. Not yet reconciled to one number — shown here, not on /clusters or the main page.",
+    body: "0.48 lakh MT in the MoFPI/Grant Thornton diagnostic dataset vs 0.35 lakh MT in the internal GT deck. Not yet reconciled to one number; shown here, not on /clusters or the main page.",
   },
   {
     title: "AP C2 marketable surplus: likely unit slip",
-    body: "Stated as 0.82 lakh MT against 2.16 Mn MT production, which reads as an implausible ratio next to the other clusters — most likely a units error in the source (probably meant 0.82 Mn MT). Shown as sourced, not silently corrected, and not surfaced on reader-facing pages.",
+    body: "Stated as 0.82 lakh MT against 2.16 Mn MT production, which reads as an implausible ratio next to the other clusters; most likely a units error in the source (probably meant 0.82 Mn MT). Shown as sourced, not silently corrected, and not surfaced on reader-facing pages.",
   },
   {
     title: "Local retail price (Theni corridor): derived, not quoted",
-    body: "₹17.3–19.2/kg is not a directly reported retail price. It is derived by dividing the Theni commission-agent farmgate price (₹9–10/kg) by the BVC1 traditional-chain farmer share (52%). Labeled as derived only here and in the value-chain scene's citation — never asserted as a primary quote.",
+    body: "₹17.3–19.2/kg is not a directly reported retail price. It is derived by dividing the Theni commission-agent farmgate price (₹9–10/kg) by the BVC1 traditional-chain farmer share (52%). Labeled as derived only here and in the value-chain scene's citation; never asserted as a primary quote.",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function AppendixPage() {
           <p className="mt-4 max-w-2xl text-muted">
             Confidence tags and data-quality caveats live here, and only
             here. Every reader-facing figure elsewhere on the site is either
-            fully verified or explicitly labeled as modelled &mdash; never
+            fully verified or explicitly labeled as modelled, never
             silently hedged.
           </p>
         </Reveal>
@@ -104,7 +104,7 @@ export default function AppendixPage() {
           <p className="mt-4 text-xs text-muted">
             Every figure that appears anywhere on this site is bound from{" "}
             <code>src/data/ledger.json</code> and{" "}
-            <code>src/data/spectrum.json</code>, sourced above — {" "}
+            <code>src/data/spectrum.json</code>, sourced above: {" "}
             {Object.keys(ledger).length - 1} data groups, {sourceEntries.length}{" "}
             sources.
           </p>

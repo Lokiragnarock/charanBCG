@@ -24,7 +24,7 @@ export default function OwnershipModel() {
       <h2 className="font-display mt-3 max-w-3xl text-3xl tracking-tight sm:text-4xl">
         The FPO owns the demand contract, the quality gate, and the
         coordination logic. It rents or partners for chambers, trucks, and
-        financing &mdash; and never owns farmland.
+        financing, and never owns farmland.
       </h2>
 
       <div
@@ -85,7 +85,7 @@ export default function OwnershipModel() {
                   </div>
                   <div className="text-[11px] text-muted">
                     capex, {ripeningChamberCapex.subsidyPctGeneral}% subsidised
-                    (general) &mdash; the asset this posture is naming, not yet
+                    (general): the asset this posture is naming, not yet
                     acquired
                   </div>
                 </li>
@@ -99,7 +99,7 @@ export default function OwnershipModel() {
             Never owned
           </div>
           <p className="max-w-[52ch] text-sm text-muted">
-            {assetOwnershipBoundary.neverOwned[0].asset} &mdash;{" "}
+            {assetOwnershipBoundary.neverOwned[0].asset}:{" "}
             {assetOwnershipBoundary.neverOwned[0].basis}. This is a structural
             fact of the model, not a hedge: the FPO is a coordination layer
             over independent smallholdings, not a landholder.

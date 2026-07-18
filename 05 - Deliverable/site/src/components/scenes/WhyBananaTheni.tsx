@@ -54,7 +54,7 @@ export default function WhyBananaTheni() {
                   <Cite id={bananaGlobalRank.source} />
                 </div>
                 <p className="mt-2 text-sm text-muted">
-                  of global production &mdash; {bananaGlobalRank.mmt} MMT in{" "}
+                  of global production: {bananaGlobalRank.mmt} MMT in{" "}
                   {bananaGlobalRank.year}. India&apos;s #{bananaFruitEconomyShare.rank}{" "}
                   fruit by land and value: {bananaFruitEconomyShare.areaSharePct}%
                   of fruit area, {bananaFruitEconomyShare.valueSharePct}% of
@@ -71,8 +71,8 @@ export default function WhyBananaTheni() {
               <div className="col-span-12 md:col-span-7 md:order-1">
                 <p className="max-w-[46ch] text-sm text-muted">
                   Unlike seasonal fruits, Tamil Nadu can plant banana nearly
-                  any time of year except peak summer &mdash; meaning
-                  supply-smoothing, the core lever, is agronomically possible
+                  any time of year except peak summer, which makes
+                  supply-smoothing, the core lever, agronomically possible
                   here specifically
                   <Cite id={bananaYearRoundTN.source} />.
                 </p>
@@ -105,7 +105,7 @@ export default function WhyBananaTheni() {
                   of pseudostem waste, convertible to fibre (
                   {bananaPseudostem.fiberAGradePerKgLow}&ndash;
                   {bananaPseudostem.fiberAGradePerKgHigh}/kg A-grade), food
-                  products, and bio-fertiliser &mdash; beyond the fruit itself.
+                  products, and bio-fertiliser, all beyond the fruit itself.
                 </p>
               </div>
             </div>
@@ -127,8 +127,8 @@ export default function WhyBananaTheni() {
             <div className="grid grid-cols-12 gap-g3">
               <div className="col-span-12 md:col-span-8">
                 <p className="max-w-[60ch] text-lg text-muted">
-                  Theni is Tamil Nadu&apos;s growth cluster &mdash; GT
-                  diagnostic Cluster 2, alongside Tuticorin and Madurai.
+                  Theni is Tamil Nadu&apos;s growth cluster: GT diagnostic
+                  Cluster 2, alongside Tuticorin and Madurai.
                   Stable at{" "}
                   <span className="text-text">
                     {theniClusterStats.areaKHa.toLocaleString()},000 Ha
@@ -154,7 +154,7 @@ export default function WhyBananaTheni() {
                   <Cite id={clusterLossComparison.source} />
                 </div>
                 <div className="micro-label">
-                  total post-harvest loss &mdash; the lowest of any surveyed
+                  total post-harvest loss, the lowest of any surveyed
                   cluster (vs {clusterLossComparison.gjPctLow}&ndash;
                   {clusterLossComparison.mhPct}% elsewhere)
                 </div>
@@ -185,9 +185,9 @@ export default function WhyBananaTheni() {
                   <Cite id={giHeadroomTheni.source} />
                 </div>
                 <div className="micro-label">
-                  {giHeadroomTheni.brandRecall} brand recall &mdash; the
-                  headroom {giHeadroomTheni.precedentCluster}&apos;s GI already
-                  proved (+{giHeadroomTheni.precedentPremiumPct}%/kg premium)
+                  {giHeadroomTheni.brandRecall} brand recall, the headroom{" "}
+                  {giHeadroomTheni.precedentCluster}&apos;s GI already proved
+                  (+{giHeadroomTheni.precedentPremiumPct}%/kg premium)
                 </div>
               </div>
             </div>

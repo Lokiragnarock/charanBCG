@@ -8,9 +8,9 @@ const PRECEDENTS = [
   {
     year: "2000s",
     name: "ITC e-Choupal",
-    body: "Village-level kiosks put mandi price information directly in farmers' hands. The real lesson is not the kiosk — it's that ITC never owned the physical chain. Coordination beat ownership.",
+    body: "Village-level kiosks put mandi price information directly in farmers' hands. The lesson: ITC never owned the physical chain, and coordination still beat ownership.",
     caveat:
-      "Honest caveat: ITC, the buyer, captured the uplift. The proposed delta over this precedent is FPO capture, not buyer capture.",
+      "ITC, the buyer, captured the uplift. This design routes it to the FPO's members instead.",
   },
   {
     year: "2010–",
@@ -21,8 +21,8 @@ const PRECEDENTS = [
         {ledger.sahyadri.revenueFY25Cr.toLocaleString("en-IN")} Cr FY25,{" "}
         {ledger.sahyadri.cagrPct}% CAGR,{" "}
         {ledger.sahyadri.farmers.toLocaleString("en-IN")}+ farmers
-        <Cite id={ledger.sahyadri.source} /> — built the order book before it
-        built cold storage.
+        <Cite id={ledger.sahyadri.source} />. It built the order book before
+        it built cold storage.
       </>
     ),
     caveat: null,
@@ -33,12 +33,13 @@ const PRECEDENTS = [
     body: (
       <>
         Contractors fix price and tonnage off flowering, fund orchard
-        upkeep, and aggregate — a bundle, not a toll. Mango farmers keep{" "}
+        upkeep, and aggregate: a bundle, not a toll. Mango farmers keep{" "}
         <span className="stat">
           {ledger.mangoFarmerShare.valueLow}–{ledger.mangoFarmerShare.valueHigh}%
         </span>
         <Cite id={ledger.mangoFarmerShare.source} />, the highest of the
-        three fruits studied — with a contractor layer, not despite one.
+        three fruits studied, with a contractor layer rather than despite
+        one.
       </>
     ),
     caveat: null,
@@ -59,7 +60,7 @@ export default function History() {
           </h2>
           <p className="mt-4 max-w-xl text-muted">
             Three precedents bound the operating model to what has already
-            been proven to work — and where each one stops proving it.
+            been proven to work, and where each one stops proving it.
           </p>
         </Reveal>
 

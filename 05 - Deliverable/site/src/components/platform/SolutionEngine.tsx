@@ -18,7 +18,7 @@ const PILLARS: Pillar[] = sixFunctionReroute.functions.map((f) => ({
   pain: f.before,
   intervention: f.platform,
   value: (
-    <>Same physical function, rerouted &mdash; not a new cost line.</>
+    <>Same physical function, rerouted: not a new cost line.</>
   ),
   dependency: "Retailer order-book adoption and farm-gate lot-ID compliance.",
   design: true,
@@ -26,7 +26,7 @@ const PILLARS: Pillar[] = sixFunctionReroute.functions.map((f) => ({
 
 PILLARS.push({
   name: "Waste management",
-  pain: "Pseudostem and off-grade fruit are field residue today &mdash; no monetization route exists in the Theni chain as currently run.",
+  pain: "Pseudostem and off-grade fruit are field residue today; no monetization route exists in the Theni chain as currently run.",
   intervention:
     "Reroute pseudostem to fiber and biogas-feedstock buyers instead of leaving it as residue.",
   value: (
@@ -37,14 +37,14 @@ PILLARS.push({
       {bananaPseudostem.fiberAGradePerKgHigh}/kg, B-grade &#8377;
       {bananaPseudostemExtended.fiberBGradePerKgLow}&ndash;
       {bananaPseudostemExtended.fiberBGradePerKgHigh}/kg
-      <Cite id={bananaPseudostemExtended.source} /> &mdash; documented uplift
+      <Cite id={bananaPseudostemExtended.source} />: documented uplift
       of {bananaPseudostem.profitabilityUpliftPctLow}&ndash;
       {bananaPseudostem.profitabilityUpliftPctHigh}% elsewhere in banana value
       chains, not yet a Theni-specific result.
     </>
   ),
   dependency:
-    "A confirmed offtake partner for fiber/biogas feedstock &mdash; not yet secured.",
+    "A confirmed offtake partner for fiber/biogas feedstock: not yet secured.",
   design: false,
 });
 
@@ -57,7 +57,7 @@ export default function SolutionEngine() {
       </h2>
       <p className="mt-4 max-w-2xl text-muted">
         The first six are the same physical functions the chain already
-        performs &mdash; scheduled, graded, financed, and routed differently.
+        performs: scheduled, graded, financed, and routed differently.
         The seventh, waste management, is new: it did not exist as a captured
         function before.
       </p>
@@ -70,7 +70,7 @@ export default function SolutionEngine() {
                 <div className="micro-label text-signal">{p.name}</div>
                 {!p.design && (
                   <div className="mt-2 text-[10px] text-danger/80">
-                    New pillar &mdash; no offtake partner confirmed yet
+                    New pillar: no offtake partner confirmed yet
                   </div>
                 )}
               </div>

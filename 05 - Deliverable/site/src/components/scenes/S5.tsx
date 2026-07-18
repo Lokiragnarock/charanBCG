@@ -32,7 +32,7 @@ const AI_USE_CASES = [
   },
   {
     title: "Crop selection",
-    body: "Evaluated 100+ crops — from tomatoes to turmeric — using a weighted framework based on factors such as market size, value creation potential, seasonality, perishability, processing opportunities, export potential, FPO fit, and AI applicability. Pressure-tested the top 10 shortlisted crops before selecting bananas.",
+    body: "Evaluated 100+ crops (tomatoes to turmeric) using a weighted framework based on factors such as market size, value creation potential, seasonality, perishability, processing opportunities, export potential, FPO fit, and AI applicability. Pressure-tested the top 10 shortlisted crops before selecting bananas.",
   },
   {
     title: "Website creation",
@@ -57,7 +57,7 @@ export default function S5() {
             AI Use Case
           </h2>
           <p className="mt-4 max-w-xl text-muted">
-            How AI was actually used to build this case &mdash; the
+            How AI was actually used to build this case: the
             methodology, not just the output.
           </p>
         </Reveal>

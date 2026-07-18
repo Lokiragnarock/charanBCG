@@ -29,10 +29,10 @@ function docsFor(c: Cluster): string[] {
 }
 
 function competitionWhitespace(c: Cluster) {
-  if (c.inputMonopoly) return "Input-supplier monopoly present — whitespace is thin.";
+  if (c.inputMonopoly) return "Input-supplier monopoly present; whitespace is thin.";
   if (c.directSourcingPct)
-    return `${c.directSourcingPct}% corporate direct-sourcing — most volume still open.`;
-  return "No organized corporate buyer — the whole cluster is open.";
+    return `${c.directSourcingPct}% corporate direct-sourcing; most volume still open.`;
+  return "No organized corporate buyer; the whole cluster is open.";
 }
 
 export default function ClusterExplorer({
@@ -130,7 +130,7 @@ export default function ClusterExplorer({
                   {active.delta.toFixed(2)}
                 </div>
                 <div className="text-xs text-muted">
-                  opportunity score (modelled — efficiency &times; GI headroom,
+                  opportunity score (modelled: efficiency &times; GI headroom,
                   not a market-share %)
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function ClusterExplorer({
                 <p className="mt-2 text-xs text-muted">
                   {ledger.theniFpoStructure.theniCount} of{" "}
                   {ledger.theniFpoStructure.clusterTotal} cluster FPOs sit in
-                  Theni itself — organized capacity exists but is thin
+                  Theni itself; organized capacity exists but is thin
                   relative to volume.
                 </p>
               )}
@@ -190,7 +190,7 @@ export default function ClusterExplorer({
               {active.cons && (
                 <div className="mt-4 border-t border-hairline pt-4">
                   <div className="micro-label mb-2 text-[10px] text-danger">
-                    Honest cons
+                    Trade-offs
                   </div>
                   <ul className="flex flex-col gap-1.5">
                     {active.cons.map((c) => (
@@ -214,7 +214,7 @@ export default function ClusterExplorer({
             <p className="max-w-[52ch] text-sm text-muted">
               Jalgaon&apos;s monetized GI already proves the mechanism.
               Theni&apos;s Virupakshi and Sirumalai carry the same GI status
-              with zero brand recall &mdash; the premium is unclaimed, not
+              with zero brand recall: the premium is unclaimed, not
               unavailable.
             </p>
           </div>

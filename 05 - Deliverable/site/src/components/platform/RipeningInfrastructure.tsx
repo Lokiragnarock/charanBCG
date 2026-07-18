@@ -16,7 +16,7 @@ export default function RipeningInfrastructure() {
       </h2>
       <p className="mt-4 max-w-2xl text-muted">
         Ripening-asset ownership is staged deliberately: assets follow
-        order-book proof, the Sahyadri pattern &mdash; access first,
+        order-book proof, the Sahyadri pattern: access first,
         ownership only once throughput earns it. Two of the three gates
         below are scoped implementation tasks, not yet cleared.
       </p>
@@ -49,7 +49,7 @@ export default function RipeningInfrastructure() {
               <p className="mt-2 text-xs text-muted">{g.condition}</p>
               {i > 0 && (
                 <div className="mt-3 border-t border-danger/30 pt-3 text-[11px] text-danger/90">
-                  Not yet passable &mdash; the number this gate needs doesn&apos;t
+                  Not yet passable: the number this gate needs doesn&apos;t
                   exist yet.
                 </div>
               )}
@@ -61,12 +61,12 @@ export default function RipeningInfrastructure() {
       <div className="mt-8 max-w-[70ch] border-l-2 border-danger/50 pl-4">
         <p className="text-sm text-muted">
           The Control &rarr; Lease gate needs a known electricity cost per kg
-          processed. No Rs/kWh or Rs/kg opex figure exists anywhere &mdash;{" "}
+          processed. No Rs/kWh or Rs/kg opex figure exists anywhere:{" "}
           {ripeningChamberOpexGap.knownCostProxy}
           <Cite id={ripeningChamberOpexGap.source} />, and electricity is
           flagged as the binding constraint in the primary source table. The
           Lease &rarr; Own gate needs demonstrated lease-vs-own economics
-          across multiple seasons &mdash; not yet modeled, no reference case
+          across multiple seasons; not yet modeled, no reference case
           exists. Capex for the Own stage is costed (&#8377;
           {ripeningChamberCapex.perMtLakh} lakh/MT
           <Cite id={ripeningChamberCapex.source} />,{" "}

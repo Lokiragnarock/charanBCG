@@ -44,8 +44,8 @@ export default function SweetSpotTable() {
             Eight clusters, one clear pick
           </h2>
           <p className="mt-4 max-w-2xl text-muted">
-            Banana is already decided. This is why Theni, inside banana
-            &mdash; scored on an efficiency floor and GI headroom, not on
+            Banana is already decided. This is why Theni, inside banana:
+            scored on an efficiency floor and GI headroom, not on
             crop choice.
           </p>
         </Reveal>
@@ -115,7 +115,7 @@ export default function SweetSpotTable() {
         <Reveal delay={0.18} className="mt-8 flex flex-wrap items-center justify-between gap-g3">
           <p className="max-w-[60ch] text-sm text-muted">
             Theni ties the lowest post-harvest loss in the set with the only
-            unmonetized GI headroom &mdash; the weakest incumbent competition,
+            unmonetized GI headroom: the weakest incumbent competition,
             the biggest platform prize.
           </p>
           <Link

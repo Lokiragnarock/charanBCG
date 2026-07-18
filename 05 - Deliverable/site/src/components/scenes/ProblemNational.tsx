@@ -42,8 +42,8 @@ export default function ProblemNational() {
               <Reveal delay={0.1}>
                 <p className="max-w-[36ch] text-lg text-muted">
                   Everyone assumes traders and wholesalers eat the missing
-                  share. They don&apos;t &mdash; most of it sits downstream,
-                  at retail and in perishability risk.
+                  share. They don&apos;t; most of it sits downstream, at
+                  retail and in perishability risk.
                 </p>
               </Reveal>
             </div>
@@ -161,9 +161,9 @@ export default function ProblemNational() {
           <Reveal delay={0.12} className="mt-g4">
             <p className="mx-auto max-w-[56ch] text-muted">
               Uncertainty is the product. Capturing value means re-performing
-              those functions better &mdash; grading, financing, transport,
-              ripening, demand-matching &mdash; not deleting the people who
-              perform them.
+              the functions (grading, financing, transport, ripening,
+              demand-matching) better, not deleting the people who perform
+              them.
             </p>
           </Reveal>
         </div>
@@ -180,8 +180,7 @@ export default function ProblemNational() {
             <p className="mt-4 max-w-2xl text-muted">
               A farmer-co-owned wholesale agency, in a real banana cluster,
               already replaced the traditional chain and kept more of the
-              rupee &mdash; without owning a single truck it didn&apos;t need
-              to.
+              rupee, without owning a single truck it didn&apos;t need to.
             </p>
           </Reveal>
 
@@ -194,8 +193,8 @@ export default function ProblemNational() {
                 </div>
                 <p className="mt-2 max-w-[42ch] text-sm text-muted">
                   Traditional multi-layer chain vs. a modern wholesale agency
-                  with farmer co-ownership &mdash; same village, same crop,
-                  same farmers.{" "}
+                  with farmer co-ownership: same village, same crop, same
+                  farmers.{" "}
                   <Link href="/history" className="text-signal hover:underline">
                     Read the full precedent &rarr;
                   </Link>

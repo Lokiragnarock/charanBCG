@@ -20,8 +20,8 @@ export default function ClustersPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-muted">
             Bubble area is marketable surplus, position is the modelled
-            opportunity delta. Select a cluster &mdash; on the map or the
-            list below &mdash; to see its supporting documents and the three
+            opportunity delta. Select a cluster (on the map or the
+            list below) to see its supporting documents and the three
             things that decide whether the platform belongs there.
           </p>
         </Reveal>

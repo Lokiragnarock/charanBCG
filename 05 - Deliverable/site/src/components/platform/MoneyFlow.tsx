@@ -19,8 +19,8 @@ export default function MoneyFlow() {
       </h2>
       <p className="mt-4 max-w-2xl text-muted">
         Farmer payment, physical costs, and an FPO coordination fee, with any
-        waste-value recovered split against opex and a member-facing surplus
-        &mdash; and one honest gap in the ripening cost line.
+        waste-value recovered split against opex and a member-facing surplus,
+        and one honest gap in the ripening cost line.
       </p>
 
       {/* fee assumption vs benchmark, asymmetric 5:7 */}
@@ -34,7 +34,7 @@ export default function MoneyFlow() {
               &#8776;{platformFeeWorkingAssumption.assumedPctOfScheduledVolume}%
             </div>
             <p className="mt-2 text-xs text-muted">
-              of scheduled volume &mdash; the platform/FPO coordination fee
+              of scheduled volume: the platform/FPO coordination fee
               set for this model
               <Cite id={platformFeeWorkingAssumption.source} />, to be
               pressure-tested against pilot economics once volume moves
@@ -53,7 +53,7 @@ export default function MoneyFlow() {
               <Cite id={platformFeeBenchmarks.source} />
             </div>
             <p className="mt-2 text-xs text-muted">
-              Ninjacart&apos;s blended trading-book gross margin &mdash; the
+              Ninjacart&apos;s blended trading-book gross margin: the
               closest available reference point, not a fee schedule the
               platform fee is set against.
               A circulating &quot;ONDC charges 2&ndash;5%&quot; claim was
@@ -73,7 +73,7 @@ export default function MoneyFlow() {
             </div>
             <p className="mt-2 text-xs text-muted">
               Fruit that would have been unmanaged waste, now sold at a lower
-              tier through the same platform &mdash; a real but uncosted
+              tier through the same platform: a real but uncosted
               saving.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function MoneyFlow() {
             </div>
             <p className="mt-2 text-xs text-muted">
               Fiber and biogas-feedstock prices documented in other banana
-              value chains &mdash; a potential line, contingent on securing an
+              value chains: a potential line, contingent on securing an
               offtake partner, not a projected number.
             </p>
           </div>
@@ -130,7 +130,7 @@ export default function MoneyFlow() {
             {backhaulEconomics.realizedCostCutPctLow}&ndash;
             {backhaulEconomics.realizedCostCutPctHigh}%
             <Cite id={backhaulEconomics.source} /> are reported where backhaul
-            loading works &mdash; generic India road-freight benchmarks, not
+            loading works: generic India road-freight benchmarks, not
             banana- or Theni-specific. No sector-specific precedent (dairy,
             apple) exists despite searching.
           </p>
@@ -148,7 +148,7 @@ export default function MoneyFlow() {
             <Cite id={fpoCreditSubstitutes.source} />. Chinnamanur FPC (the
             BVC2 precedent village) already extends credit to{" "}
             {fpoCreditSubstitutes.chinnamanurFpcCreditExtensionPct}% of active
-            members &mdash; a real precedent, describing an existing FPO, not
+            members: a real precedent, describing an existing FPO, not
             a proposed mechanism.
           </p>
         </div>

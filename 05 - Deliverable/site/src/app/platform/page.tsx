@@ -5,7 +5,7 @@ import FPOModel from "@/components/platform/FPOModel";
 import OperatingLoop from "@/components/platform/OperatingLoop";
 
 export const metadata = {
-  title: "The Platform — The Banana Case",
+  title: "The Platform: The Banana Case",
 };
 
 export default function PlatformPage() {

@@ -4,7 +4,7 @@ import History from "@/components/scenes/History";
 import S2 from "@/components/scenes/S2";
 
 export const metadata = {
-  title: "History & Precedents — The Banana Case",
+  title: "History & Precedents: The Banana Case",
 };
 
 export default function HistoryPage() {

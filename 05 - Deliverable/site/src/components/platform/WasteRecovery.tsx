@@ -25,8 +25,8 @@ export default function WasteRecovery() {
         Tamil Nadu&apos;s documented chain loss runs{" "}
         <span className="stat font-mono">{bananaValueChainLossTN.totalPct}%</span>
         <Cite id={bananaValueChainLossTN.source} />, concentrated at retail and
-        storage/ripening. The recovery loop below addresses that loss surface
-        &mdash; it does not claim to close a specific share of it; no source
+        storage/ripening. The recovery loop below addresses that loss surface;
+        it does not claim to close a specific share of it; no source
         computes that linkage.
       </p>
 
@@ -98,7 +98,7 @@ export default function WasteRecovery() {
               Marketable secondary-grade
             </div>
             <p className="mt-2 text-xs text-muted">
-              Off-spec fruit still fit for local/institutional sale &mdash;
+              Off-spec fruit still fit for local/institutional sale:
               routed through the same platform, at a lower price tier.
             </p>
           </div>
@@ -107,7 +107,7 @@ export default function WasteRecovery() {
           <div className="panel h-full p-4">
             <div className="micro-label text-[10px]">Processing-suitable</div>
             <p className="mt-2 text-xs text-muted">
-              Pseudostem fiber &mdash; A-grade &#8377;
+              Pseudostem fiber: A-grade &#8377;
               {bananaPseudostem.fiberAGradePerKgLow}&ndash;
               {bananaPseudostem.fiberAGradePerKgHigh}/kg
               <Cite id={bananaPseudostem.source} />, B-grade &#8377;
@@ -115,7 +115,7 @@ export default function WasteRecovery() {
               {bananaPseudostemExtended.fiberBGradePerKgHigh}/kg, and biogas
               feedstock at USD {bananaPseudostemExtended.biogasFeedstockUsdPerTreeLow}
               &ndash;{bananaPseudostemExtended.biogasFeedstockUsdPerTreeHigh}/tree
-              <Cite id={bananaPseudostemExtended.source} /> &mdash; figures
+              <Cite id={bananaPseudostemExtended.source} />; figures
               from other documented banana value chains, not a confirmed
               Theni offtake. This revenue is not yet validated: no processor
               partner is confirmed.
@@ -128,7 +128,7 @@ export default function WasteRecovery() {
               Organic residue / unavoidable disposal
             </div>
             <p className="mt-2 text-xs text-muted">
-              Whatever clears no recovery route &mdash; composted or
+              Whatever clears no recovery route: composted or
               discarded, the residual after the loops above.
             </p>
           </div>

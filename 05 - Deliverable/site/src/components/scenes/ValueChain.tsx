@@ -5,6 +5,7 @@ import { ledger } from "@/lib/ledger";
 
 const {
   bvcPrecedent,
+  bananaFarmerShare,
   corridorLengthComparison,
   commissionRateByRegion,
   gradeSpreadCapture,
@@ -81,8 +82,11 @@ export default function ValueChain() {
           <p className="mt-4 max-w-2xl text-muted">
             Theni&apos;s short-haul chain runs{" "}
             <span className="stat">&asymp; {corridorLengthComparison.localKm} km</span>
-            <Cite id={corridorLengthComparison.localSource} />, but every
-            function on it is a toll charged by someone else.
+            <Cite id={corridorLengthComparison.localSource} />, so the farmer
+            here keeps {bvcPrecedent.bvc1Pct}% against the{" "}
+            {bananaFarmerShare.value}% national share
+            <Cite id={bananaFarmerShare.source} />. Every function is still a
+            toll charged by someone else.
           </p>
         </Reveal>
 

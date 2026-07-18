@@ -39,9 +39,11 @@ export default function Close() {
       <div className="mx-auto w-full max-w-[1000px]">
         <Reveal>
           <p className="font-mono text-fs-2 leading-tight text-text sm:text-fs-3">
-            The farmer keeps {bananaFarmerShare.value}%
-            <Cite id={bananaFarmerShare.source} />. A farmer-co-owned chain
-            already got it to {bananaChainUplift.modernPct}%.
+            Nationally, the farmer keeps {bananaFarmerShare.value}%
+            <Cite id={bananaFarmerShare.source} />. In Theni&apos;s own
+            corridor, a farmer-co-owned chain already clears{" "}
+            {bananaChainUplift.modernPct}%
+            <Cite id={bananaChainUplift.source} />.
           </p>
         </Reveal>
         <Reveal delay={0.1} className="mt-g4">
