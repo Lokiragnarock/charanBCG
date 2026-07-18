@@ -10,7 +10,7 @@ const PRECEDENTS = [
     name: "ITC e-Choupal",
     body: "Village-level kiosks put mandi price information directly in farmers' hands. The real lesson is not the kiosk — it's that ITC never owned the physical chain. Coordination beat ownership.",
     caveat:
-      "Honest caveat: ITC, the buyer, captured the uplift. Our delta over this precedent is FPO capture, not buyer capture.",
+      "Honest caveat: ITC, the buyer, captured the uplift. The proposed delta over this precedent is FPO capture, not buyer capture.",
   },
   {
     year: "2010–",
@@ -58,7 +58,7 @@ export default function History() {
             The case law
           </h2>
           <p className="mt-4 max-w-xl text-muted">
-            Three precedents bound our operating model to what has already
+            Three precedents bound the operating model to what has already
             been proven to work — and where each one stops proving it.
           </p>
         </Reveal>

@@ -170,7 +170,7 @@ export default function ClusterBubbleMap({
         viewBox={`0 0 ${BAND_W} ${BAND_H}`}
         className="relative w-full min-w-[640px] max-w-[900px]"
         role="img"
-        aria-label="Sweet-spot spectrum: bubble area is marketable surplus, x-position is the modelled opportunity delta from red (concentrated, low surplus) to green (Theni, our pick)"
+        aria-label="Sweet-spot spectrum: bubble area is marketable surplus, x-position is the modelled opportunity delta from red (concentrated, low surplus) to green (Theni, selected cluster)"
       >
         <line
           x1={PAD_X}
@@ -232,7 +232,7 @@ export default function ClusterBubbleMap({
                 tabIndex={interactive ? 0 : -1}
                 role={interactive ? "button" : undefined}
                 aria-label={`${c.label}, delta ${c.delta.toFixed(2)}${
-                  isPick ? ", our pick" : ""
+                  isPick ? ", selected cluster" : ""
                 }`}
                 onFocus={interactive ? () => setHoverKey(c.key) : undefined}
                 onBlur={interactive ? () => setHoverKey(null) : undefined}
@@ -304,7 +304,7 @@ export default function ClusterBubbleMap({
                     opacity: dimmed ? 0.5 : 1,
                   }}
                 >
-                  our pick
+                  selected
                 </text>
               )}
             </g>

@@ -42,7 +42,7 @@ export default function ClustersPage() {
 
         <Reveal delay={0.1} className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-8">
           <p className="text-sm text-muted">
-            Next: see how the platform operates inside the cluster we picked.
+            Next: see how the platform operates inside the selected cluster.
           </p>
           <Link
             href="/platform"

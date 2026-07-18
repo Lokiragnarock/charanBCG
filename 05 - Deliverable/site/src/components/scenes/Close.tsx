@@ -47,7 +47,7 @@ export default function Close() {
         <Reveal delay={0.1} className="mt-g4">
           <p className="mx-auto max-w-[52ch] text-muted">
             Theni is where the efficiency floor and the GI headroom meet.
-            The platform is how we get there.
+            The platform is the route there.
           </p>
         </Reveal>
 

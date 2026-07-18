@@ -116,8 +116,8 @@ export default function OperatingLoop() {
           Hub-and-spoke, with the truck never idle
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
-          Design intent, not history &mdash; anchored to the one cost we
-          can cite: {" "}
+          Design intent, not history &mdash; anchored to the one cost the
+          ledger can cite: {" "}
           &#8377;{bananaDomesticTransport.perKgLow}&ndash;
           {bananaDomesticTransport.perKgHigh}/kg domestic transport
           <Cite id={bananaDomesticTransport.source} />, and{" "}

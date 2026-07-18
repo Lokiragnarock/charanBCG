@@ -123,7 +123,7 @@ export default function FPOModel() {
         </div>
         <p className="mt-4 max-w-[70ch] text-sm text-muted">
           This is not a projection. It is a precedent that already
-          exists inside our own cluster. The farmer-co-owned BVC2 chain in
+          exists inside the selected cluster. The farmer-co-owned BVC2 chain in
           Chinnamanur, {bvcPrecedent.corridorKm} km from Theni, already
           clears {bvcPrecedent.bvc2Pct}% farmer share. The precedent{" "}
           <em>is</em> the claim; nothing beyond it is asserted here.

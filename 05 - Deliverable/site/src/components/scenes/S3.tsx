@@ -80,7 +80,7 @@ export default function S3() {
                 : "border-hairline text-muted hover:border-signal/50 hover:text-text"
             }`}
           >
-            Our recommendation
+            The recommendation
           </button>
           <button
             type="button"

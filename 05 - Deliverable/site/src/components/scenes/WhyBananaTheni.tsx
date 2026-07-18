@@ -72,7 +72,7 @@ export default function WhyBananaTheni() {
                 <p className="max-w-[46ch] text-sm text-muted">
                   Unlike seasonal fruits, Tamil Nadu can plant banana nearly
                   any time of year except peak summer &mdash; meaning
-                  supply-smoothing, our core lever, is agronomically possible
+                  supply-smoothing, the core lever, is agronomically possible
                   here specifically
                   <Cite id={bananaYearRoundTN.source} />.
                 </p>

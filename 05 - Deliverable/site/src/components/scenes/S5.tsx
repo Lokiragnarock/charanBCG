@@ -81,7 +81,7 @@ export default function S5() {
         <Reveal delay={0.1}>
           <div className="micro-label mt-16">Decision log</div>
           <p className="mt-3 max-w-xl text-muted">
-            What we considered, rejected, and why.
+            Options considered, rejected, and why.
           </p>
         </Reveal>
 

@@ -82,7 +82,7 @@ export default function SweetSpotTable() {
                     </span>
                     {c.pick && (
                       <span className="ml-2 border border-signal/40 px-1.5 py-0.5 text-[9px] text-signal">
-                        OUR PICK
+                        SELECTED
                       </span>
                     )}
                     <Cite id={c.source} />

@@ -261,7 +261,7 @@ export default function S4() {
                 viewBox={`0 0 ${BAND_W} ${BAND_H}`}
                 className="relative w-full max-w-[760px]"
                 role="img"
-                aria-label="Sweet-spot spectrum: bubble size is marketable surplus, position is modelled opportunity delta, Theni (TN C2) is our pick"
+                aria-label="Sweet-spot spectrum: bubble size is marketable surplus, position is modelled opportunity delta, Theni (TN C2) is the selected cluster"
               >
                 <line
                   x1={PAD_X}
@@ -293,7 +293,7 @@ export default function S4() {
                       style={{ fontSize: 13, fill: strokeColorFor(active.delta) }}
                     >
                       {active.label}, &Delta; {active.delta.toFixed(2)}
-                      {active.pick ? " — our pick" : ""}
+                      {active.pick ? " — selected" : ""}
                     </text>
                   </g>
                 )}
@@ -347,7 +347,7 @@ export default function S4() {
                         tabIndex={0}
                         role="button"
                         aria-label={`${c.label}, delta ${c.delta.toFixed(2)}${
-                          isPick ? ", our pick" : ""
+                          isPick ? ", selected cluster" : ""
                         }`}
                         onFocus={() => setHoverKey(c.key)}
                         onBlur={() => setHoverKey(null)}
@@ -365,7 +365,7 @@ export default function S4() {
                             opacity: hoverKey !== null ? 0.45 : 1,
                           }}
                         >
-                          our pick
+                          selected
                         </text>
                       )}
                       {showLabel && (
@@ -415,7 +415,7 @@ export default function S4() {
                 <Cite id={active.source} />
                 {active.pick && (
                   <span className="border border-signal/40 px-1.5 py-0.5 text-[9px] text-signal">
-                    OUR PICK
+                    SELECTED
                   </span>
                 )}
               </div>

@@ -22,7 +22,7 @@ export default function Cover() {
       <Reveal delay={0.1} className="relative mt-g5">
         <div aria-hidden className="hero-ray -top-8 left-1/2 -translate-x-1/2" />
         <p className="relative z-[1] font-display text-fs-2 tracking-tight text-muted sm:text-fs-3">
-          Of every &#8377;100 you pay for a banana,
+          Of every &#8377;100 paid for a banana,
         </p>
         <div className="relative z-[1] mt-g2 flex items-baseline justify-center gap-3">
           <span className="shine-signal font-mono text-fs-6 leading-[0.88]">
