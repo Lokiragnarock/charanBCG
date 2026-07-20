@@ -169,6 +169,29 @@ export default function ProblemNational() {
         </div>
       </div>
 
+      {/* c.5) route to the solution */}
+      <Reveal delay={0.1} className="mx-auto -mt-12 mb-12 flex w-full max-w-[900px] flex-col items-center gap-g3 px-6">
+        <div className="micro-label text-muted">Where the solution is laid out</div>
+        <div className="flex flex-wrap items-center justify-center gap-g3">
+          <Link
+            href="#value-chain"
+            className="group flex items-center gap-2 rounded-full border border-hairline px-g4 py-2 transition-colors duration-150 hover:border-signal/50"
+          >
+            <span className="micro-label text-signal">
+              The value chain &rarr;
+            </span>
+          </Link>
+          <Link
+            href="/platform"
+            className="group flex items-center gap-2 rounded-full border border-hairline px-g4 py-2 transition-colors duration-150 hover:border-signal/50"
+          >
+            <span className="micro-label text-signal">
+              The platform &rarr;
+            </span>
+          </Link>
+        </div>
+      </Reveal>
+
       {/* d) headroom proof */}
       <div className="flex min-h-screen w-full flex-col justify-center px-6 py-24">
         <div className="mx-auto w-full max-w-[1200px]">
